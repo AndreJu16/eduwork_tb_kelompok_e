@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 07:52 AM
+-- Generation Time: May 30, 2023 at 02:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_travel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `tempat_wisata_id` int(11) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,6 +81,13 @@ CREATE TABLE `tempatwisata` (
 --
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tempat_wisata_id` (`tempat_wisata_id`);
+
+--
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -89,6 +110,12 @@ ALTER TABLE `tempatwisata`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`tempat_wisata_id`) REFERENCES `tempatwisata` (`id`);
 
 --
 -- Constraints for table `komentar`
