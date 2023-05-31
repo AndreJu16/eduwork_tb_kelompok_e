@@ -28,12 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `image` (
-  `id` int(11) NOT NULL,
-  `tempat_wisata_id` int(11) DEFAULT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `deskripsi` text DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `tempat_wisata_id` INT,
+  `nama` VARCHAR(255),
+  `deskripsi` TEXT,
+  `url` VARCHAR(255),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`tempat_wisata_id`) REFERENCES `tempatwisata` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -42,8 +45,9 @@ CREATE TABLE `image` (
 --
 
 CREATE TABLE `kategori` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nama` VARCHAR(255),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -53,11 +57,13 @@ CREATE TABLE `kategori` (
 --
 
 CREATE TABLE `komentar` (
-  `id` int(11) NOT NULL,
-  `tempat_wisata_id` int(11) DEFAULT NULL,
-  `nama_pengguna` varchar(255) DEFAULT NULL,
-  `komentar` text DEFAULT NULL,
-  `tanggal` date DEFAULT NULL
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `tempat_wisata_id` INT,
+  `nama_pengguna` VARCHAR(255),
+  `komentar` TEXT,
+  `tanggal` DATE,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`tempat_wisata_id`) REFERENCES `tempatwisata` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -67,15 +73,16 @@ CREATE TABLE `komentar` (
 --
 
 CREATE TABLE `tempatwisata` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `kategori_id` int(11) DEFAULT NULL,
-  `deskripsi` text DEFAULT NULL,
-  `harga_tiket` decimal(10,2) DEFAULT NULL,
-  `rating` decimal(3,2) DEFAULT NULL,
-  `fasilitas` text DEFAULT NULL
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nama` VARCHAR(255),
+  `kategori_id` INT,
+  `deskripsi` TEXT,
+  `harga_tiket` DECIMAL(10,2),
+  `rating` DECIMAL(3,2),
+  `fasilitas` TEXT,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
