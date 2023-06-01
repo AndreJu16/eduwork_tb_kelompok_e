@@ -1255,7 +1255,17 @@ section {
 .team .member .member-img {
   position: relative;
   overflow: hidden;
+  width: 316px;
+  height: 316px;
 }
+
+.team .member .member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 
 .team .member .social {
   position: absolute;
@@ -1575,3 +1585,12 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+
+/* new from evi  */
+
+  .constant-size-img {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    object-fit: cover;
+  }
