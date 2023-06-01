@@ -93,14 +93,14 @@
                 <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.facebook.com/andre.juan.902/"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/andrejuan103/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/andre-juan-simanjuntak-1a1aa9232/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
                 <h4>Andre Juan Simanjuntak</h4>
-                <span>Chief Executive Officer</span>
+                <span>Universitas Prima Indonesia</span>
               </div>
             </div>
           </div>
@@ -112,8 +112,8 @@
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.instagram.com/nked.s/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/ni-kadek-evi-dianasari-360303239/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -135,8 +135,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
+                <h4>Ade Tirta Adrianta</h4>
+                <span>Universitas Esa Unggul</span>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <img src="assets/img/team/team-4.png" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -153,8 +153,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+                <h4>Muhammad Najah Yuga Desyalwa</h4>
+                <span>Institut Teknologi Telkom Surabaya</span>
               </div>
             </div>
           </div>
