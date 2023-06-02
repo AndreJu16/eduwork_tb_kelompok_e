@@ -134,6 +134,19 @@
     
     
     <!-- ======= Portfolio Section ======= -->
+
+    <style>
+  .portfolio-img {
+  height: 250px; /* Adjust the height as per your preference */
+}
+
+.portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
     <section id="portfolio" class="portfolio">
       <div class="container">
 
