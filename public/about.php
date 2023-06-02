@@ -52,16 +52,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.php">Home</a></li>
-          <li><a class="nav-link scrollto active" href="about.php">About</a></li>
-          
-          <li><a class="nav-link scrollto " href="portofolio.php">Portfolio</a></li>
-          
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Tempat Wisata</a></li>
+          <li><a class="nav-link scrollto" href="#testimonials">Kata Mereka</a></li>
+          <li><a class="nav-link scrollto" href="about.php">About</a></li>
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Bali</a></li>
-              <li><a href="#">Jawa Timur</a></li>
-              <li><a href="#">Sumatera Utara</a></li>
+              <li><a href="#">Pantai</a></li>
+              <li><a href="#">Sejarah</a></li>
+              <li><a href="#">Pegunungan</a></li>
             </ul>
           </li>
         </ul>
