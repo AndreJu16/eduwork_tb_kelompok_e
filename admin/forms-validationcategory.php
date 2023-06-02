@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - Admin</title>
+  <title>Forms - Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -136,48 +136,49 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-    <ul class="sidebar-nav" id="sidebar-nav">
 
-      <!-- Start Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="index.php">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <!-- End Dashboard Nav -->
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-      <!-- Start Forms Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-validationb.php">
-              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationdw.php" >
-              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationp.php">
-              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationcategory.php">
-              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- End Forms Nav -->
+    <!-- Start Dashboard Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="index.php">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
 
-      <!-- Start Tables Nav -->
+    <!-- Start Forms Nav -->
+    <li class="nav-item">
+      <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="forms-validationb.php" >
+            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationdw.php" >
+            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationp.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationcategory.php" class="active">
+            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- End Forms Nav -->
+
+    <!-- Start Tables Nav -->
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -237,197 +238,74 @@
     </li>
     <!-- End Update Nav -->
 
-      <li class="nav-heading">Pages</li>
+    <li class="nav-heading">Pages</li>
 
-      <!-- Start Profile Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-          <span>About Profile</span>
-        </a>
-      </li>
-      <!-- End Profile Page Nav -->
-    </ul>
+    <!-- Start Profile Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="profile.php">
+        <i class="bi bi-person"></i>
+        <span>About Profile</span>
+      </a>
+    </li>
+    <!-- End Profile Page Nav -->
+  </ul>
+
   </aside>
   <!-- End Sidebar-->
-
+  
   <!-- Start #main -->
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Form Validation</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Forms Add Kategori</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
+    <section class="section">
       <div class="row">
-        <!-- Left side columns -->
-        <div class="col-lg">
-          <div class="row">
-            <!-- Recent Tempat Wisata -->
-            <div class="col-12" id="category">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title" id="category">Recent Tempat Wisata</h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Deskripsi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                        require_once "../config/config.php";
-                        $data = mysqli_query($host, "SELECT * FROM `tempat_wisata`");
-                        if (mysqli_num_rows($data)>0) {
-                            $no = 1;
-                            while ($d = mysqli_fetch_array($data)){
-                      ?>
-                      <tr>
-                        <td> <?php echo $no ?></td>
-                        <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
-                        <td> <?php echo $d["name"]; ?> </td>
-                        <td> <?php echo $d["deskripsi"]; ?> </td>
-                      </tr>
-
-                      <?php $no++; } } ?>
-                    </tbody>
-                  </table>
+          <div class="card col-lg">
+            <div class="card-body">
+              <h5 class="card-title">Forms Add Kategori</h5>
+              
+              <!-- Custom Styled Validation with Tooltips -->
+              <form class="row g-3 needs-validation" method="post" action="proses-add-category.php" novalidate>
+                <div class="row position-relative mb-3">
+                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="id_kategori">Id &emsp;&emsp;&emsp;</span>
+                    <input type="number" class="form-control" name="id_kategori" id="id_kategori" aria-describedby="id_kategori" disabled>
+                    <div class="invalid-tooltip">
+                      Please choose a unique and valid Id.
+                    </div>
+                  </div>
                 </div>
-
-              </div>
-            </div>
-            <!-- End Recent Tempat Wisata -->
-            
-            <!-- Recent Daerah Wisata -->
-            <div class="col-12" id="brand">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body" id="brand">
-                  <h5 class="card-title" >Recent Daerah Wisata</h5>
-
-                  <table class="table table-borderless datatable" id="brand">
-                    <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Id</th>
-                          <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                          require_once "../config/config.php";
-                          $data = mysqli_query($host, "SELECT * FROM `daerah_wisata`");
-                          if (mysqli_num_rows($data)>0) {
-                            $no = 1;
-                            while ($d = mysqli_fetch_array($data)){
-                        ?>
-
-                          <tr>
-                            <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["name"]; ?> </td>
-                          </tr>
-                        <?php $no++; } } ?>
-                    </tbody>
-                  </table>
+                <div class="row position-relative mb-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="name">Name &emsp;</span>
+                    <input type="text" class="form-control" name="nameKategori" id="nameKategori" aria-describedby="nameKategori" required>
+                    <div class="valid-tooltip">
+                      Looks good!
+                    </div>
+                    <div class="invalid-tooltip">
+                      Please choose a unique and valid Name.
+                    </div>
+                  </div>
                 </div>
-
-              </div>
-            </div>
-            <!-- End Recent Daerah Wisata -->
-            
-            <!-- Recent Fasilitas -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title" id="product">Recent Fasilitas</h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Deskripsi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                        require_once "../config/config.php";
-                        $data = mysqli_query($host, "SELECT * FROM `fasilitas`");
-                        if (mysqli_num_rows($data)>0) {
-                          $no = 1;
-                          while ($d = mysqli_fetch_array($data)){
-                      ?>
-                        <tr>
-                          <td> <?php echo $no ?></td>
-                          <td> <?php echo $d["id_fasilitas"]; ?> </td>
-                          <td> <?php echo $d["deskripsi"]; ?> </td>
-                        </tr>
-
-                      <?php $no++; } } ?>
-                    </tbody>
-                  </table>
+                <div class="row mt-4">
+                  <button class="btn btn-primary" type="submit" name="submit">Submit Data</button>
                 </div>
+              </form><!-- End Custom Styled Validation with Tooltips -->
 
-              </div>
             </div>
-            <!-- End Recent Fasilitas -->
-
-            <!-- Recent Kategori -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title" id="product">Recent Kategori</h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                        require_once "../config/config.php";
-                        $data = mysqli_query($host, "SELECT * FROM `kategori`");
-                        if (mysqli_num_rows($data)>0) {
-                          $no = 1;
-                          while ($d = mysqli_fetch_array($data)){
-                      ?>
-                        <tr>
-                          <td> <?php echo $no ?></td>
-                          <td> <?php echo $d["id_kategori"]; ?> </td>
-                          <td> <?php echo $d["name"]; ?> </td>
-                        </tr>
-
-                      <?php $no++; } } ?>
-                    </tbody>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-            <!-- End Recent Kategori -->
           </div>
-        </div>
-        <!-- End Left side columns -->
       </div>
     </section>
-
   </main>
   <!-- End #main -->
 
@@ -470,4 +348,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
