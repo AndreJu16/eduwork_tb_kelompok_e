@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - Admin</title>
+  <title>Table Data Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -136,116 +136,117 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-    <ul class="sidebar-nav" id="sidebar-nav">
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-      <!-- Start Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="index.php">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <!-- End Dashboard Nav -->
+    <!-- Start Dashboard Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="index.php">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
 
-      <!-- Start Forms Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-validationtw.php">
-              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationdw.php" >
-              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationf.php">
-              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validationk.php">
-              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- End Forms Nav -->
+    <!-- Start Forms Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <li>
+          <a href="forms-validationtw.php" >
+            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationdw.php" >
+            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationf.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-validationk.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- End Forms Nav -->
 
-      <!-- Start Tables Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-datatw.php">
-              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-datadw.php">
-              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-dataf.php">
-              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-datak.php">
-              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- End Tables Nav -->
+    <!-- Start Tables Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapse" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="tables-datatw.php" class="active">
+            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-datadw.php" >
+            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-dataf.php">
+            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-datak.php" >
+            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- End Tables Nav -->
 
-      <li class="nav-heading">Pages</li>
+    <li class="nav-heading">Pages</li>
 
-      <!-- Start Profile Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-          <span>About Profile</span>
-        </a>
-      </li>
-      <!-- End Profile Page Nav -->
-    </ul>
+    <!-- Start Profile Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="profile.php">
+        <i class="bi bi-person"></i>
+        <span>About Profile</span>
+      </a>
+    </li>
+    <!-- End Profile Page Nav -->
+  </ul>
+
   </aside>
   <!-- End Sidebar-->
-
+  
   <!-- Start #main -->
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Data Tables</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item">Tables Data</li>
+          <li class="breadcrumb-item active">Tables Data Tempat Wisata</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
       <div class="row">
-        <!-- Left side columns -->
+
         <div class="col-lg">
           <div class="row">
-            <!-- Recent Tempat Wisata -->
+
             <div class="col-12" id="tempat_wisata">
               <div class="card recent-sales overflow-auto">
-
                 <div class="card-body">
-                  <h5 class="card-title" id="tempat_wisata">Recent Tempat Wisata</h5>
-
+                  <h5 class="card-title">Datatables Tempat Wisata</h5>
+                  <!-- Table with stripped rows -->
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -266,145 +267,36 @@
                         require_once "../config/config.php";
                         $data = mysqli_query($host, "SELECT * FROM `tempat_wisata`");
                         if (mysqli_num_rows($data)>0) {
-                            $no = 1;
-                            while ($d = mysqli_fetch_array($data)){
-                      ?>
-                      <tr>
-                        <td> <?php echo $no ?></td>
-                        <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
-                        <td> <?php echo $d["name_tw"]; ?> </td>
-                        <td> <?php echo $d["deskripsi"]; ?> </td>
-                        <td> <img src="image/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
-                        <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                        <td> <?php echo $d["id_komentar"]; ?> </td>
-                        <td> <?php echo $d["id_kategori"]; ?> </td>
-                      </tr>
-
-                      <?php $no++; } } ?>
-                    </tbody>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-            <!-- End Recent Tempat Wisata -->
-            
-            <!-- Recent Daerah Wisata -->
-            <div class="col-12" id="brand">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body" id="brand">
-                  <h5 class="card-title" >Recent Daerah Wisata</h5>
-
-                  <table class="table table-borderless datatable" id="brand">
-                    <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Id</th>
-                          <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                          require_once "../config/config.php";
-                          $data = mysqli_query($host, "SELECT * FROM `daerah_wisata`");
-                          if (mysqli_num_rows($data)>0) {
-                            $no = 1;
-                            while ($d = mysqli_fetch_array($data)){
-                        ?>
-
-                          <tr>
-                            <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["name_dw"]; ?> </td>
-                          </tr>
-                        <?php $no++; } } ?>
-                    </tbody>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-            <!-- End Recent Daerah Wisata -->
-            
-            <!-- Recent Fasilitas -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title" id="product">Recent Fasilitas</h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Deskripsi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                        require_once "../config/config.php";
-                        $data = mysqli_query($host, "SELECT * FROM `fasilitas`");
-                        if (mysqli_num_rows($data)>0) {
                           $no = 1;
                           while ($d = mysqli_fetch_array($data)){
                       ?>
                         <tr>
                           <td> <?php echo $no ?></td>
-                          <td> <?php echo $d["id_fasilitas"]; ?> </td>
+                          <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
+                          <td> <?php echo $d["name_tw"]; ?> </td>
                           <td> <?php echo $d["deskripsi"]; ?> </td>
-                        </tr>
-
-                      <?php $no++; } } ?>
-                    </tbody>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-            <!-- End Recent Fasilitas -->
-
-            <!-- Recent Kategori -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <h5 class="card-title" id="product">Recent Kategori</h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Id</th>
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                        require_once "../config/config.php";
-                        $data = mysqli_query($host, "SELECT * FROM `kategori`");
-                        if (mysqli_num_rows($data)>0) {
-                          $no = 1;
-                          while ($d = mysqli_fetch_array($data)){
-                      ?>
-                        <tr>
-                          <td> <?php echo $no ?></td>
+                          <td> <img src="image/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
+                          <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
+                          <td> <?php echo $d["id_komentar"]; ?> </td>
                           <td> <?php echo $d["id_kategori"]; ?> </td>
-                          <td> <?php echo $d["name_kategori"]; ?> </td>
+                          <td> <a href="updatetw.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'];?>" class="btn btn-warning">Update</a></td>
+                          <td> 
+                            <form action="proses.php" method="post">
+                              <input type="hidden" name="id_tempat_wisata" value="<?php echo $d['id_tempat_wisata'];?>">
+                              <button class="btn btn-danger" type="submit" name="deletetw">Delete</button>
+                            </form>
+                          </td>
                         </tr>
 
                       <?php $no++; } } ?>
                     </tbody>
                   </table>
+                  <!-- End Table with stripped rows -->
                 </div>
-
               </div>
             </div>
-            <!-- End Recent Kategori -->
           </div>
         </div>
-        <!-- End Left side columns -->
       </div>
     </section>
 
@@ -425,6 +317,8 @@
     </div>
   </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -435,19 +329,7 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
-
-    function myFunction() {
-      document.getElementById("brand").className = "active";
-      document.getElementById("category").className = "active";
-      document.getElementById("product").className = "active";
-    }
-  </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 </html>
