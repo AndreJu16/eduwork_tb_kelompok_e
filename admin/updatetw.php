@@ -287,7 +287,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="image_tw">Image &emsp;</span>
-                    <input type="file" name="image_tw" class="form-control" id="image_tw" value="<?php echo $row['image_tw']; ?>" aria-describedby="image_tw">
+                    <input type="file" name="image_tw" class="form-control" id="image_tw" value="<?php echo $row['image']; ?>" aria-describedby="image_tw">
                     <div class="valid-tooltip">
                       Looks good!
                     </div>
@@ -310,7 +310,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['name_dw']; ?></option>
+                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['name']; ?></option>
                         <?php
                         }
                         ?>
@@ -374,7 +374,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['name_kategori']; ?></option>
+                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['name']; ?></option>
                         <?php
                         }
                         ?>

@@ -280,7 +280,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_tempat_wisata']; ?>"><?php echo $row['id_tempat_wisata'] . ". " .  $row['name_tw']; ?></option>
+                          <option value="<?php echo $row['id_tempat_wisata']; ?>"><?php echo $row['id_tempat_wisata'] . ". " .  $row['name']; ?></option>
                         <?php
                         }
                         ?>

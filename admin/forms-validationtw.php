@@ -304,7 +304,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['id_daerah_wisata'] . ". " .  $row['name_dw']; ?></option>
+                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['id_daerah_wisata'] . ". " .  $row['name']; ?></option>
                         <?php
                         }
                         ?>
@@ -366,7 +366,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['id_kategori'] . ". " . $row['name_kategori']; ?></option>
+                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['id_kategori'] . ". " . $row['name']; ?></option>
                         <?php
                         }
                         ?>

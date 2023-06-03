@@ -169,7 +169,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-validationk.php">
+            <a href="forms-validationcategory.php">
               <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
             </a>
           </li>
@@ -316,7 +316,7 @@
                           <tr>
                             <td> <?php echo $no ?></td>
                             <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["name_dw"]; ?> </td>
+                            <td> <?php echo $d["name"]?> </td>
                           </tr>
                         <?php $no++; } } ?>
                     </tbody>
@@ -391,7 +391,7 @@
                         <tr>
                           <td> <?php echo $no ?></td>
                           <td> <?php echo $d["id_kategori"]; ?> </td>
-                          <td> <?php echo $d["name_kategori"]; ?> </td>
+                          <td> <?php echo $d["name"]; ?> </td>
                         </tr>
 
                       <?php $no++; } } ?>
