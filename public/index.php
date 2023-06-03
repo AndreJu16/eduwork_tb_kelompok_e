@@ -72,67 +72,116 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+  <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
 
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" style="margin-top:100px; height:500px; weight:500px; object-fit:fill">
-            <img src="../Bali-Bukit.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" style="margin-top:100px; height:500px; weight:500px; object-fit:fill">
-            <img src="../Bali-Rumah.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" style="margin-top:100px; height:500px; weight:500px; object-fit:fill">
-            <img src="../Bali-Sawah.jpg" class="d-block w-100" alt="..."> 
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="margin-top:100px; height:500px;"></div>
+        <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
+        <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
       </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-      </a>
-
     </div>
 
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-      </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-      </g>
-    </svg>
+  </div>
 
-  </section><!-- End Hero -->
+  <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+    </defs>
+    <g class="wave1">
+      <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
+    </g>
+    <g class="wave2">
+      <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
+    </g>
+    <g class="wave3">
+      <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
+    </g>
+  </svg>
+
+</section><!-- End Hero -->
+
+<style>
+  #hero {
+    background-image: url('../Bali-Bukit.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const carouselItems = document.querySelectorAll("#carouselExampleAutoplaying .carousel-item");
+    const carouselBackgrounds = [
+      "../Bali-Bukit.jpg",
+      "../gunung.jpg",
+      "../sawah.jpg"
+    ];
+
+    let currentItemIndex = 0;
+    let intervalId;
+
+    function updateBackground() {
+      const heroSection = document.getElementById("hero");
+      heroSection.style.backgroundImage = `url('${carouselBackgrounds[currentItemIndex]}')`;
+    }
+
+    function updateActiveItem() {
+      carouselItems.forEach((item, index) => {
+        item.classList.toggle("active", index === currentItemIndex);
+      });
+    }
+
+    function goToNextItem() {
+      currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
+      updateBackground();
+      updateActiveItem();
+    }
+
+    function goToPrevItem() {
+      currentItemIndex = (currentItemIndex - 1 + carouselItems.length) % carouselItems.length;
+      updateBackground();
+      updateActiveItem();
+    }
+
+    function startCarousel() {
+      intervalId = setInterval(goToNextItem, 5000);
+    }
+
+    function stopCarousel() {
+      clearInterval(intervalId);
+    }
+
+    updateBackground();
+    updateActiveItem();
+    startCarousel();
+  });
+</script>
+
+
+
 
   <main id="main">
 
 
 
     <!-- ======= Portfolio Section ======= -->
+
+    <style>
+  .portfolio-img {
+  height: 250px; /* Adjust the height as per your preference */
+}
+
+.portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
     <section id="portfolio" class="portfolio">
       <div class="container">
 

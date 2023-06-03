@@ -160,7 +160,7 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationc.php" class="active">
+          <a href="forms-validationdw.php" class="active">
             <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
           </a>
         </li>
@@ -170,7 +170,7 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationp.php">
+          <a href="forms-validationcategory.php">
             <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
           </a>
         </li>
@@ -274,7 +274,7 @@
               <h5 class="card-title">Forms Add Data Daerah Wisata</h5>
               
               <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="prosesaddw.php" novalidate>
+              <form class="row g-3 needs-validation" method="post" action="proses-add-dw.php" novalidate>
                 <div class="row position-relative mb-3">
                   <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
                   <div class="input-group has-validation">
@@ -288,7 +288,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="name">Name &emsp;</span>
-                    <input type="text" class="form-control" name="name" id="name" aria-describedby="name" required>
+                    <input type="text" class="form-control" name="nameDaerahWisata" id="name" aria-describedby="name" required>
                     <div class="valid-tooltip">
                       Looks good!
                     </div>

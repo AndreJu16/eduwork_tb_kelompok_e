@@ -169,7 +169,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-validationp.php">
+            <a href="forms-validationcategory.php">
               <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
             </a>
           </li>

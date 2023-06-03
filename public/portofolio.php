@@ -52,16 +52,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.php#portfolio">Tempat Wisata</a></li>
+          <li><a class="nav-link scrollto" href="index.php#testimonials">Kata Mereka</a></li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
-          
-          <li><a class="nav-link scrollto active" href="#portfolio">Portfolio</a></li>
-          
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Bali</a></li>
-              <li><a href="#">Jawa Timur</a></li>
-              <li><a href="#">Sumatera Utara</a></li>
+              <li><a href="#">Pantai</a></li>
+              <li><a href="#">Sejarah</a></li>
+              <li><a href="#">Pegunungan</a></li>
             </ul>
           </li>
         </ul>
@@ -131,68 +130,69 @@
 
   <main id="main">
 
-    
-    
-     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
+<style>
+  .portfolio-img {
+  height: 250px; /* Adjust the height as per your preference */
+}
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Portfolio</h2>
-          <p>What we've done</p>
+.portfolio-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+
+    <div class="section-title" data-aos="zoom-out">
+      <h2>Portfolio</h2>
+      <p>What we've done</p>
+    </div>
+
+    <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+      <li data-filter="*" class="filter-active">All</li>
+      <li data-filter=".filter-card">Card</li>
+    </ul>
+
+    <div class="row portfolio-container" data-aos="fade-up">
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-img"><img src="../Bali-Rumah.jpg" class="img-fluid" alt=""></div>
+        <div class="portfolio-info">
+          <h4>Card 2</h4>
+          <p>Card</p>
+          <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
         </div>
-
-        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-          <li data-filter="*" class="filter-active">All</li>
-          <li data-filter=".filter-card">Card</li>
-        </ul>
-
-        <div class="row portfolio-container" data-aos="fade-up">
-
-
-
-
-
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Rumah.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Bukit.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Sawah.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-
-        </div>
-
       </div>
-    </section><!-- End Portfolio Section -->
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-img"><img src="../Bali-Bukit.jpg" class="img-fluid" alt=""></div>
+        <div class="portfolio-info">
+          <h4>Card 1</h4>
+          <p>Card</p>
+          <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <div class="portfolio-img"><img src="../Bali-Sawah.jpg" class="img-fluid" alt=""></div>
+        <div class="portfolio-info">
+          <h4>Card 3</h4>
+          <p>Card</p>
+          <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+          <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Portfolio Section -->
+
 
     
   </main><!-- End #main -->
