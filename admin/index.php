@@ -154,7 +154,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-validationb.php">
+            <a href="forms-validationtw.php">
               <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
             </a>
           </li>
@@ -164,12 +164,12 @@
             </a>
           </li>
           <li>
-            <a href="forms-validationp.php">
+            <a href="forms-validationf.php">
               <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
             </a>
           </li>
           <li>
-            <a href="forms-validationcategory.php">
+            <a href="forms-validationk.php">
               <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
             </a>
           </li>
@@ -178,64 +178,34 @@
       <!-- End Forms Nav -->
 
       <!-- Start Tables Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-datac.php">
-            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datab.php">
-            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datap.php">
-            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datap.php">
-            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Tables Nav -->
-
-    <!-- Start Update Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#update-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-pencil-square"></i><span>Update Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="update-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="updatedatac.php">
-            <i class="bi bi-circle"></i><span>Update Data Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatab.php">
-            <i class="bi bi-circle"></i><span>Update Data Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Update Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-datatw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-datadw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-dataf.php">
+              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-datak.php">
+              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
 
       <li class="nav-heading">Pages</li>
 
@@ -270,11 +240,11 @@
         <div class="col-lg">
           <div class="row">
             <!-- Recent Tempat Wisata -->
-            <div class="col-12" id="category">
+            <div class="col-12" id="tempat_wisata">
               <div class="card recent-sales overflow-auto">
 
                 <div class="card-body">
-                  <h5 class="card-title" id="category">Recent Tempat Wisata</h5>
+                  <h5 class="card-title" id="tempat_wisata">Recent Tempat Wisata</h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
@@ -283,6 +253,12 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Deskripsi</th>
+                        <th>Image</th>
+                        <th>Id Daerah</th>
+                        <th>Id Komentar</th>
+                        <th>Id Kategori</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -296,8 +272,12 @@
                       <tr>
                         <td> <?php echo $no ?></td>
                         <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
-                        <td> <?php echo $d["name"]; ?> </td>
+                        <td> <?php echo $d["name_tw"]; ?> </td>
                         <td> <?php echo $d["deskripsi"]; ?> </td>
+                        <td> <img src="image/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
+                        <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
+                        <td> <?php echo $d["id_komentar"]; ?> </td>
+                        <td> <?php echo $d["id_kategori"]; ?> </td>
                       </tr>
 
                       <?php $no++; } } ?>
@@ -336,7 +316,7 @@
                           <tr>
                             <td> <?php echo $no ?></td>
                             <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["name"]; ?> </td>
+                            <td> <?php echo $d["name_dw"]; ?> </td>
                           </tr>
                         <?php $no++; } } ?>
                     </tbody>
@@ -411,7 +391,7 @@
                         <tr>
                           <td> <?php echo $no ?></td>
                           <td> <?php echo $d["id_kategori"]; ?> </td>
-                          <td> <?php echo $d["name"]; ?> </td>
+                          <td> <?php echo $d["name_kategori"]; ?> </td>
                         </tr>
 
                       <?php $no++; } } ?>
