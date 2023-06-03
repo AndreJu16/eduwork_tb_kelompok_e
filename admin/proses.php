@@ -15,7 +15,7 @@ if (isset($_POST['forms-validationtw'])) {
 	$data=mysqli_query($host,"INSERT INTO `tempat_wisata` (`name`, `deskripsi`, `image`, `id_daerah_wisata`, `id_komentar`, `id_kategori`) 
 	VALUES ('$nameftw', '$deskripsi', '$image', '$id_daerah_wisata', '$id_komentar', '$id_kategori')");
     if ($data) {
-        move_uploaded_file($_FILES["image"]["tmp_name"], "image/" . $_FILES["image"]["name"]);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "assets/img/" . $_FILES["image"]["name"]);
         echo "<script>alert('You have successfully inserted the data tempat wisata');</script>";
         echo "<script type='text/javascript'> document.location ='index.php'; </script>";
     } else {
@@ -37,9 +37,9 @@ if (isset($_POST['updatetw'])) {
     $queryD = mysqli_query($host, "SELECT * FROM `tempat_wisata` WHERE `id_tempat_wisata`='$id_tempat_wisata'");
     foreach ($queryD as $row) {
         if ($image_tw == null) {
-            $imageD = $row['image_tw'];
+            $imageD = $row['image'];
         } else {
-            if ($imagePath = "image/" . $row['image_tw']) {
+            if ($imagePath = "assets/img/" . $row['image']) {
                 unlink($imagePath);
                 $imageD = $image_tw;
             }
@@ -54,7 +54,7 @@ if (isset($_POST['updatetw'])) {
             echo "<script>alert('You have successfully update the data with existing image');</script>";
             echo "<script type='text/javascript'> document.location ='tables-datatw.php'; </script>";
         } else {
-            move_uploaded_file($_FILES["image_tw"]["tmp_name"], "image/" . $_FILES["image_tw"]["name"]);
+            move_uploaded_file($_FILES["image_tw"]["tmp_name"], "assets/img/" . $_FILES["image_tw"]["name"]);
             echo "<script>alert('You have successfully update the data tempat wisata');</script>";
             echo "<script type='text/javascript'> document.location ='index.php'; </script>";
         }

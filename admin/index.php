@@ -257,8 +257,6 @@
                         <th>Id Daerah</th>
                         <th>Id Komentar</th>
                         <th>Id Kategori</th>
-                        <th>Update</th>
-                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -274,7 +272,7 @@
                         <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
                         <td> <?php echo $d["name"]; ?> </td>
                         <td> <?php echo $d["deskripsi"]; ?> </td>
-                        <td> <img src="image/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
+                        <td> <img src="assets/img/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
                         <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
                         <td> <?php echo $d["id_komentar"]; ?> </td>
                         <td> <?php echo $d["id_kategori"]; ?> </td>

@@ -261,7 +261,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="name_tw">Name &emsp;</span>
-                    <input type="text" class="form-control" name="name_tw" value="<?php echo $row['name_tw']; ?>" id="name_tw" aria-describedby="name_tw" required>
+                    <input type="text" class="form-control" name="name_tw" value="<?php echo $row['name']; ?>" id="name_tw" aria-describedby="name_tw" required>
                     <div class="valid-tooltip">
                       Looks good!
                     </div>
