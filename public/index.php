@@ -68,22 +68,24 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
   <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" style="margin-top:100px; height:500px;"></div>
         <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
         <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
       </div>
+      <!-- text link ditengah -->
+      <div class="text-center">
+      <p style="margin-top:-200px; text-align: center; font-size:40px; text-shadow: 5px 5px black; border: 1px solid;
+        padding: 10px; box-shadow: 5px 10px ; ">Mau jalan-jalan? cari di E Travel aja</p>
     </div>
-
+    </div>
   </div>
 
   <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
@@ -105,7 +107,7 @@
 
 <style>
   #hero {
-    background-image: url('../Bali-Bukit.jpg');
+    background-image: url('../Bali-Bukit1.jpg');
     background-size: cover;
     background-position: center;
     transition: background-image 0.3s ease-in-out;
@@ -116,7 +118,7 @@
   document.addEventListener("DOMContentLoaded", function() {
     const carouselItems = document.querySelectorAll("#carouselExampleAutoplaying .carousel-item");
     const carouselBackgrounds = [
-      "../Bali-Bukit.jpg",
+      "../Bali-Bukit1.jpg",
       "../gunung.jpg",
       "../sawah.jpg"
     ];
@@ -197,22 +199,22 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-img"><img src="../Bali-Rumah.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <h4>Pura Ulun Danu Beratan</h4>
+              <p>Bali</p>
+              <a href="assets/img/portfolio/portfolio-46.jpg" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title="Pura Ulun Danu Beratan"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Bukit.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="../Bali-Bukit1.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Card 1</h4>
               <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="assets/img/portfolio/portfolio-72.jpg" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -221,9 +223,9 @@
             <div class="portfolio-info">
               <h4>Card 3</h4>
               <p>Card</p>
-              <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="assets/img/portfolio/portfolio-81.jpg" data-gallery="portfolioGallery"
+                class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div> 
         </div>
