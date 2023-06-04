@@ -122,15 +122,15 @@
                             <div class="swiper-wrapper align-items-center">
 
                                 <div class="swiper-slide">
-                                    <img src="../Bali-Bukit.jpg" alt="">
+                                    <img src="assets/img/portfolio/Bali-Bukit.jpg" alt="">
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <img src="../Bali-Rumah.jpg" alt="">
+                                    <img src="assets/img/portfolio/Bali-Rumah.jpg" alt="">
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <img src="../Bali-Sawah.jpg" alt="">
+                                    <img src="assets/img/portfolio/Bali-Sawah.jpg" alt="">
                                 </div>
 
                             </div>
