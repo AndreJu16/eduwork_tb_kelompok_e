@@ -155,22 +155,22 @@
       </a>
       <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
         <li>
-          <a href="forms-validationb.php" >
+          <a href="forms-validationtw.php" >
             <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
           </a>
         </li>
         <li>
-          <a href="forms-validationdw.php" >
+          <a href="forms-daerah-wisata.php" class="active">
             <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
           </a>
         </li>
         <li>
-          <a href="forms-validationp.php">
+          <a href="forms-validationf.php">
             <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
           </a>
         </li>
         <li>
-          <a href="forms-validationcategory.php" class="active">
+          <a href="forms-kategori.php">
             <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
           </a>
         </li>
@@ -185,58 +185,28 @@
       </a>
       <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
         <li>
-          <a href="tables-datac.php">
+          <a href="tables-datatw.php">
             <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
           </a>
         </li>
         <li>
-          <a href="tables-datab.php">
+          <a href="tables-daerah-wisata.php">
             <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
           </a>
         </li>
         <li>
-          <a href="tables-datap.php">
+          <a href="tables-dataf.php">
             <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
           </a>
         </li>
         <li>
-          <a href="tables-datap.php">
+          <a href="tables-kategori.php">
             <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
           </a>
         </li>
       </ul>
     </li>
     <!-- End Tables Nav -->
-
-    <!-- Start Update Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#update-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-pencil-square"></i><span>Update Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="update-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="updatedatac.php">
-            <i class="bi bi-circle"></i><span>Update Data Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatab.php">
-            <i class="bi bi-circle"></i><span>Update Data Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Update Nav -->
 
     <li class="nav-heading">Pages</li>
 
@@ -262,7 +232,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">Forms</li>
-          <li class="breadcrumb-item active">Forms Add Kategori</li>
+          <li class="breadcrumb-item active">Forms Add Daerah Wisata</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -271,15 +241,15 @@
       <div class="row">
           <div class="card col-lg">
             <div class="card-body">
-              <h5 class="card-title">Forms Add Kategori</h5>
+              <h5 class="card-title">Forms Add Data Daerah Wisata</h5>
               
               <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="proses-add-category.php" novalidate>
+              <form class="row g-3 needs-validation" method="post" action="proses.php" novalidate>
                 <div class="row position-relative mb-3">
                   <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="id_kategori">Id &emsp;&emsp;&emsp;</span>
-                    <input type="number" class="form-control" name="id_kategori" id="id_kategori" aria-describedby="id_kategori" disabled>
+                    <span class="input-group-text" id="id_daerah_wisata">Id &emsp;&emsp;&emsp;</span>
+                    <input type="number" class="form-control" name="id_daerah_wisata" id="id_daerah_wisata" aria-describedby="id_daerah_wisata" disabled>
                     <div class="invalid-tooltip">
                       Please choose a unique and valid Id.
                     </div>
@@ -288,7 +258,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="name">Name &emsp;</span>
-                    <input type="text" class="form-control" name="nameKategori" id="nameKategori" aria-describedby="nameKategori" required>
+                    <input type="text" class="form-control" name="nameDaerahWisata" id="name" aria-describedby="name" required>
                     <div class="valid-tooltip">
                       Looks good!
                     </div>
@@ -298,7 +268,7 @@
                   </div>
                 </div>
                 <div class="row mt-4">
-                  <button class="btn btn-primary" type="submit" name="submit">Submit Data</button>
+                  <button class="btn btn-success" type="submit" name="submitdaerahwisata">Submit Data</button>
                 </div>
               </form><!-- End Custom Styled Validation with Tooltips -->
 

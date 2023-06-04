@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forms - Admin</title>
+  <title>Forms / Validation - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,6 +37,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -136,183 +137,160 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-  <ul class="sidebar-nav" id="sidebar-nav">
+      <!-- Start Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.php">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <!-- End Dashboard Nav -->
 
-    <!-- Start Dashboard Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="index.php">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li>
-    <!-- End Dashboard Nav -->
+      <!-- Start Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-validationtw.php">
+              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-daerah-wisata.php">
+              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validationf.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-kategori.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Forms Nav -->
 
-    <!-- Start Forms Nav -->
-    <li class="nav-item">
-      <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="forms-validationb.php" >
-            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationdw.php" class="active">
-            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationp.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationcategory.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Forms Nav -->
+      <!-- Start Tables Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapse" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-datatw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-daerah-wisata.php">
+              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-dataf.php">
+              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-kategori.php" class="active">
+              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
 
-    <!-- Start Tables Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-datac.php">
-            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datab.php">
-            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datap.php">
-            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-datap.php">
-            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Tables Nav -->
+      <li class="nav-heading">Pages</li>
 
-    <!-- Start Update Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#update-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-pencil-square"></i><span>Update Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="update-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="updatedatac.php">
-            <i class="bi bi-circle"></i><span>Update Data Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatab.php">
-            <i class="bi bi-circle"></i><span>Update Data Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="updatedatap.php">
-            <i class="bi bi-circle"></i><span>Update Data Kategori</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Update Nav -->
-
-    <li class="nav-heading">Pages</li>
-
-    <!-- Start Profile Page Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="profile.php">
-        <i class="bi bi-person"></i>
-        <span>About Profile</span>
-      </a>
-    </li>
-    <!-- End Profile Page Nav -->
-  </ul>
+      <!-- Start Profile Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="profile.php">
+          <i class="bi bi-person"></i>
+          <span>About Profile</span>
+        </a>
+      </li>
+      <!-- End Profile Page Nav -->
+    </ul>
 
   </aside>
   <!-- End Sidebar-->
-  
+
   <!-- Start #main -->
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Form Validation</h1>
+      <h1>Data Tables</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Forms</li>
-          <li class="breadcrumb-item active">Forms Add Daerah Wisata</li>
+          <li class="breadcrumb-item">Tables Data</li>
+          <li class="breadcrumb-item active">Tables Data Kategori</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
       <div class="row">
-          <div class="card col-lg">
-            <div class="card-body">
-              <h5 class="card-title">Forms Add Data Daerah Wisata</h5>
-              
-              <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="proses-add-dw.php" novalidate>
-                <div class="row position-relative mb-3">
-                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="id_daerah_wisata">Id &emsp;&emsp;&emsp;</span>
-                    <input type="number" class="form-control" name="id_daerah_wisata" id="id_daerah_wisata" aria-describedby="id_daerah_wisata" disabled>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Id.
-                    </div>
-                  </div>
-                </div>
-                <div class="row position-relative mb-3">
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="name">Name &emsp;</span>
-                    <input type="text" class="form-control" name="nameDaerahWisata" id="name" aria-describedby="name" required>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Name.
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <button class="btn btn-primary" type="submit" name="submit">Submit Data</button>
-                </div>
-              </form><!-- End Custom Styled Validation with Tooltips -->
+        <div class="col-lg-12">
 
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Datatables Brand</h5>
+
+              <!-- Table with stripped rows -->
+              <table class="table table-borderless datatable">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Id Daerah Wisata</th>
+                    <th>Name Daerah</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  include "../config/config.php";
+                  $data = mysqli_query($host, "SELECT * FROM `kategori`");
+                  if (mysqli_num_rows($data) > 0) {
+                    $no = 1;
+                    while ($d = mysqli_fetch_array($data)) {
+                  ?>
+                      <tr>
+                        <td> <?php echo $no ?></td>
+                        <td> <?php echo $d["id_kategori"]; ?> </td>
+                        <td> <?php echo $d["name"]; ?> </td>
+                        <td> <a href="update-kategori.php?id_kategori=<?php echo $d['id_kategori']; ?>" class="btn btn-warning">Update</a></td>
+                        <td> <a href="proses.php?id_kategori=<?php echo $d['id_kategori']; ?>" class="btn btn-danger">Delete</a></td>
+                      </tr>
+
+                  <?php $no++;
+                    }
+                  } ?>
+                </tbody>
+              </table><!-- End Table with stripped rows -->
             </div>
           </div>
+
+        </div>
       </div>
     </section>
+
   </main>
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Admin</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -322,6 +300,8 @@
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -333,20 +313,8 @@
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
-
-    function myFunction() {
-      document.getElementById("brand").className = "active";
-      document.getElementById("category").className = "active";
-      document.getElementById("product").className = "active";
-    }
-  </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

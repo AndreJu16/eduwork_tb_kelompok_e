@@ -159,7 +159,7 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationdw.php" >
+          <a href="forms-daerah-wisata.php" >
             <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
           </a>
         </li>
@@ -169,7 +169,7 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationk.php">
+          <a href="forms-kategori.php">
             <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
           </a>
         </li>
@@ -189,7 +189,7 @@
           </a>
         </li>
         <li>
-          <a href="tables-datadw.php" >
+          <a href="tables-daerah-wisata.php" >
             <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
           </a>
         </li>
@@ -199,7 +199,7 @@
           </a>
         </li>
         <li>
-          <a href="tables-datak.php" >
+          <a href="tables-kategori.php" >
             <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
           </a>
         </li>

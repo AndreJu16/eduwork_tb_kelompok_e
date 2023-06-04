@@ -84,13 +84,15 @@ if (isset($_POST['deletetw'])) {
 // start crud proses daerah_wisata
 {
 
+
+
 // start proses forms daerah_wisata
-if (isset($_POST['forms-validationdw'])) {
-    $name = $_POST['name'];
-	$data=mysqli_query($host,"INSERT INTO `daerah_wisata` (`id_daerah_wisata`, `name_dw`) 
-	VALUES ('', '$name')");
-    if ($data) {
-        echo "<script>alert('You have successfully inserted the data daerah wisata');</script>";
+if(isset($_POST['submitdaerahwisata'])){
+    $nameDaerahWisata = $_POST['nameDaerahWisata'];
+    $queryDaerahWisata = "INSERT INTO `daerah_wisata`(`id_daerah_wisata`,`name`) VALUES ('','$nameDaerahWisata')";
+    $result = mysqli_query($host, $queryDaerahWisata);
+    if ($result) {
+        echo "<script>alert('You have successfully inserted the data');</script>";
         echo "<script type='text/javascript'> document.location ='index.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
@@ -98,37 +100,34 @@ if (isset($_POST['forms-validationdw'])) {
 }//end proses forms daerah_wisata
 
 // start update daerah_wisata
-if (isset($_POST['updatedw'])) {
+if (isset($_POST['submitupdatedaerahwisata'])) {
     $id_daerah_wisata = $_GET['id_daerah_wisata'];
-    $name_dw = $_POST['name_dw'];
-    $data=mysqli_query($host,"UPDATE `daerah_wisata` SET `name_dw`='$name_dw' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
+    $name_daerah_wisata = $_POST['name_daerah_wisata'];
+    $data=mysqli_query($host,"UPDATE `daerah_wisata` SET `name`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
     if ($data) {
-        echo "<script>alert('You have successfully update the data daerah wisata');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datadw.php'; </script>";
+        echo "<script>alert('You have successfully inserted the data');</script>";
+        echo "<script type='text/javascript'> document.location ='index.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datadw.php'; </script>";
     }
+
 }// end update daerah_wisata
 
 // start delete daerah_wisata
-if (isset($_POST['deletedw'])) {
-    $id_daerah_wisata = $_POST['id_daerah_wisata'];
-    $data = mysqli_query($host, "DELETE FROM `daerah_wisata` WHERE id_daerah_wisata = $id_daerah_wisata");
-    if($data){ 
-        echo "<script>alert('You have successfully delete the data daerah wisata');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datadw.php'; </script>";
-    }else{
-        // Jika Gagal, Lakukan :
-        echo "<script>alert('Something Went Wrong. Please try again');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datadw.php'; </script>";
-    }
+if(isset($_GET["id_daerah_wisata"])){
+    $id_daerah_wisata = $_GET["id_daerah_wisata"];
+    $query = "DELETE FROM `daerah_wisata` WHERE `id_daerah_wisata`=$id_daerah_wisata";
+    $result = mysqli_query($host, $query);
+    header("Location:index.php");
 }// end delete daerah_wisata
 
 }// end crud proses daerah_wisata
 
+
 // start crud proses fasilitas
 {
+
+
 
 // start proses forms add fasilitas
 if (isset($_POST['forms-validationf'])) {
@@ -181,12 +180,12 @@ if (isset($_POST['deletef'])) {
 {
 
 // start proses forms kategori
-if (isset($_POST['forms-validationk'])) {
-    $name = $_POST['name'];
-	$data=mysqli_query($host,"INSERT INTO `kategori` (`id_kategori`, `name_kategori`) 
-	VALUES ('', '$name')");
-    if ($data) {
-        echo "<script>alert('You have successfully inserted the data kategori');</script>";
+if(isset($_POST['submitkategori'])){
+    $nameKategori = $_POST['nameKategori'];
+    $queryKategori = "INSERT INTO `kategori`(`id_kategori`,`name`) VALUES ('','$nameKategori')";
+    $result = mysqli_query($host, $queryKategori);
+    if ($result) {
+        echo "<script>alert('You have successfully inserted the data');</script>";
         echo "<script type='text/javascript'> document.location ='index.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
@@ -195,32 +194,26 @@ if (isset($_POST['forms-validationk'])) {
 // end proses forms kategori
 
 // start update kategori
-if (isset($_POST['updatek'])) {
+if (isset($_POST['submitupdatekategori'])) {
     $id_kategori = $_GET['id_kategori'];
     $name_kategori = $_POST['name_kategori'];
-    $data=mysqli_query($host,"UPDATE `kategori` SET `name_kategori`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
+    $data=mysqli_query($host,"UPDATE `kategori` SET `name`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
     if ($data) {
-        echo "<script>alert('You have successfully update the data kategori');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datak.php'; </script>";
+        echo "<script>alert('You have successfully inserted the data');</script>";
+        echo "<script type='text/javascript'> document.location ='index.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datak.php'; </script>";
     }
 }
 // end update kategori
 
 // start delete kategori
-if (isset($_POST['deletek'])) {
-    $id_kategori = $_POST['id_kategori'];
-    $data = mysqli_query($host, "DELETE FROM kategori WHERE id_kategori ='".$id_kategori."' ");
-    if($data){ // Cek jika proses simpan ke database sukses atau tidak
-        echo "<script>alert('You have successfully delete the data kategori');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datak.php'; </script>";
-    }else{
-        // Jika Gagal, Lakukan :
-        echo "<script>alert('Something Went Wrong. Please try again');</script>";
-        echo "<script type='text/javascript'> document.location ='tables-datak.php'; </script>";
-    }
+include "../config/config.php";
+if(isset($_GET["id_kategori"])){
+    $id_kategori = $_GET["id_kategori"];
+    $query = "DELETE FROM `kategori` WHERE `id_kategori`=$id_kategori";
+    $result = mysqli_query($host, $query);
+    header("Location:index.php");
 }
 // end delete kategori
 }
