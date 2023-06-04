@@ -164,59 +164,39 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
-                                <form class="comment-form">
+                                <form class="comment-form" action="../admin/proses.php" method="post">
                                     <div class="form-group">
                                         <label for="name">Your Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name"
                                             required>
                                     </div>
                                     <div class="form-group">
                                         <label for="comment">Your Comment</label>
                                         <textarea class="form-control" id="comment" rows="5"
-                                            placeholder="Enter your comment" required></textarea>
+                                            placeholder="Enter your comment" name="komentar" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                    <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
                                 </form>
                             </div>
                             <div class="col-lg-6">
                                 <div class="comment-list">
                                     <h3>Comments</h3>
                                     <!-- Comment 1 -->
-                                    <div class="comment">
-                                        <div class="comment-author">John Doe</div>
-                                        <div class="comment-date">Posted on 01 June 2023</div>
-                                        <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. Ut eget gravida lacus. Sed at ipsum justo. Phasellus feugiat justo
-                                            ligula, eu convallis mi aliquet et.</div>
-                                    </div>
-
-                                    <!-- Comment 2 -->
-                                    <div class="comment">
-                                        <div class="comment-author">Jane Smith</div>
-                                        <div class="comment-date">Posted on 02 June 2023</div>
-                                        <div class="comment-content">Pellentesque habitant morbi tristique senectus et
-                                            netus et malesuada fames ac turpis egestas. Mauris id sem id magna
-                                            pellentesque hendrerit.</div>
-                                    </div>
-
-                                    <!-- Comment 3 -->
-                                    <div class="comment">
-                                        <div class="comment-author">Jane Smith</div>
-                                        <div class="comment-date">Posted on 02 June 2023</div>
-                                        <div class="comment-content">Pellentesque habitant morbi tristique senectus et
-                                            netus et malesuada fames ac turpis egestas. Mauris id sem id magna
-                                            pellentesque hendrerit.</div>
-                                    </div>
-
-                                    <!-- Comment 4 -->
-                                    <div class="comment">
-                                        <div class="comment-author">Jane Smith</div>
-                                        <div class="comment-date">Posted on 02 June 2023</div>
-                                        <div class="comment-content">Pellentesque habitant morbi tristique senectus et
-                                            netus et malesuada fames ac turpis egestas. Mauris id sem id magna
-                                            pellentesque hendrerit.</div>
-                                    </div>
-
+                                    <?php
+                                            include "../config/config.php";
+                                            $data = mysqli_query($host, "SELECT * FROM `komentar` ");
+                                            // while ($d = mysqli_fetch_array($data)) {
+                    
+                                        ?>
+                                                <?php foreach ($data as $comment) : ?>
+                                                    <div class="comment">
+                                                        <div class="comment-author"><?php echo $comment['name_user']; ?></div>
+                                                        <!-- <div class="comment-date"><*/?php echo $comment['tanggal']; ?></div> -->
+                                                        <div class="comment-content"><?php echo $comment['komentar']; ?></div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                    <?php  
+                                            ?>
                                     <!-- Add more comments here as needed -->
                                 </div>
                             </div>
@@ -292,15 +272,7 @@
     <footer id="footer">
         <div class="container">
             <h3>Selecao</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
-                placeat.</p>
-            <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
+            <p>Memberikan Kemudahan Perjalanan Anda langsung di tangan mu</p>
             <div class="copyright">
                 &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
             </div>

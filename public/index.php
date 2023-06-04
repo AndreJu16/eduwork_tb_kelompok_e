@@ -47,9 +47,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">E Travel</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <h1><a href="index.php">E Travel</a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -81,9 +79,9 @@
         <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
       </div>
       <!-- text link ditengah -->
-      <div class="text-center">
-      <p style="margin-top:-200px; text-align: center; font-size:40px; text-shadow: 5px 5px black; border: 1px solid;
-        padding: 10px; box-shadow: 5px 10px ; ">Mau jalan-jalan? cari di E Travel aja</p>
+      <div class="text-center" style="margin-top:-200px">
+      <p style="font-size:40px; text-shadow: 5px 5px black; border: 1px solid;
+        padding: 10px; box-shadow: 5px 10px ;">Mau jalan-jalan? cari di E Travel aja</p>
     </div>
     </div>
   </div>
@@ -107,7 +105,7 @@
 
 <style>
   #hero {
-    background-image: url('../Bali-Bukit1.jpg');
+    background-image: url('assets/img/portfolio/Bali-Bukit1.jpg');
     background-size: cover;
     background-position: center;
     transition: background-image 0.3s ease-in-out;
@@ -118,9 +116,9 @@
   document.addEventListener("DOMContentLoaded", function() {
     const carouselItems = document.querySelectorAll("#carouselExampleAutoplaying .carousel-item");
     const carouselBackgrounds = [
-      "../Bali-Bukit1.jpg",
-      "../gunung.jpg",
-      "../sawah.jpg"
+      "assets/img/portfolio/Bali-Bukit1.jpg",
+      "assets/img/portfolio/gunung.jpg",
+      "assets/img/portfolio/sawah.jpg"
     ];
 
     let currentItemIndex = 0;
@@ -192,7 +190,7 @@
           <p>Pilih Tujuan Wisata Mu </p>
         </div>
         <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter="*" class="filter-active">Disini</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up">
@@ -203,7 +201,7 @@
               <p>Bali</p>
               <a href="assets/img/portfolio/portfolio-46.jpg" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link" title="Pura Ulun Danu Beratan"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -214,7 +212,7 @@
               <p>Card</p>
               <a href="assets/img/portfolio/portfolio-72.jpg" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -225,7 +223,7 @@
               <p>Card</p>
               <a href="assets/img/portfolio/portfolio-81.jpg" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div> 
         </div>
