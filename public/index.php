@@ -55,34 +55,33 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Tempat Wisata</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Kata Mereka</a></li>
-          <li><a class="nav-link scrollto" href="about.php">About</a></li>
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Pantai</a></li>
-              <li><a href="#">Sejarah</a></li>
-              <li><a href="#">Pegunungan</a></li>
+              <li><a href="kategori-details.php">Pantai</a></li>
+              <li><a href="kategori-details.php">Sejarah</a></li>
+              <li><a href="kategori-details.php">Pegunungan</a></li>
             </ul>
           </li>
+          <li><a class="nav-link scrollto" href="about.php">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
-
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
   <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active" style="margin-top:100px; height:500px;"></div>
-        <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
-        <div class="carousel-item" style="margin-top:100px; height:500px;"></div>
+        <div class="carousel-item active" style="margin-top: 100px; height: 500px;"></div>
+        <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
+        <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
       </div>
       <!-- text link ditengah -->
-      <div class="text-center" style="margin-top:-200px">
-      <p style="font-size:40px; text-shadow: 5px 5px black; border: 1px solid;
-        padding: 10px; box-shadow: 5px 10px ;">Mau jalan-jalan? cari di E Travel aja</p>
-    </div>
+      <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h1 style="font-size: 48px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff; font-weight: bold; line-height: 1.2;">Mau jalan-jalan?</h1>
+        <p style="font-size: 24px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff;">Cari di E Travel aja</p>
+      </div>
     </div>
   </div>
 
@@ -100,8 +99,8 @@
       <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
     </g>
   </svg>
-
 </section><!-- End Hero -->
+
 
 <style>
   #hero {
@@ -195,7 +194,7 @@
 
         <div class="row portfolio-container" data-aos="fade-up">
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Rumah.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="assets/img/portfolio/Bali-Rumah.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Pura Ulun Danu Beratan</h4>
               <p>Bali</p>
@@ -206,7 +205,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Bukit1.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="assets/img/portfolio/Bali-Bukit1.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Card 1</h4>
               <p>Card</p>
@@ -217,7 +216,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="../Bali-Sawah.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-img"><img src="assets/img/portfolio/Bali-Sawah.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Card 3</h4>
               <p>Card</p>
@@ -247,7 +246,7 @@
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Bagi Ku Perjalanan itu penting karna dapat menghilangkan Penat yang selama ini aku punya ketika aku bekerja dikantoran
-                  Ketika saya jumpa eTicket saya jadi lebih mudah untuk terbang kesana kemari. 
+                  Ketika saya jumpa E Travel saya jadi lebih mudah untuk terbang kesana kemari. 
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -260,8 +259,8 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  eTicket menjadi pilihan ku sejak aku suka berpetualang mencari destinasi yang mantap dan adem. 
-                  apalagi eTicket mempunyai lokasi yang aku sukai
+                  E Travel menjadi pilihan ku sejak aku suka berpetualang mencari destinasi yang mantap dan adem. 
+                  apalagi E Travel mempunyai lokasi yang aku sukai
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
@@ -274,7 +273,7 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Terimakasih eTicket, aku jadi lebih gampang menemukan tempat destinasi wisata yang 
+                  Terimakasih E Travel, aku jadi lebih gampang menemukan tempat destinasi wisata yang 
                   terbaik buat ku dan juga keluarga buat jalan-jalan.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
@@ -304,7 +303,7 @@
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Waktu adalah uang, jadi kalau pun mau jalan-jalan dalam memilih tempat 
                   jangan terlalu banyak, kalau bisa sekali cari tempat destinasi, dapat, langsung deh pesan.
-                  dan itu aku temukan di eTicket.
+                  dan itu aku temukan di E Travel.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
