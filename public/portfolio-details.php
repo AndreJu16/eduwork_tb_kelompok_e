@@ -120,18 +120,28 @@
                     <div class="col-lg-8">
                         <div class="portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
+                            <?php
+                                include "../config/config.php";
+                                $data = mysqli_query($host, "SELECT * FROM `image` JOIN `tempat_wisata` ON `image`.`id_image` = `tempat_wisata`.`id_image` ");
+                                while ($d = mysqli_fetch_array($data)) {
+                                
+                            ?>
 
                                 <div class="swiper-slide">
-                                    <img src="assets/img/portfolio/Bali-Bukit.jpg" alt="">
+                                    <img src="../admin/assets/img/<?php echo $d["image"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="">
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <img src="assets/img/portfolio/Bali-Rumah.jpg" alt="">
+                                    <img src="../admin/assets/img/<?php echo $d["image_satu"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <img src="assets/img/portfolio/Bali-Sawah.jpg" alt="">
+                                    <img src="../admin/assets/img/<?php echo $d["image_dua"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
                                 </div>
+
+                            <?php
+                                }
+                            ?>
 
                             </div>
                             <div class="swiper-pagination"></div>

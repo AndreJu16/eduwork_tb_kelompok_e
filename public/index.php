@@ -192,14 +192,23 @@
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up">
+          <?php
+            include "../config/config.php";
+            $id_daerah_wisata = $_GET['id_daerah_wisata'];
+            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ko`.`komentar`, `ka`.`name_kategori` FROM (((`tempat_wisata` AS `tw`
+            JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
+            JOIN `komentar` AS `ko` ON `tw`.`id_komentar` = `ko`.`id_komentar`)
+            JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)");
+            while ($d = mysqli_fetch_array($data)) {
+              
+          ?>
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/portfolio/Bali-Rumah.jpg" class="img-fluid" alt=""></div>
-            <div class="portfolio-info">
-              <h4>Pura Ulun Danu Beratan</h4>
-              <p>Bali</p>
-              <a href="assets/img/portfolio/portfolio-46.jpg" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Pura Ulun Danu Beratan"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>"  class="img-fluid" alt="image"></div>
+              <div class="portfolio-info">
+                <h4><?php echo $d["name_tw"]?></h4>
+                <p><?php echo $d["name_kategori"]?></p>
+                <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $id_daerah_wisata ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -223,7 +232,10 @@
                 class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div> 
+          </div>
+          <?php 
+          }
+          ?>
         </div>
       </div>
     </section><!-- End Portfolio Section -->
