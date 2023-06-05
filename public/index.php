@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>eTravel - Home</title>
+  <title>E Travel - Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,8 +52,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Tempat Wisata</a></li>
+          <li><a class="nav-link scrollto active" href="#portfolio">Tempat Wisata</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Kata Mereka</a></li>
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -78,7 +77,7 @@
         <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
       </div>
       <!-- text link ditengah -->
-      <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 10px 10px white; border:3px solid white; padding:10px;">
         <h1 style="font-size: 48px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff; font-weight: bold; line-height: 1.2;">Mau jalan-jalan?</h1>
         <p style="font-size: 24px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff;">Cari di E Travel aja</p>
       </div>
