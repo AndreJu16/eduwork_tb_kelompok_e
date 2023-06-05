@@ -174,6 +174,11 @@
             <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
           </a>
         </li>
+        <li>
+          <a href="forms-image.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+          </a>
+        </li>
       </ul>
     </li>
     <!-- End Forms Nav -->
@@ -202,6 +207,11 @@
         <li>
           <a href="tables-kategori.php">
             <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-image.php">
+            <i class="bi bi-circle"></i><span>Data Tables Image</span>
           </a>
         </li>
       </ul>
@@ -280,7 +290,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_tempat_wisata']; ?>"><?php echo $row['id_tempat_wisata'] . ". " .  $row['name']; ?></option>
+                          <option value="<?php echo $row['id_tempat_wisata']; ?>"><?php echo $row['id_tempat_wisata'] . ". " .  $row['name_tw']; ?></option>
                         <?php
                         }
                         ?>

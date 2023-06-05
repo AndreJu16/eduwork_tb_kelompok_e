@@ -173,6 +173,11 @@
               <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
             </a>
           </li>
+          <li>
+            <a href="forms-image.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End Forms Nav -->
@@ -201,6 +206,11 @@
           <li>
             <a href="tables-kategori.php">
               <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-image.php">
+              <i class="bi bi-circle"></i><span>Data Tables Image</span>
             </a>
           </li>
         </ul>
@@ -270,9 +280,9 @@
                       <tr>
                         <td> <?php echo $no ?></td>
                         <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
-                        <td> <?php echo $d["name"]; ?> </td>
+                        <td> <?php echo $d["name_tw"]; ?> </td>
                         <td> <?php echo $d["deskripsi"]; ?> </td>
-                        <td> <img src="assets/img/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
+                        <td> <img src="assets/img/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
                         <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
                         <td> <?php echo $d["id_komentar"]; ?> </td>
                         <td> <?php echo $d["id_kategori"]; ?> </td>
@@ -314,7 +324,7 @@
                           <tr>
                             <td> <?php echo $no ?></td>
                             <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["name"]?> </td>
+                            <td> <?php echo $d["name_dw"]?> </td>
                           </tr>
                         <?php $no++; } } ?>
                     </tbody>
@@ -351,7 +361,7 @@
                         <tr>
                           <td> <?php echo $no ?></td>
                           <td> <?php echo $d["id_fasilitas"]; ?> </td>
-                          <td> <?php echo $d["deskripsi"]; ?> </td>
+                          <td> <?php echo $d["deskripsi_fasilitas"]; ?> </td>
                         </tr>
 
                       <?php $no++; } } ?>
@@ -389,7 +399,7 @@
                         <tr>
                           <td> <?php echo $no ?></td>
                           <td> <?php echo $d["id_kategori"]; ?> </td>
-                          <td> <?php echo $d["name"]; ?> </td>
+                          <td> <?php echo $d["name_kategori"]; ?> </td>
                         </tr>
 
                       <?php $no++; } } ?>
@@ -400,6 +410,50 @@
               </div>
             </div>
             <!-- End Recent Kategori -->
+
+            <!-- Recent Daerah Wisata -->
+            <div class="col-12" id="brand">
+              <div class="card recent-sales overflow-auto">
+
+                <div class="card-body" id="brand">
+                  <h5 class="card-title" >Recent Image</h5>
+
+                  <table class="table table-borderless datatable" id="brand">
+                    <thead>
+                      <tr>
+                          <th>No</th>
+                          <th>Id</th>
+                          <th>Image</th>
+                          <th>Image Satu</th>
+                          <th>Image Dua</th>
+                          <th>Id Tempat Wisata</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                          require_once "../config/config.php";
+                          $data = mysqli_query($host, "SELECT * FROM `image`");
+                          if (mysqli_num_rows($data)>0) {
+                            $no = 1;
+                            while ($d = mysqli_fetch_array($data)){
+                        ?>
+
+                          <tr>
+                            <td> <?php echo $no ?></td>
+                            <td> <?php echo $d["id_image"]; ?> </td>
+                            <td> <img src="assets/img/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
+                            <td> <img src="assets/img/<?php echo $d["image_satu"]; ?>" width="80" height="80" alt="image"></td>
+                            <td> <img src="assets/img/<?php echo $d["image_dua"]; ?>" width="80" height="80" alt="image"></td>
+                            <td> <?php echo $d["id_tempat_wisata"]?></td>
+                          </tr>
+                        <?php $no++; } } ?>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+            <!-- End Recent Daerah Wisata -->
           </div>
         </div>
         <!-- End Left side columns -->

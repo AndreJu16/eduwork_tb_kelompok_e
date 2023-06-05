@@ -202,6 +202,11 @@
             <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
           </a>
         </li>
+        <li>
+          <a href="tables-image.php">
+            <i class="bi bi-circle"></i><span>Data Tables Image</span>
+          </a>
+        </li>
       </ul>
     </li>
     <!-- End Tables Nav -->

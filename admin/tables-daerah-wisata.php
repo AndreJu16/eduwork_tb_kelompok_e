@@ -174,6 +174,11 @@
               <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
             </a>
           </li>
+          <li>
+          <a href="forms-image.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+          </a>
+        </li>
         </ul>
       </li>
       <!-- End Forms Nav -->
@@ -202,6 +207,11 @@
           <li>
             <a href="tables-kategori.php">
               <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-image.php">
+              <i class="bi bi-circle"></i><span>Data Tables Image</span>
             </a>
           </li>
         </ul>
@@ -268,7 +278,7 @@
                       <tr>
                         <td> <?php echo $no ?></td>
                         <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                        <td> <?php echo $d["name"]; ?> </td>
+                        <td> <?php echo $d["name_dw"]; ?> </td>
                         <td> <a href="update-daerah-wisata.php?id_daerah_wisata=<?php echo $d['id_daerah_wisata']; ?>" class="btn btn-warning">Update</a></td>
                         <td> <a href="proses.php?id_daerah_wisata=<?php echo $d['id_daerah_wisata']; ?>" class="btn btn-danger">Delete</a></td>
                       </tr>
