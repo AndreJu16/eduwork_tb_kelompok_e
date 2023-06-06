@@ -123,7 +123,8 @@
                             <div class="swiper-wrapper align-items-center">
                                 <?php
                                 include "../config/config.php";
-                                $data = mysqli_query($host, "SELECT * FROM `image` WHERE id_tempat_wisata = 8 ");
+                                $id_tempat_wisata = $_GET['id_tempat_wisata'];
+                                $data = mysqli_query($host, "SELECT * FROM `image` WHERE `id_tempat_wisata` = $id_tempat_wisata");
                                 while ($d = mysqli_fetch_array($data)) {
 
                                 ?>
