@@ -122,6 +122,7 @@
                         <div class="portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
                                 <?php
+                                $id_tempat_wisata = $_GET['id_tempat_wisata'];
                                 include "../config/config.php";
                                 $id_tempat_wisata = $_GET['id_tempat_wisata'];
                                 $data = mysqli_query($host, "SELECT * FROM `image` WHERE `id_tempat_wisata` = $id_tempat_wisata");
@@ -158,8 +159,8 @@
                         <?php
                         // Fetch the description from the database based on the ID
                         // Adjust the SQL query based on your table structure
-                        $query = "SELECT deskripsi_fasilitas FROM fasilitas";
-                        // $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
+                        // $query = "SELECT deskripsi_fasilitas FROM fasilitas";
+                        $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
                         $result = mysqli_query($host, $query);
 
                         // Retrieve the value from the result set
@@ -183,8 +184,8 @@
                         <?php
 
                         // Fetch the name_tw and deskripsi from the database based on the id_tempat_wisata
-                        // $query = "SELECT name_tw, deskripsi FROM tempat_wisata WHERE id_tempat_wisata = $id_tempat_wisata";
-                        $query = "SELECT name_tw, deskripsi FROM tempat_wisata";
+                        $query = "SELECT name_tw, deskripsi FROM tempat_wisata WHERE id_tempat_wisata = $id_tempat_wisata";
+                        // $query = "SELECT name_tw, deskripsi FROM tempat_wisata";
                         $result = mysqli_query($host, $query);
 
                         // Check if a row is returned
@@ -216,7 +217,21 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
-                                <form class="comment-form" action="../admin/proses.php" method="post">
+                                <!-- <form class="comment-form" action="../admin/proses.php" method="post">
+                                    <div class="form-group">
+                                        <label for="name">Your Name</label>
+                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="comment">Your Comment</label>
+                                        <textarea class="form-control" id="comment" rows="5" placeholder="Enter your comment" name="komentar" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
+                                </form> -->
+
+                                <form class="comment-form" action="proses-add.php" method="post">
+                                    <!-- Add the hidden input field for id_tempat_wisata -->
+                                    <input type="hidden" name="id_tempat_wisata" value="<?php echo $id_tempat_wisata; ?>">
                                     <div class="form-group">
                                         <label for="name">Your Name</label>
                                         <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name" required>
@@ -227,6 +242,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
                                 </form>
+
                             </div>
                             <div class="col-lg-6">
                                 <div class="comment-list">
@@ -234,7 +250,9 @@
                                     <!-- Comment 1 -->
                                     <?php
                                     include "../config/config.php";
-                                    $data = mysqli_query($host, "SELECT * FROM `komentar` ");
+                                    // $data = mysqli_query($host, "SELECT * FROM `komentar` ");
+                                    $data = mysqli_query($host, "SELECT * FROM `komentar` WHERE id_tempat_wisata = $id_tempat_wisata");
+
                                     // while ($d = mysqli_fetch_array($data)) {
 
                                     ?>
