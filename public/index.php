@@ -194,7 +194,8 @@
         <div class="row portfolio-container" data-aos="fade-up">
           <?php
             include "../config/config.php";
-            $id_daerah_wisata = $_GET['id_daerah_wisata'];
+            //$id_daerah_wisata = $_GET['id_daerah_wisata'];
+            $id_tempat_wisata = $_GET['id_tempat_wisata'];
             $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ko`.`komentar`, `ka`.`name_kategori` FROM (((`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `komentar` AS `ko` ON `tw`.`id_komentar` = `ko`.`id_komentar`)
@@ -208,11 +209,11 @@
                 <h4><?php echo $d["name_tw"]?></h4>
                 <p><?php echo $d["name_kategori"]?></p>
                 <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $id_daerah_wisata ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $id_tempat_wisata ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-img"><img src="assets/img/portfolio/Bali-Bukit1.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Card 1</h4>
@@ -232,7 +233,7 @@
                 class="portfolio-lightbox preview-link" title=""><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
+          </div> -->
           <?php 
           }
           ?>

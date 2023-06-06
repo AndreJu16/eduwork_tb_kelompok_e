@@ -113,11 +113,14 @@
 }
 
                 </style>
+
+
             <div class="container">
 
                 <div class="row gy-4">
 
                     <div class="col-lg-8">
+                        <!-- beginning image slider for tempat wisata -->
                         <div class="portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
                             <?php
@@ -148,25 +151,65 @@
                         </div>
                     </div>
 
+                    <!-- end off image slider for tempat wisata -->
+
+                    
                     <div class="col-lg-4">
-                        <div class="portfolio-info">
-                            <h3>Informasi Fasilitas</h3>
-                            <ul>
-                                <li><strong>Category</strong>: Web design</li>
-                                <li><strong>Client</strong>: ASU Company</li>
-                                <li><strong>Project date</strong>: 01 March, 2020</li>
-                                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-                            </ul>
-                        </div>
+                        <!-- beginning fasilitas -->
+                        <?php
+                            // Fetch the description from the database based on the ID
+                            // Adjust the SQL query based on your table structure
+                            $query = "SELECT deskripsi_fasilitas FROM fasilitas";
+                            // $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
+                            $result = mysqli_query($host, $query);
+
+                            // Retrieve the value from the result set
+                            $row = mysqli_fetch_assoc($result);
+
+                            // Assign the value to the variable
+                            $description = $row['deskripsi_fasilitas'];
+                            ?>
+
+                            <!-- Now, you can use the updated HTML section with the dynamic description value -->
+                            <div class="portfolio-info">
+                                <h3>Informasi Fasilitas</h3>
+                                <ul>
+                                    <li><strong>Description</strong>: <?php echo $description; ?></li>
+                                </ul>
+                            </div>
+
+                        <!-- end fasilitas -->
+
+                        <!-- beginning tempat wisata description -->
+                        <?php
+
+                        // Fetch the name_tw and deskripsi from the database based on the id_tempat_wisata
+                        // $query = "SELECT name_tw, deskripsi FROM tempat_wisata WHERE id_tempat_wisata = $id_tempat_wisata";
+                        $query = "SELECT name_tw, deskripsi FROM tempat_wisata";
+                        $result = mysqli_query($host, $query);
+
+                        // Check if a row is returned
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            // Retrieve the values from the result set
+                            $row = mysqli_fetch_assoc($result);
+
+                            // Assign the values to variables
+                            $name_tw = $row['name_tw'];
+                            $deskripsi = $row['deskripsi'];
+                        } else {
+                            // Handle the case when no row is found for the provided id_tempat_wisata
+                            $name_tw = "Title Not Found";
+                            $deskripsi = "Description Not Found";
+                        }
+                        ?>
+
                         <div class="portfolio-description">
-                            <h2>Tempat Wisata Description</h2>
+                            <h2>Deskripsi <?php echo $name_tw; ?></h2>
                             <p>
-                                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi
-                                labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque
-                                itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur
-                                dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                                <?php echo $deskripsi; ?>
                             </p>
                         </div>
+                        <!-- end tempat wisata description -->
                     </div>
 
                     <!-- Comment form and comment display section -->
