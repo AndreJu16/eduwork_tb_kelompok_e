@@ -195,11 +195,11 @@
           <?php
             include "../config/config.php";
             //$id_daerah_wisata = $_GET['id_daerah_wisata'];
-            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ko`.`komentar`, `ka`.`name_kategori` FROM (((`tempat_wisata` AS `tw`
+            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
-            JOIN `komentar` AS `ko` ON `tw`.`id_komentar` = `ko`.`id_komentar`)
             JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)");
-            while ($d = mysqli_fetch_array($data)) {
+            while ($d = mysqli_fetch_array($data)) 
+            {
               
           ?>
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">

@@ -172,8 +172,10 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Daerah Wisata</th>
-                                        <th>Name Daerah</th>
+                                        <th>Image_satu</th>
+                                        <th>Image_dua</th>
+                                        <th>Image_tiga</th>
+                                        <th>Id Tempat Wisata</th>
                                         <th>Update</th>
                                         <th>Delete</th>
                                     </tr>
@@ -188,7 +190,6 @@
                                     ?>
                                             <tr>
                                                 <td> <?php echo $no ?></td>
-                                                <td> <?php echo $d["id_image"]; ?> </td>
                                                 <td> <img src="assets/img/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
                                                 <td> <img src="assets/img/<?php echo $d["image_satu"]; ?>" width="80" height="80" alt="image"></td>
                                                 <td> <img src="assets/img/<?php echo $d["image_dua"]; ?>" width="80" height="80" alt="image"></td>

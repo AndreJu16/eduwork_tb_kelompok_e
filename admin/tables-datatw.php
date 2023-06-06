@@ -179,7 +179,6 @@
                         <th>Deskripsi</th>
                         <th>Image</th>
                         <th>Id Daerah</th>
-                        <th>Id Komentar</th>
                         <th>Id Kategori</th>
                         <th>Update</th>
                         <th>Delete</th>
@@ -200,7 +199,6 @@
                             <td> <?php echo $d["deskripsi"]; ?> </td>
                             <td> <img src="assets/img/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
                             <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["id_komentar"]; ?> </td>
                             <td> <?php echo $d["id_kategori"]; ?> </td>
                             <td> <a href="updatetw.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata']; ?>" class="btn btn-warning">Update</a></td>
                             <td>

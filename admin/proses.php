@@ -9,11 +9,10 @@ require_once "../config/config.php";
         $deskripsi = $_POST['deskripsi'];
         $image = $_FILES["image"]["name"];
         $id_daerah_wisata = $_POST['id_daerah_wisata'];
-        $id_komentar = $_POST['id_komentar'];
         $id_kategori = $_POST['id_kategori'];
 
-        $data = mysqli_query($host, "INSERT INTO `tempat_wisata` (`name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_komentar`, `id_kategori`) 
-	VALUES ('$nameftw', '$deskripsi', '$image', '$id_daerah_wisata', '$id_komentar', '$id_kategori')");
+        $data = mysqli_query($host, "INSERT INTO `tempat_wisata` (`name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_kategori`) 
+	VALUES ('$nameftw', '$deskripsi', '$image', '$id_daerah_wisata', '$id_kategori')");
         if ($data) {
             move_uploaded_file($_FILES["image"]["tmp_name"], "assets/img/" . $_FILES["image"]["name"]);
             echo "<script>alert('You have successfully inserted the data tempat wisata');</script>";
@@ -31,7 +30,6 @@ require_once "../config/config.php";
         $deskripsi = $_POST['deskripsi'];
         $image_tw = $_FILES["image_tw"]["name"];
         $id_daerah_wisata = $_POST['id_daerah_wisata'];
-        $id_komentar = $_POST['id_komentar'];
         $id_kategori = $_POST['id_kategori'];
 
         $queryD = mysqli_query($host, "SELECT * FROM `tempat_wisata` WHERE `id_tempat_wisata`='$id_tempat_wisata'");
@@ -46,7 +44,7 @@ require_once "../config/config.php";
             }
         }
 
-        $data = mysqli_query($host, "UPDATE `tempat_wisata` SET `name_tw`='$name_tw',`deskripsi`='$deskripsi',`image_tw`='$imageD',`id_daerah_wisata`='$id_daerah_wisata',`id_komentar`='$id_komentar',`id_kategori`='$id_kategori' WHERE `id_tempat_wisata`='$id_tempat_wisata'");
+        $data = mysqli_query($host, "UPDATE `tempat_wisata` SET `name_tw`='$name_tw',`deskripsi`='$deskripsi',`image_tw`='$imageD',`id_daerah_wisata`='$id_daerah_wisata',`id_kategori`='$id_kategori' WHERE `id_tempat_wisata`='$id_tempat_wisata'");
 
         if ($data) {
             if ($image_tw == null) {
