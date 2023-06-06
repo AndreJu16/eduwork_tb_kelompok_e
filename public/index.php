@@ -195,7 +195,6 @@
           <?php
             include "../config/config.php";
             //$id_daerah_wisata = $_GET['id_daerah_wisata'];
-            $id_tempat_wisata = $_GET['id_tempat_wisata'];
             $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ko`.`komentar`, `ka`.`name_kategori` FROM (((`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `komentar` AS `ko` ON `tw`.`id_komentar` = `ko`.`id_komentar`)

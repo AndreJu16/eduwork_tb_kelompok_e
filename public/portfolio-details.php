@@ -14,9 +14,7 @@
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -42,35 +40,35 @@
 
 <body>
 
-   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center  ">
-    <div class="container d-flex align-items-center justify-content-between">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center  ">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="logo">
-        <h1><a href="index.html">E Travel</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
+            <div class="logo">
+                <h1><a href="index.html">E Travel</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.php#portfolio">Tempat Wisata</a></li>
-          <li><a class="nav-link scrollto" href="index.php#testimonials">Kata Mereka</a></li>
-          <li><a class="nav-link scrollto active" href="about.php">About</a></li>
-          <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Pantai</a></li>
-              <li><a href="#">Sejarah</a></li>
-              <li><a href="#">Pegunungan</a></li>
-            </ul>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto " href="index.php">Home</a></li>
+                    <li><a class="nav-link scrollto" href="index.php#portfolio">Tempat Wisata</a></li>
+                    <li><a class="nav-link scrollto" href="index.php#testimonials">Kata Mereka</a></li>
+                    <li><a class="nav-link scrollto active" href="about.php">About</a></li>
+                    <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Pantai</a></li>
+                            <li><a href="#">Sejarah</a></li>
+                            <li><a href="#">Pegunungan</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
 
-    </div>
-  </header><!-- End Header -->
+        </div>
+    </header><!-- End Header -->
 
     <main id="main">
 
@@ -93,26 +91,26 @@
         <section id="portfolio-details" class="portfolio-details">
             <style>
                 .portfolio-details-slider .swiper-slide img {
-    width: 100%;
-    height: auto;
-}
+                    width: 100%;
+                    height: auto;
+                }
 
-.swiper-slide {
-    height: 0;
-    padding-bottom: 56.25%; /* Set the aspect ratio (16:9 for this example) */
-    position: relative;
-}
+                .swiper-slide {
+                    height: 0;
+                    padding-bottom: 56.25%;
+                    /* Set the aspect ratio (16:9 for this example) */
+                    position: relative;
+                }
 
-.swiper-slide img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-                </style>
+                .swiper-slide img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            </style>
 
 
             <div class="container">
@@ -123,28 +121,28 @@
                         <!-- beginning image slider for tempat wisata -->
                         <div class="portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
-                            <?php
+                                <?php
                                 include "../config/config.php";
-                                $data = mysqli_query($host, "SELECT * FROM `image` JOIN `tempat_wisata` ON `image`.`id_image` = `tempat_wisata`.`id_image` ");
+                                $data = mysqli_query($host, "SELECT * FROM `image` WHERE id_tempat_wisata = 8 ");
                                 while ($d = mysqli_fetch_array($data)) {
-                                
-                            ?>
 
-                                <div class="swiper-slide">
-                                    <img src="../admin/assets/img/<?php echo $d["image"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="">
-                                </div>
+                                ?>
 
-                                <div class="swiper-slide">
-                                    <img src="../admin/assets/img/<?php echo $d["image_satu"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
-                                </div>
+                                    <div class="swiper-slide">
+                                        <img src="../admin/assets/img/<?php echo $d["image"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="">
+                                    </div>
 
-                                <div class="swiper-slide">
-                                    <img src="../admin/assets/img/<?php echo $d["image_dua"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
-                                </div>
+                                    <div class="swiper-slide">
+                                        <img src="../admin/assets/img/<?php echo $d["image_satu"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
+                                    </div>
 
-                            <?php
+                                    <div class="swiper-slide">
+                                        <img src="../admin/assets/img/<?php echo $d["image_dua"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" alt="image">
+                                    </div>
+
+                                <?php
                                 }
-                            ?>
+                                ?>
 
                             </div>
                             <div class="swiper-pagination"></div>
@@ -153,30 +151,30 @@
 
                     <!-- end off image slider for tempat wisata -->
 
-                    
+
                     <div class="col-lg-4">
                         <!-- beginning fasilitas -->
                         <?php
-                            // Fetch the description from the database based on the ID
-                            // Adjust the SQL query based on your table structure
-                            $query = "SELECT deskripsi_fasilitas FROM fasilitas";
-                            // $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
-                            $result = mysqli_query($host, $query);
+                        // Fetch the description from the database based on the ID
+                        // Adjust the SQL query based on your table structure
+                        $query = "SELECT deskripsi_fasilitas FROM fasilitas";
+                        // $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
+                        $result = mysqli_query($host, $query);
 
-                            // Retrieve the value from the result set
-                            $row = mysqli_fetch_assoc($result);
+                        // Retrieve the value from the result set
+                        $row = mysqli_fetch_assoc($result);
 
-                            // Assign the value to the variable
-                            $description = $row['deskripsi_fasilitas'];
-                            ?>
+                        // Assign the value to the variable
+                        $description = $row['deskripsi_fasilitas'];
+                        ?>
 
-                            <!-- Now, you can use the updated HTML section with the dynamic description value -->
-                            <div class="portfolio-info">
-                                <h3>Informasi Fasilitas</h3>
-                                <ul>
-                                    <li><strong>Description</strong>: <?php echo $description; ?></li>
-                                </ul>
-                            </div>
+                        <!-- Now, you can use the updated HTML section with the dynamic description value -->
+                        <div class="portfolio-info">
+                            <h3>Informasi Fasilitas</h3>
+                            <ul>
+                                <li><strong>Description</strong>: <?php echo $description; ?></li>
+                            </ul>
+                        </div>
 
                         <!-- end fasilitas -->
 
@@ -220,13 +218,11 @@
                                 <form class="comment-form" action="../admin/proses.php" method="post">
                                     <div class="form-group">
                                         <label for="name">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name"
-                                            required>
+                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="comment">Your Comment</label>
-                                        <textarea class="form-control" id="comment" rows="5"
-                                            placeholder="Enter your comment" name="komentar" required></textarea>
+                                        <textarea class="form-control" id="comment" rows="5" placeholder="Enter your comment" name="komentar" required></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
                                 </form>
@@ -236,20 +232,20 @@
                                     <h3>Comments</h3>
                                     <!-- Comment 1 -->
                                     <?php
-                                            include "../config/config.php";
-                                            $data = mysqli_query($host, "SELECT * FROM `komentar` ");
-                                            // while ($d = mysqli_fetch_array($data)) {
-                    
-                                        ?>
-                                                <?php foreach ($data as $comment) : ?>
-                                                    <div class="comment">
-                                                        <div class="comment-author"><?php echo $comment['name_user']; ?></div>
-                                                        <!-- <div class="comment-date"><*/?php echo $comment['tanggal']; ?></div> -->
-                                                        <div class="comment-content"><?php echo $comment['komentar']; ?></div>
-                                                    </div>
-                                                <?php endforeach; ?>
-                                    <?php  
-                                            ?>
+                                    include "../config/config.php";
+                                    $data = mysqli_query($host, "SELECT * FROM `komentar` ");
+                                    // while ($d = mysqli_fetch_array($data)) {
+
+                                    ?>
+                                    <?php foreach ($data as $comment) : ?>
+                                        <div class="comment">
+                                            <div class="comment-author"><?php echo $comment['name_user']; ?></div>
+                                            <!-- <div class="comment-date"><*/?php echo $comment['tanggal']; ?></div> -->
+                                            <div class="comment-content"><?php echo $comment['komentar']; ?></div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    <?php
+                                    ?>
                                     <!-- Add more comments here as needed -->
                                 </div>
                             </div>
@@ -339,8 +335,7 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
