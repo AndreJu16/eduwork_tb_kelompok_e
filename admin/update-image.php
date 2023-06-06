@@ -176,7 +176,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-image.php" class="active">
+            <a href="forms-image.php">
               <i class="bi bi-circle" id="product"></i><span>Add Image</span>
             </a>
           </li>
@@ -211,7 +211,7 @@
             </a>
           </li>
           <li>
-            <a href="tables-image.php">
+            <a href="tables-image.php" class="active">
               <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
             </a>
           </li>
