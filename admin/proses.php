@@ -39,14 +39,14 @@ require_once "../config/config.php";
             if ($image_tw == null) {
                 $imageD = $row['image'];
             } else {
-                if ($imagePath = "assets/img/" . $row['image']) {
+                if ($imagePath = "assets/img/" . $row['image_tw']) {
                     unlink($imagePath);
                     $imageD = $image_tw;
                 }
             }
         }
 
-        $data = mysqli_query($host, "UPDATE `tempat_wisata` SET `name`='$name_tw',`deskripsi`='$deskripsi',`image`='$imageD',`id_daerah_wisata`='$id_daerah_wisata',`id_komentar`='$id_komentar',`id_kategori`='$id_kategori' WHERE `id_tempat_wisata`='$id_tempat_wisata'");
+        $data = mysqli_query($host, "UPDATE `tempat_wisata` SET `name_tw`='$name_tw',`deskripsi`='$deskripsi',`image_tw`='$imageD',`id_daerah_wisata`='$id_daerah_wisata',`id_komentar`='$id_komentar',`id_kategori`='$id_kategori' WHERE `id_tempat_wisata`='$id_tempat_wisata'");
 
         if ($data) {
             if ($image_tw == null) {
@@ -103,7 +103,7 @@ require_once "../config/config.php";
     if (isset($_POST['submitupdatedaerahwisata'])) {
         $id_daerah_wisata = $_GET['id_daerah_wisata'];
         $name_daerah_wisata = $_POST['name_daerah_wisata'];
-        $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `name`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
+        $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `name_dw`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
         if ($data) {
             echo "<script>alert('You have successfully inserted the data');</script>";
             echo "<script type='text/javascript'> document.location ='index.php'; </script>";
@@ -148,7 +148,7 @@ require_once "../config/config.php";
         $id_fasilitas = $_GET['id_fasilitas'];
         $deskripsi = $_POST['deskripsi'];
         $id_tempat_wisata = $_POST['id_tempat_wisata'];
-        $data = mysqli_query($host, "UPDATE `fasilitas` SET `deskripsi`='$deskripsi',`id_tempat_wisata`='$id_tempat_wisata' WHERE `id_fasilitas`='$id_fasilitas'");
+        $data = mysqli_query($host, "UPDATE `fasilitas` SET `deskripsi_fasilitas`='$deskripsi',`id_tempat_wisata`='$id_tempat_wisata' WHERE `id_fasilitas`='$id_fasilitas'");
         if ($data) {
             echo "<script>alert('You have successfully update the data fasilitas');</script>";
             echo "<script type='text/javascript'> document.location ='tables-dataf.php'; </script>";
@@ -196,7 +196,7 @@ require_once "../config/config.php";
     if (isset($_POST['submitupdatekategori'])) {
         $id_kategori = $_GET['id_kategori'];
         $name_kategori = $_POST['name_kategori'];
-        $data = mysqli_query($host, "UPDATE `kategori` SET `name`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
+        $data = mysqli_query($host, "UPDATE `kategori` SET `name_kategori`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
         if ($data) {
             echo "<script>alert('You have successfully inserted the data');</script>";
             echo "<script type='text/javascript'> document.location ='index.php'; </script>";

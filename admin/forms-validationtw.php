@@ -37,6 +37,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -51,188 +52,99 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
     <!-- End Logo -->
-
-    <!-- Start Search Bar -->
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div>
-    <!-- End Search Bar -->
-
-    <!-- Start Icons Navigation -->
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number"></span>
-          </a><!-- End Notification Icon -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number"></span>
-          </a><!-- End Messages Icon -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav>
-    <!-- End Icons Navigation -->
-
   </header>
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
-  <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <!-- Start Dashboard Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="index.php">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li>
-    <!-- End Dashboard Nav -->
+      <!-- Start Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-validationtw.php" class="active">
+              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-daerah-wisata.php">
+              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validationf.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-kategori.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-image.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Forms Nav -->
 
-    <!-- Start Forms Nav -->
-    <li class="nav-item">
-      <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="forms-validationtw.php" class="active">
-            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-daerah-wisata.php" >
-            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationf.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-kategori.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-image.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Forms Nav -->
+      <!-- Start Tables Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-datatw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-daerah-wisata.php">
+              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-dataf.php">
+              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-kategori.php">
+              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-image.php">
+              <i class="bi bi-circle"></i><span>Data Tables Image</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
 
-    <!-- Start Tables Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-datatw.php">
-            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-daerah-wisata.php">
-            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-dataf.php">
-            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-kategori.php">
-            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-image.php">
-            <i class="bi bi-circle"></i><span>Data Tables Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Tables Nav -->
+      <li class="nav-heading">Pages</li>
 
-    <li class="nav-heading">Pages</li>
-
-    <!-- Start Profile Page Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="profile.php">
-        <i class="bi bi-person"></i>
-        <span>About Profile</span>
-      </a>
-    </li>
-    <!-- End Profile Page Nav -->
-  </ul>
+      <!-- Start Profile Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="profile.php">
+          <i class="bi bi-person"></i>
+          <span>About Profile</span>
+        </a>
+      </li>
+      <!-- End Profile Page Nav -->
+    </ul>
 
   </aside>
   <!-- End Sidebar-->
-  
+
   <!-- Start #main -->
   <main id="main" class="main">
 
@@ -249,158 +161,158 @@
 
     <section class="section">
       <div class="row">
-          <div class="card col-lg">
-            <div class="card-body">
-              <h5 class="card-title">Forms Add Data Tempat Wisata</h5>
-              
-              <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="proses.php" enctype="multipart/form-data" novalidate>
-                <div class="row position-relative mb-3">
-                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="id_tempat_wisata">Id &emsp;&emsp;&emsp;</span>
-                    <input type="number" class="form-control" name="id_tempat_wisata" id="id_tempat_wisata" aria-describedby="id_tempat_wisata" disabled>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Id.
-                    </div>
-                  </div>
-                </div>
-                <div class="row position-relative mb-3">
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="nameftw">Name &emsp;</span>
-                    <input type="text" class="form-control" name="nameftw" id="nameftw" aria-describedby="nameftw" required>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Name.
-                    </div>
-                  </div>
-                </div>
-                <div class="row position-relative mb-3">
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="deskripsi">Deskripsi &emsp;</span>
-                    <textarea class="form-control" name="deskripsi" id="deskripsi" required></textarea>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Deskripsi.
-                    </div>
-                  </div>
-                </div>
-                <div class="row position-relative mb-3">
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="image">Image &emsp;</span>
-                    <input type="file" name="image" class="form-control" id="image" aria-describedby="image" required>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid image.
-                    </div>
-                  </div>
-                </div>
-                <?php 
-                  require_once "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM `daerah_wisata`");
-                  if (mysqli_num_rows($data) > 0) {
-                ?>
-                  <div class="row position-relative mb-3">
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="id_daerah_wisata">Id Daerah&emsp;&emsp;&emsp;</span>
-                      <select class="form-select" name="id_daerah_wisata" aria-label="Default select example">
-                        <option selected disabled>Open this select Id Daerah</option>
-                        <?php 
-                          foreach ($data as $row) {
-                        ?>
-                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['id_daerah_wisata'] . ". " .  $row['name_dw']; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                      <div class="invalid-feedback">
-                        Please select a valid id category.
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                  } else {
-                    echo "No Data Avalaible";
-                  }
-                ?>
-                <?php 
-                  require_once "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM `komentar`");
-                  if (mysqli_num_rows($data) > 0) {
-                ?>
-                  <div class="row position-relative mb-3">
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="id_komentar">Id Komentar&emsp;&emsp;&emsp;</span>
-                      <select class="form-select" name="id_komentar" aria-label="Default select example">
-                        <option selected disabled>Open this select Id Komentar</option>
-                        <?php 
-                          foreach ($data as $row) {
-                        ?>
-                          <option value="<?php echo $row['id_komentar']; ?>"><?php echo $row['id_komentar'] . ". " .  $row['komentar']; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                      <div class="invalid-feedback">
-                        Please select a valid id category.
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                  } else {
-                    echo "No Data Avalaible";
-                  }
-                ?>
-                <?php 
-                  require_once "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM `kategori`");
-                  if (mysqli_num_rows($data) > 0) {
-                ?>
-                  <div class="row position-relative mb-3">
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="id_kategori">Id Kategori&emsp;&emsp;&emsp;</span>
-                      <select class="form-select" name="id_kategori" aria-label="Default select example">
-                        <option selected disabled>Open this select Id Kategori</option>
-                        <?php 
-                          foreach ($data as $row) {
-                        ?>
-                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['id_kategori'] . ". " . $row['name_kategori']; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                      <div class="invalid-feedback">
-                        Please select a valid id category.
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                  } else {
-                    echo "No Data Avalaible";
-                  }
-                ?>
-                <div class="row mt-4">
-                  <button class="btn btn-success" type="submit" name="forms-validationtw"><i class="bi bi-file-earmark-check"></i> Submit Data</button>
-                </div>
-              </form><!-- End Custom Styled Validation with Tooltips -->
+        <div class="card col-lg">
+          <div class="card-body">
+            <h5 class="card-title">Forms Add Data Tempat Wisata</h5>
 
-            </div>
+            <!-- Custom Styled Validation with Tooltips -->
+            <form class="row g-3 needs-validation" method="post" action="proses.php" enctype="multipart/form-data" novalidate>
+              <div class="row position-relative mb-3">
+                <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="id_tempat_wisata">Id &emsp;&emsp;&emsp;</span>
+                  <input type="number" class="form-control" name="id_tempat_wisata" id="id_tempat_wisata" aria-describedby="id_tempat_wisata" disabled>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid Id.
+                  </div>
+                </div>
+              </div>
+              <div class="row position-relative mb-3">
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="nameftw">Name &emsp;</span>
+                  <input type="text" class="form-control" name="nameftw" id="nameftw" aria-describedby="nameftw" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid Name.
+                  </div>
+                </div>
+              </div>
+              <div class="row position-relative mb-3">
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="deskripsi">Deskripsi &emsp;</span>
+                  <textarea class="form-control" name="deskripsi" id="deskripsi" required></textarea>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid Deskripsi.
+                  </div>
+                </div>
+              </div>
+              <div class="row position-relative mb-3">
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="image">Image &emsp;</span>
+                  <input type="file" name="image" class="form-control" id="image" aria-describedby="image" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid image.
+                  </div>
+                </div>
+              </div>
+              <?php
+              require_once "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `daerah_wisata`");
+              if (mysqli_num_rows($data) > 0) {
+              ?>
+                <div class="row position-relative mb-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="id_daerah_wisata">Id Daerah&emsp;&emsp;&emsp;</span>
+                    <select class="form-select" name="id_daerah_wisata" aria-label="Default select example">
+                      <option selected disabled>Open this select Id Daerah</option>
+                      <?php
+                      foreach ($data as $row) {
+                      ?>
+                        <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['id_daerah_wisata'] . ". " .  $row['name_dw']; ?></option>
+                      <?php
+                      }
+                      ?>
+                    </select>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                      Please select a valid id category.
+                    </div>
+                  </div>
+                </div>
+              <?php
+              } else {
+                echo "No Data Avalaible";
+              }
+              ?>
+              <?php
+              require_once "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `komentar`");
+              if (mysqli_num_rows($data) > 0) {
+              ?>
+                <div class="row position-relative mb-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="id_komentar">Id Komentar&emsp;&emsp;&emsp;</span>
+                    <select class="form-select" name="id_komentar" aria-label="Default select example">
+                      <option selected disabled>Open this select Id Komentar</option>
+                      <?php
+                      foreach ($data as $row) {
+                      ?>
+                        <option value="<?php echo $row['id_komentar']; ?>"><?php echo $row['id_komentar'] . ". " .  $row['komentar']; ?></option>
+                      <?php
+                      }
+                      ?>
+                    </select>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                      Please select a valid id category.
+                    </div>
+                  </div>
+                </div>
+              <?php
+              } else {
+                echo "No Data Avalaible";
+              }
+              ?>
+              <?php
+              require_once "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `kategori`");
+              if (mysqli_num_rows($data) > 0) {
+              ?>
+                <div class="row position-relative mb-3">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="id_kategori">Id Kategori&emsp;&emsp;&emsp;</span>
+                    <select class="form-select" name="id_kategori" aria-label="Default select example">
+                      <option selected disabled>Open this select Id Kategori</option>
+                      <?php
+                      foreach ($data as $row) {
+                      ?>
+                        <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['id_kategori'] . ". " . $row['name_kategori']; ?></option>
+                      <?php
+                      }
+                      ?>
+                    </select>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                      Please select a valid id category.
+                    </div>
+                  </div>
+                </div>
+              <?php
+              } else {
+                echo "No Data Avalaible";
+              }
+              ?>
+              <div class="row mt-4">
+                <button class="btn btn-success" type="submit" name="forms-validationtw"><i class="bi bi-file-earmark-check"></i> Submit Data</button>
+              </div>
+            </form><!-- End Custom Styled Validation with Tooltips -->
+
           </div>
+        </div>
       </div>
     </section>
   </main>
@@ -431,9 +343,15 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
+    document.getElementById("brand").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("category").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("product").onclick = function() {
+      myFunction()
+    };
 
     function myFunction() {
       document.getElementById("brand").className = "active";

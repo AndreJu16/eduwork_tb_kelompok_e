@@ -51,100 +51,12 @@
     </div>
     <!-- End Logo -->
 
-    <!-- Start Search Bar -->
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div>
-    <!-- End Search Bar -->
-
-    <!-- Start Icons Navigation -->
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-bell"></i>
-            <span class="badge bg-primary badge-number"></span>
-          </a><!-- End Notification Icon -->
-
-        </li><!-- End Notification Nav -->
-
-        <li class="nav-item dropdown">
-
-          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i class="bi bi-chat-left-text"></i>
-            <span class="badge bg-success badge-number"></span>
-          </a><!-- End Messages Icon -->
-
-        </li><!-- End Messages Nav -->
-
-        <li class="nav-item dropdown pe-3">
-
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav>
-    <!-- End Icons Navigation -->
-
   </header>
   <!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
   <ul class="sidebar-nav" id="sidebar-nav">
-
-    <!-- Start Dashboard Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="index.php">
-        <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
-      </a>
-    </li>
-    <!-- End Dashboard Nav -->
 
     <!-- Start Forms Nav -->
     <li class="nav-item">
@@ -158,7 +70,7 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationdw.php" >
+          <a href="forms-daerah-wisata.php" >
             <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
           </a>
         </li>
@@ -168,8 +80,13 @@
           </a>
         </li>
         <li>
-          <a href="forms-validationk.php">
+          <a href="forms-kategori.php">
             <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+          </a>
+        </li>
+        <li>
+          <a href="forms-image.php">
+            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
           </a>
         </li>
       </ul>
@@ -188,7 +105,7 @@
           </a>
         </li>
         <li>
-          <a href="tables-datadw.php" >
+          <a href="tables-daerah_wisata.php" >
             <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
           </a>
         </li>
@@ -198,8 +115,13 @@
           </a>
         </li>
         <li>
-          <a href="tables-datak.php" >
+          <a href="tables-kategori.php" >
             <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+          </a>
+        </li>
+        <li>
+          <a href="tables-image.php" >
+            <i class="bi bi-circle"></i><span>Data Tables Image</span>
           </a>
         </li>
       </ul>
@@ -224,7 +146,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Update Data Category</h1>
+      <h1>Update Data Tempat Wisata</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
@@ -261,7 +183,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="name_tw">Name &emsp;</span>
-                    <input type="text" class="form-control" name="name_tw" value="<?php echo $row['name']; ?>" id="name_tw" aria-describedby="name_tw" required>
+                    <input type="text" class="form-control" name="name_tw" value="<?php echo $row['name_tw']; ?>" id="name_tw" aria-describedby="name_tw" required>
                     <div class="valid-tooltip">
                       Looks good!
                     </div>
@@ -287,7 +209,7 @@
                 <div class="row position-relative mb-3">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="image_tw">Image &emsp;</span>
-                    <input type="file" name="image_tw" class="form-control" id="image_tw" value="<?php echo $row['image']; ?>" aria-describedby="image_tw">
+                    <input type="file" name="image_tw" class="form-control" id="image_tw" value="<?php echo $row['image_tw']; ?>" aria-describedby="image_tw">
                     <div class="valid-tooltip">
                       Looks good!
                     </div>
@@ -310,7 +232,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['name']; ?></option>
+                          <option value="<?php echo $row['id_daerah_wisata']; ?>"><?php echo $row['name_dw']; ?></option>
                         <?php
                         }
                         ?>
@@ -374,7 +296,7 @@
                         <?php 
                           foreach ($data as $row) {
                         ?>
-                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['name']; ?></option>
+                          <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['name_kategori']; ?></option>
                         <?php
                         }
                         ?>
