@@ -222,15 +222,16 @@ require_once "../config/config.php";
 if (isset($_POST['submit_komentar'])) {
     $name_komentar = $_POST['name_komentar'];
     $komentar = $_POST['komentar'];
-    $queryDaerahWisata = "INSERT INTO `komentar`(`komentar`, `name_user`) VALUES ('$komentar', '$name_komentar')";
+    $id_tempat_wisata = $_GET['id_tempat_wisata'];
+    $queryDaerahWisata = "INSERT INTO komentar (komentar, name_user, id_tempat_wisata) VALUES ('$komentar', '$name_komentar', '$id_tempat_wisata')";
     $result = mysqli_query($host, $queryDaerahWisata);
     if ($result) {
         echo "<script>alert('You have successfully inserted the data');</script>";
-        echo "<script type='text/javascript'> document.location ='../public/portfolio-details.php'; </script>";
+        echo "<script type='text/javascript'> document.location ='../public/portfolio-details.php; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
     }
-} //end proses forms komentar proses 
+}//end proses forms komentar proses 
 
 
 

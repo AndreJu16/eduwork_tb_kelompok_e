@@ -208,7 +208,7 @@
                 <h4><?php echo $d["name_tw"]?></h4>
                 <p><?php echo $d["name_kategori"]?></p>
                 <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $id_tempat_wisata ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
