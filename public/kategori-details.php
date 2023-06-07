@@ -52,19 +52,20 @@
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar">  
         <ul>
-          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
           <li><a class="nav-link" href="index.php#portfolio">Tempat Wisata</a></li>
-          <li><a class="nav-link scrollto" href="index.php#testimonials">Kata Mereka</a></li>
-          <li class="dropdown"><a class="scrollto active" href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Pantai</a></li>
-              <li><a href="#">Sejarah</a></li>
-              <li><a href="#">Pegunungan</a></li>
+              <?php
+              include "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `kategori`");
+              while ($d = mysqli_fetch_array($data)) {
+              ?>
+                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+              <?php } ?>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="about.php">About</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -98,7 +99,6 @@
           <p>Pilih Tujuan Wisata Mu </p>
         </div>
         <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-          <li data-filter="*" class="filter-active">Disini</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up">

@@ -45,28 +45,10 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">E Travel</a></h1>
+        <h1><a href="index.php">E Travel</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.php#portfolio">Tempat Wisata</a></li>
-          <li><a class="nav-link scrollto" href="index.php#testimonials">Kata Mereka</a></li>
-          <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Pantai</a></li>
-              <li><a href="#">Sejarah</a></li>
-              <li><a href="#">Pegunungan</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto active" href="about.php">About</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
@@ -81,7 +63,7 @@
 
         <div class="section-title" data-aos="zoom-out" style="padding-top: 40px;">
           <h2>Team</h2>
-          <p>Our Hardworking Team</p>
+          <p style="text-align: center;">Our Hardworking Team</p>
         </div>
 
         <div class="row">

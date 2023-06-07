@@ -133,7 +133,6 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
-          <span>About Profile</span>
         </a>
       </li>
       <!-- End Profile Page Nav -->
