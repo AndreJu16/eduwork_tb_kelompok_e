@@ -315,6 +315,69 @@
             </div>
         </section><!-- End Portfolio Details Section -->
 
+          <!-- ======= Tempat Wisata Terkait Section ======= -->
+                <section id="portfolio" class="portfolio">
+                <div class="container">
+
+                    <div class="section-title" data-aos="fade-up">
+                    <h2>Tempat Wisata Terkait</h2>
+                    </div>
+
+                    <div class="row">
+
+                    <style>
+                    .portfolio-img {
+                        height: 250px;
+                        /* Adjust the height as per your preference */
+                    }
+
+                    .portfolio-img img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    </style>
+
+
+                    <div class="container">
+                        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+                        <li data-filter="*" class="filter-active">Disini</li>
+                        </ul>
+
+                        <div class="row portfolio-container" data-aos="fade-up">
+                        <?php
+                        include "../config/config.php";
+                        //$id_daerah_wisata = $_GET['id_daerah_wisata'];
+                        $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`id_kategori`, `ka`.`name_kategori` 
+                        FROM `tempat_wisata` AS `tw`
+                        JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`
+                        JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`
+                        WHERE `tw`.`id_daerah_wisata` = (SELECT `id_daerah_wisata` FROM `tempat_wisata` WHERE `id_tempat_wisata` = '$id_tempat_wisata')");
+
+                        while ($d = mysqli_fetch_array($data)) {
+
+                        ?>
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                            <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
+                            <div class="portfolio-info">
+                                <h4><?php echo $d["name_tw"] ?></h4>
+                                <p><?php echo $d["name_kategori"].", ".$d["name_dw"] ?></p>
+                                <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
+                                <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                            </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+                </section>
+                <!-- End Tempat Wisata Terkait Section -->
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
