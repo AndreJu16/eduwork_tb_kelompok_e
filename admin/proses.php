@@ -16,7 +16,7 @@ require_once "../config/config.php";
         if ($data) {
             move_uploaded_file($_FILES["image"]["tmp_name"], "assets/img/" . $_FILES["image"]["name"]);
             echo "<script>alert('You have successfully inserted the data tempat wisata');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-datatw.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
             echo "<script type='text/javascript'> document.location ='forms-validationtw.php'; </script>";
@@ -35,7 +35,7 @@ require_once "../config/config.php";
         $queryD = mysqli_query($host, "SELECT * FROM `tempat_wisata` WHERE `id_tempat_wisata`='$id_tempat_wisata'");
         foreach ($queryD as $row) {
             if ($image_tw == null) {
-                $imageD = $row['image'];
+                $imageD = $row['image_tw'];
             } else {
                 if ($imagePath = "assets/img/" . $row['image_tw']) {
                     unlink($imagePath);
@@ -54,7 +54,7 @@ require_once "../config/config.php";
             } else {
                 move_uploaded_file($_FILES["image_tw"]["tmp_name"], "assets/img/" . $_FILES["image_tw"]["name"]);
                 echo "<script>alert('You have successfully update the data tempat wisata');</script>";
-                echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+                echo "<script type='text/javascript'> document.location ='tables-datatw.php'; </script>";
             }
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
@@ -91,7 +91,7 @@ require_once "../config/config.php";
         $result = mysqli_query($host, $queryDaerahWisata);
         if ($result) {
             echo "<script>alert('You have successfully inserted the data');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
         }
@@ -104,7 +104,7 @@ require_once "../config/config.php";
         $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `name_dw`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
         if ($data) {
             echo "<script>alert('You have successfully inserted the data');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
         }
@@ -115,7 +115,7 @@ require_once "../config/config.php";
         $id_daerah_wisata = $_GET["id_daerah_wisata"];
         $query = "DELETE FROM `daerah_wisata` WHERE `id_daerah_wisata`=$id_daerah_wisata";
         $result = mysqli_query($host, $query);
-        header("Location:index.php");
+        header("Location:tables-daerah-wisata.php");
     } // end delete daerah_wisata
 
 } // end crud proses daerah_wisata
@@ -134,7 +134,7 @@ require_once "../config/config.php";
         $data = mysqli_query($host, "INSERT INTO `fasilitas`(`deskripsi_fasilitas`, `id_tempat_wisata`) VALUES ('$deskripsi','$id_tempat_wisata')");
         if ($data) {
             echo "<script>alert('You have successfully inserted the data Fasilitas');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-dataf.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
             echo "<script type='text/javascript'> document.location ='forms-validationf.php'; </script>";
@@ -183,7 +183,7 @@ require_once "../config/config.php";
         $result = mysqli_query($host, $queryKategori);
         if ($result) {
             echo "<script>alert('You have successfully inserted the data');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-kategori.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
         }
@@ -197,7 +197,7 @@ require_once "../config/config.php";
         $data = mysqli_query($host, "UPDATE `kategori` SET `name_kategori`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
         if ($data) {
             echo "<script>alert('You have successfully inserted the data');</script>";
-            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='tables-kategori.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
         }
@@ -210,7 +210,7 @@ require_once "../config/config.php";
         $id_kategori = $_GET["id_kategori"];
         $query = "DELETE FROM `kategori` WHERE `id_kategori`=$id_kategori";
         $result = mysqli_query($host, $query);
-        header("Location:index.php");
+        header("Location:tables-kategori.php");
     }
     // end delete kategori
 }
@@ -251,7 +251,7 @@ if (isset($_POST['submitImage'])) {
     $gambar = "INSERT INTO `image` (`image`, `image_satu`, `image_dua`, `id_tempat_wisata`) VALUES ('$namaImageSatu','$namaImageDua','$namaImageTiga', '$idTempatWisata')";
     $result = mysqli_query($host, $gambar);
 
-    header("Location: index.php");
+    header("Location: tables-image.php");
 }
 
 // Update Proses Image
@@ -272,7 +272,7 @@ if (isset($_POST['submitUpdateImage'])) {
     $data = mysqli_query($host, "UPDATE `image` SET `image`='$namaImageSatu', `image_satu`='$namaImageDua', `image_dua`='$namaImageTiga' WHERE `id_image`='$idImage'");
     if ($data) {
         echo "<script>alert('You have successfully inserted the data');</script>";
-        echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+        echo "<script type='text/javascript'> document.location ='tables-image.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
     }
