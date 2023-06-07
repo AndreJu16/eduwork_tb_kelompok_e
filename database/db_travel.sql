@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jun 2023 pada 15.04
+-- Waktu pembuatan: 07 Jun 2023 pada 13.36
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -37,9 +37,7 @@ CREATE TABLE `daerah_wisata` (
 --
 
 INSERT INTO `daerah_wisata` (`id_daerah_wisata`, `name_dw`) VALUES
-(1, 'Yogyakarta Update'),
-(2, 'Malang'),
-(4, 'Medan');
+(1, 'Bali');
 
 -- --------------------------------------------------------
 
@@ -58,8 +56,7 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id_fasilitas`, `deskripsi_fasilitas`, `id_tempat_wisata`) VALUES
-(1, 'Update Fasilitas\r\n- satu\r\n- dua\r\n- tiga\r\n- empat\r\n- lima\r\n- enam', 8),
-(2, 'Mantap 1, Mantap 2, Mantap 3', 10);
+(2, '- Toilet\r\n- Rest Area\r\n- Worship place\r\n- Penyewaan Kendaraan', 1);
 
 -- --------------------------------------------------------
 
@@ -80,11 +77,7 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_wisata`) VALUES
-(1, 'Closure1.png', 'Arrow Function.png', 'Closure2.png', 8),
-(2, 'Shoes Yellow Black.jpg', 'Shoes Blue White.jpg', '', 9),
-(3, 'T-Shirt Running Black.jpg', 'T-Shirt Nike Red.jpg', '', 9),
-(4, 'T-Shirt Black Machan.jpg', 'T-Shirt Black The Gun.jpg', 'T-Shirt Make Your Self.jpg', 10),
-(5, 'susu.jpeg', 'Jersey Nike BlackBlue.jpg', 'Shoes Black Jumper.jpg', 9);
+(1, 'Shoes Black Jumper.jpg', 'Shoes Blue Grey.jpg', 'Shoes Blue White.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -103,9 +96,8 @@ CREATE TABLE `kategori` (
 
 INSERT INTO `kategori` (`id_kategori`, `name_kategori`) VALUES
 (1, 'Pantai'),
-(2, 'Situs Sejarah'),
-(3, 'Pegunungan Update Kategori'),
-(5, 'Gunung');
+(2, 'Sejarah'),
+(3, 'Pegunungan');
 
 -- --------------------------------------------------------
 
@@ -125,7 +117,8 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_komentar`, `komentar`, `name_user`, `id_tempat_wisata`) VALUES
-(1, '- satu\r\n- dua\r\n- tiga\r\n- empat', '', 0);
+(1, 'Tempat Wisatanya Bagus, Enak Dilihat dari Bawah Tanah', 'Adrianta', 1),
+(2, 'klo', 'yuga', 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +132,6 @@ CREATE TABLE `tempat_wisata` (
   `deskripsi` text NOT NULL,
   `image_tw` varchar(255) NOT NULL,
   `id_daerah_wisata` int(11) NOT NULL,
-  `id_komentar` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -147,10 +139,8 @@ CREATE TABLE `tempat_wisata` (
 -- Dumping data untuk tabel `tempat_wisata`
 --
 
-INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_komentar`, `id_kategori`) VALUES
-(8, 'Update lagi Candi Borobudur', 'update lagi\r\nasdasdas\r\ndads\r\nad\r\nas\r\nd\r\nas\r\ndsadasdasdasdasdadasd\r\nas\r\nd\r\nasdsadasdasdwnhgfahdansdas', 'email.png', 1, 1, 2),
-(9, 'Pantai Watu Leter', 'hrdhgjj\r\njfhghv', 'bitbucket.png', 2, 1, 1),
-(10, 'Pantai Parang Tritis', 'Dancuk', 'Jersey Black.jpg', 2, 1, 2);
+INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_kategori`) VALUES
+(1, 'Pantai Kuta', 'Pantai Kuta Adalah Pantai Yang berada diprovinsi Bali', 'T-Shirt Black Machan.jpg', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -195,7 +185,6 @@ ALTER TABLE `komentar`
 ALTER TABLE `tempat_wisata`
   ADD PRIMARY KEY (`id_tempat_wisata`),
   ADD KEY `fk_id_daerah_wisata` (`id_daerah_wisata`),
-  ADD KEY `fk_id_komentar` (`id_komentar`),
   ADD KEY `fk_id_kategori` (`id_kategori`);
 
 --
@@ -206,7 +195,7 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT untuk tabel `daerah_wisata`
 --
 ALTER TABLE `daerah_wisata`
-  MODIFY `id_daerah_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_daerah_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `fasilitas`
@@ -218,25 +207,25 @@ ALTER TABLE `fasilitas`
 -- AUTO_INCREMENT untuk tabel `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
-  MODIFY `id_tempat_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_tempat_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -259,7 +248,6 @@ ALTER TABLE `image`
 --
 ALTER TABLE `tempat_wisata`
   ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`id_daerah_wisata`) REFERENCES `daerah_wisata` (`id_daerah_wisata`),
-  ADD CONSTRAINT `tempat_wisata_ibfk_2` FOREIGN KEY (`id_komentar`) REFERENCES `komentar` (`id_komentar`),
   ADD CONSTRAINT `tempat_wisata_ibfk_3` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 COMMIT;
 
