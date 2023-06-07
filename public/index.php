@@ -232,76 +232,24 @@
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
+          <?php 
+                  include "../config/config.php";
+                  $data = mysqli_query($host, "SELECT * FROM komentar ORDER BY  id_komentar DESC ");
+                  while ($d = mysqli_fetch_array($data)) { 
+                  ?>
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Bagi Ku Perjalanan itu penting karna dapat menghilangkan Penat yang selama ini aku punya ketika aku bekerja dikantoran
-                  Ketika saya jumpa E Travel saya jadi lebih mudah untuk terbang kesana kemari.
+                  <?php echo $d['komentar']; ?>
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3><?php echo $d['name_user']; ?></h3>
               </div>
             </div><!-- End testimonial item -->
+            <?php };?>
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  E Travel menjadi pilihan ku sejak aku suka berpetualang mencari destinasi yang mantap dan adem.
-                  apalagi E Travel mempunyai lokasi yang aku sukai
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Terimakasih E Travel, aku jadi lebih gampang menemukan tempat destinasi wisata yang
-                  terbaik buat ku dan juga keluarga buat jalan-jalan.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Belajar kemudian kalau capek, yaah gue sih pilihnya buat terbang mencari tempat hiburan baru,
-                  karna gue suka berpetualang.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Waktu adalah uang, jadi kalau pun mau jalan-jalan dalam memilih tempat
-                  jangan terlalu banyak, kalau bisa sekali cari tempat destinasi, dapat, langsung deh pesan.
-                  dan itu aku temukan di E Travel.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item -->
 
           </div>
           <div class="swiper-pagination"></div>
