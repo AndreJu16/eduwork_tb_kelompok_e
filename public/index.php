@@ -14,9 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -56,9 +54,13 @@
           <li><a class="nav-link scrollto" href="#testimonials">Kata Mereka</a></li>
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="kategori-details.php">Pantai</a></li>
-              <li><a href="kategori-details.php">Sejarah</a></li>
-              <li><a href="kategori-details.php">Pegunungan</a></li>
+              <?php
+              include "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `kategori`");
+              while ($d = mysqli_fetch_array($data)) {
+              ?>
+                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+              <?php } ?>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
@@ -67,97 +69,97 @@
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-  <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="margin-top: 100px; height: 500px;"></div>
-        <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
-        <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
-      </div>
-      <!-- text link ditengah -->
-      <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 10px 10px white; border:3px solid white; padding:10px;">
-        <h1 style="font-size: 48px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff; font-weight: bold; line-height: 1.2;">Mau jalan-jalan?</h1>
-        <p style="font-size: 24px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff;">Cari di E Travel aja</p>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="margin-top: 100px; height: 500px;"></div>
+          <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
+          <div class="carousel-item" style="margin-top: 100px; height: 500px;"></div>
+        </div>
+        <!-- text link ditengah -->
+        <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: 10px 10px white; border:3px solid white; padding:10px;">
+          <h1 style="font-size: 48px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff; font-weight: bold; line-height: 1.2;">Mau jalan-jalan?</h1>
+          <p style="font-size: 24px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); color: #fff;">Cari di E Travel aja</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
-    <defs>
-      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-    </defs>
-    <g class="wave1">
-      <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
-    </g>
-    <g class="wave2">
-      <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
-    </g>
-    <g class="wave3">
-      <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
-    </g>
-  </svg>
-</section><!-- End Hero -->
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
+      </g>
+    </svg>
+  </section><!-- End Hero -->
 
 
-<style>
-  #hero {
-    background-image: url('assets/img/portfolio/Bali-Bukit1.jpg');
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.3s ease-in-out;
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const carouselItems = document.querySelectorAll("#carouselExampleAutoplaying .carousel-item");
-    const carouselBackgrounds = [
-      "assets/img/portfolio/Bali-Bukit1.jpg",
-      "assets/img/portfolio/gunung.jpg",
-      "assets/img/portfolio/sawah.jpg"
-    ];
-
-    let currentItemIndex = 0;
-    let intervalId;
-
-    function updateBackground() {
-      const heroSection = document.getElementById("hero");
-      heroSection.style.backgroundImage = `url('${carouselBackgrounds[currentItemIndex]}')`;
+  <style>
+    #hero {
+      background-image: url('assets/img/portfolio/Bali-Bukit1.jpg');
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.3s ease-in-out;
     }
+  </style>
 
-    function updateActiveItem() {
-      carouselItems.forEach((item, index) => {
-        item.classList.toggle("active", index === currentItemIndex);
-      });
-    }
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const carouselItems = document.querySelectorAll("#carouselExampleAutoplaying .carousel-item");
+      const carouselBackgrounds = [
+        "assets/img/portfolio/Bali-Bukit1.jpg",
+        "assets/img/portfolio/gunung.jpg",
+        "assets/img/portfolio/sawah.jpg"
+      ];
 
-    function goToNextItem() {
-      currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
+      let currentItemIndex = 0;
+      let intervalId;
+
+      function updateBackground() {
+        const heroSection = document.getElementById("hero");
+        heroSection.style.backgroundImage = `url('${carouselBackgrounds[currentItemIndex]}')`;
+      }
+
+      function updateActiveItem() {
+        carouselItems.forEach((item, index) => {
+          item.classList.toggle("active", index === currentItemIndex);
+        });
+      }
+
+      function goToNextItem() {
+        currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
+        updateBackground();
+        updateActiveItem();
+      }
+
+      function goToPrevItem() {
+        currentItemIndex = (currentItemIndex - 1 + carouselItems.length) % carouselItems.length;
+        updateBackground();
+        updateActiveItem();
+      }
+
+      function startCarousel() {
+        intervalId = setInterval(goToNextItem, 5000);
+      }
+
+      function stopCarousel() {
+        clearInterval(intervalId);
+      }
+
       updateBackground();
       updateActiveItem();
-    }
-
-    function goToPrevItem() {
-      currentItemIndex = (currentItemIndex - 1 + carouselItems.length) % carouselItems.length;
-      updateBackground();
-      updateActiveItem();
-    }
-
-    function startCarousel() {
-      intervalId = setInterval(goToNextItem, 5000);
-    }
-
-    function stopCarousel() {
-      clearInterval(intervalId);
-    }
-
-    updateBackground();
-    updateActiveItem();
-    startCarousel();
-  });
-</script>
+      startCarousel();
+    });
+  </script>
 
 
 
@@ -169,16 +171,17 @@
     <!-- ======= Portfolio Section ======= -->
 
     <style>
-  .portfolio-img {
-  height: 250px; /* Adjust the height as per your preference */
-}
+      .portfolio-img {
+        height: 250px;
+        /* Adjust the height as per your preference */
+      }
 
-.portfolio-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-</style>
+      .portfolio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
 
     <section id="portfolio" class="portfolio">
       <div class="container">
@@ -193,25 +196,24 @@
 
         <div class="row portfolio-container" data-aos="fade-up">
           <?php
-            include "../config/config.php";
-            //$id_daerah_wisata = $_GET['id_daerah_wisata'];
-            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
+          include "../config/config.php";
+          //$id_daerah_wisata = $_GET['id_daerah_wisata'];
+          $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)");
-            while ($d = mysqli_fetch_array($data)) 
-            {
-              
+          while ($d = mysqli_fetch_array($data)) {
+
           ?>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>"  class="img-fluid" alt="image"></div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+              <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
               <div class="portfolio-info">
-                <h4><?php echo $d["name_tw"]?></h4>
-                <p><?php echo $d["name_kategori"]?></p>
+                <h4><?php echo $d["name_tw"] ?></h4>
+                <p><?php echo $d["name_kategori"].", ".$d["name_dw"] ?></p>
                 <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
             </div>
-          </div>
-          <?php 
+          <?php
           }
           ?>
         </div>
@@ -235,7 +237,7 @@
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   Bagi Ku Perjalanan itu penting karna dapat menghilangkan Penat yang selama ini aku punya ketika aku bekerja dikantoran
-                  Ketika saya jumpa E Travel saya jadi lebih mudah untuk terbang kesana kemari. 
+                  Ketika saya jumpa E Travel saya jadi lebih mudah untuk terbang kesana kemari.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -248,7 +250,7 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  E Travel menjadi pilihan ku sejak aku suka berpetualang mencari destinasi yang mantap dan adem. 
+                  E Travel menjadi pilihan ku sejak aku suka berpetualang mencari destinasi yang mantap dan adem.
                   apalagi E Travel mempunyai lokasi yang aku sukai
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
@@ -262,7 +264,7 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Terimakasih E Travel, aku jadi lebih gampang menemukan tempat destinasi wisata yang 
+                  Terimakasih E Travel, aku jadi lebih gampang menemukan tempat destinasi wisata yang
                   terbaik buat ku dan juga keluarga buat jalan-jalan.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
@@ -290,7 +292,7 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Waktu adalah uang, jadi kalau pun mau jalan-jalan dalam memilih tempat 
+                  Waktu adalah uang, jadi kalau pun mau jalan-jalan dalam memilih tempat
                   jangan terlalu banyak, kalau bisa sekali cari tempat destinasi, dapat, langsung deh pesan.
                   dan itu aku temukan di E Travel.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
@@ -307,37 +309,36 @@
 
       </div>
     </section><!-- End Testimonials Section -->
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>eTravel</h3>
-      <p>Memberikan Kemudahan Perjalanan Anda langsung di tangan mu</p>
-      <div class="copyright">
-        &copy; Copyright <strong><span>eTravel</span></strong>. All Rights Reserved
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <h3>eTravel</h3>
+        <p>Memberikan Kemudahan Perjalanan Anda langsung di tangan mu</p>
+        <div class="copyright">
+          &copy; Copyright <strong><span>eTravel</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/selecao-bootstrap-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/selecao-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+    </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
