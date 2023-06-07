@@ -127,15 +127,6 @@
       </li>
       <!-- End Tables Nav -->
 
-      <li class="nav-heading">Pages</li>
-
-      <!-- Start Profile Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-        </a>
-      </li>
-      <!-- End Profile Page Nav -->
     </ul>
   </aside>
   <!-- End Sidebar-->
