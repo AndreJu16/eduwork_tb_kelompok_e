@@ -127,17 +127,6 @@
       </ul>
     </li>
     <!-- End Tables Nav -->
-
-    <li class="nav-heading">Pages</li>
-
-    <!-- Start Profile Page Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="profile.php">
-        <i class="bi bi-person"></i>
-        <span>About Profile</span>
-      </a>
-    </li>
-    <!-- End Profile Page Nav -->
   </ul>
 
   </aside>
@@ -250,39 +239,7 @@
                     echo "No Data Avalaible";
                   }
                 ?>
-
-                <?php 
-                  require_once "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM `komentar`");
-                  if (mysqli_num_rows($data) > 0) {
-                ?>
-                  <div class="row position-relative mb-3">
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="id_komentar">Id komentar &emsp;&emsp;&emsp;&emsp;</span>
-                      <select class="form-select" name="id_komentar" aria-label="Default select example" required>
-                        <option selected disabled>Open this select Id komentar</option>
-                        <?php 
-                          foreach ($data as $row) {
-                        ?>
-                          <option value="<?php echo $row['id_komentar']; ?>"><?php echo $row['komentar']; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                      <div class="invalid-feedback">
-                        Please select a valid id komentar.
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                  } else {
-                    echo "No Data Avalaible";
-                  }
-                ?>
-
+                
                 <?php 
                   require_once "../config/config.php";
                   $data = mysqli_query($host, "SELECT * FROM `kategori`");

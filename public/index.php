@@ -231,10 +231,9 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
-          <?php 
+            <?php 
                   include "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM komentar ORDER BY  id_komentar DESC ");
+                  $data = mysqli_query($host, "SELECT * FROM `komentar` ORDER BY  `id_komentar` DESC ");
                   while ($d = mysqli_fetch_array($data)) { 
                   ?>
             <div class="swiper-slide">
@@ -245,11 +244,10 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3><?php echo $d['name_user']; ?></h3>
+                <h3><?php echo $d["name_user"];?></h3>
               </div>
             </div><!-- End testimonial item -->
-            <?php };?>
-
+            <?php }?>
 
           </div>
           <div class="swiper-pagination"></div>
