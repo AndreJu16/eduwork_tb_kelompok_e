@@ -42,14 +42,30 @@
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center  ">
-        <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center justify-content-between">
 
-            <div class="logo">
-                <h1><a href="index.php">E Travel</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>  
-    </header><!-- End Header -->
+      <div class="logo">
+        <h1><a href="index.php">E Travel</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <?php
+              include "../config/config.php";
+              $data = mysqli_query($host, "SELECT * FROM `kategori`");
+              while ($d = mysqli_fetch_array($data)) {
+              ?>
+                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+              <?php } ?>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      </div>
+  </header><!-- End Header -->
 
     <main id="main">
 
