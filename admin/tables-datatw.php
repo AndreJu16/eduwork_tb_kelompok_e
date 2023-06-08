@@ -163,12 +163,11 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id</th>
                         <th>Name</th>
                         <th>Deskripsi</th>
                         <th>Image</th>
-                        <th>Id Daerah</th>
-                        <th>Id Kategori</th>
+                        <th>Name Daerah</th>
+                        <th>Kategori</th>
                         <th>Update</th>
                         <th>Delete</th>
                       </tr>
@@ -176,19 +175,36 @@
                     <tbody>
                       <?php
                       require_once "../config/config.php";
-                      $data = mysqli_query($host, "SELECT * FROM `tempat_wisata`");
+                      $data = mysqli_query($host, "SELECT
+                          `tw`.`id_tempat_wisata`,
+                          `tw`.`name_tw`,
+                          `tw`.`deskripsi`,
+                          `tw`.`image_tw`,
+                          `dw`.`name_dw`,
+                          `k`.`name_kategori`
+                      FROM
+                          (
+                              (
+                                  `tempat_wisata` AS `tw`
+                              JOIN `daerah_wisata` AS `dw`
+                              ON
+                                  `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`
+                              )
+                          JOIN `kategori` AS `k`
+                          ON
+                              `tw`.`id_kategori` = `k`.`id_kategori`
+                          )");
                       if (mysqli_num_rows($data) > 0) {
                         $no = 1;
                         while ($d = mysqli_fetch_array($data)) {
                       ?>
                           <tr>
                             <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
                             <td> <?php echo $d["name_tw"]; ?> </td>
                             <td> <?php echo $d["deskripsi"]; ?> </td>
                             <td> <img src="assets/img/<?php echo $d["image_tw"]; ?>" width="80" height="80" alt="image"></td>
-                            <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
-                            <td> <?php echo $d["id_kategori"]; ?> </td>
+                            <td> <?php echo $d["name_dw"]; ?> </td>
+                            <td> <?php echo $d["name_kategori"]; ?> </td>
                             <td> <a href="updatetw.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata']; ?>" class="btn btn-warning">Update</a></td>
                             <td>
                               <form action="proses.php" method="post">

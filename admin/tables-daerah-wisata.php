@@ -161,7 +161,6 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Id Daerah Wisata</th>
                     <th>Name Daerah</th>
                     <th>Update</th>
                     <th>Delete</th>
@@ -177,7 +176,6 @@
                   ?>
                       <tr>
                         <td> <?php echo $no ?></td>
-                        <td> <?php echo $d["id_daerah_wisata"]; ?> </td>
                         <td> <?php echo $d["name_dw"]; ?> </td>
                         <td> <a href="update-daerah-wisata.php?id_daerah_wisata=<?php echo $d['id_daerah_wisata']; ?>" class="btn btn-warning">Update</a></td>
                         <td> <a href="proses.php?id_daerah_wisata=<?php echo $d['id_daerah_wisata']; ?>" class="btn btn-danger">Delete</a></td>
