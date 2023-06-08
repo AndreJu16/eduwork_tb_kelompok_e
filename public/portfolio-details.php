@@ -171,7 +171,7 @@
                         <div class="portfolio-info">
                             <h3>Informasi Fasilitas</h3>
                             <ul>
-                                <li><strong>Description</strong>: <?php echo $description; ?></li>
+                                <li><strong></strong> <?php echo $description; ?></li>
                             </ul>
                         </div>
 
@@ -202,7 +202,7 @@
 
                         <div class="portfolio-description">
                             <h2>Deskripsi <?php echo $name_tw; ?></h2>
-                            <p>
+                            <p style="text-align: justify;">
                                 <?php echo $deskripsi; ?>
                             </p>
                         </div>
@@ -357,7 +357,6 @@
 
                     <div class="container">
                         <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-                        <li data-filter="*" class="filter-active">Disini</li>
                         </ul>
 
                         <div class="row portfolio-container" data-aos="fade-up">

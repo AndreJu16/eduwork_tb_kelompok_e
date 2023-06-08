@@ -190,9 +190,6 @@
           <h2>Mencari Tujuan ?</h2>
           <p>Pilih Tujuan Wisata Mu </p>
         </div>
-        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
-          <li data-filter="*" class="filter-active">Disini</li>
-        </ul>
 
         <div class="row portfolio-container" data-aos="fade-up">
           <?php
@@ -243,7 +240,6 @@
                   <?php echo $d['komentar']; ?>
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3><?php echo $d["name_user"];?></h3>
               </div>
             </div><!-- End testimonial item -->
