@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 02:38 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 08, 2023 at 04:03 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `daerah_wisata` (
   `id_daerah_wisata` int(11) NOT NULL,
   `name_dw` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `daerah_wisata`
@@ -54,7 +54,7 @@ CREATE TABLE `fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
   `deskripsi_fasilitas` text NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `fasilitas`
@@ -87,7 +87,7 @@ CREATE TABLE `image` (
   `image_satu` varchar(255) NOT NULL,
   `image_dua` varchar(255) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `image`
@@ -117,7 +117,7 @@ INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `name_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kategori`
@@ -140,7 +140,7 @@ CREATE TABLE `komentar` (
   `komentar` text NOT NULL,
   `name_user` varchar(100) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `komentar`
@@ -165,7 +165,7 @@ CREATE TABLE `tempat_wisata` (
   `image_tw` varchar(255) NOT NULL,
   `id_daerah_wisata` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tempat_wisata`
@@ -279,20 +279,20 @@ ALTER TABLE `tempat_wisata`
 -- Constraints for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  ADD CONSTRAINT `fasilitas_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`);
+  ADD CONSTRAINT `fasilitas_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`);
+  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
-  ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`id_daerah_wisata`) REFERENCES `daerah_wisata` (`id_daerah_wisata`),
-  ADD CONSTRAINT `tempat_wisata_ibfk_3` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
+  ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`id_daerah_wisata`) REFERENCES `daerah_wisata` (`id_daerah_wisata`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tempat_wisata_ibfk_3` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
