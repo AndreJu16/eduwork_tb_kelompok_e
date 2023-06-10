@@ -73,7 +73,12 @@ INSERT INTO `fasilitas` (`id_fasilitas`, `deskripsi_fasilitas`, `id_tempat_wisat
 (10, '1. Area parkir luas sam\r\n2. Warung makanan dan minuman\r\n3. Musholla\r\n4. Toilet dan kamar mandi\r\n5. Penyewaan perahu', 10),
 (11, '1. Penginapan dan hotel\r\n2. Penyewaan jeep\r\n3. Toko Kelontong\r\n4. Warung makanan dan minuman\r\n5. Toilet\r\n6. Mushollah/Masjid', 11),
 (12, '1. Pusat Informasi dan Pos Pengamatan\r\n2. Jalan Setapak dan Trekking\r\n3. Area Perkemahan\r\n4. Penyewaan Kendaraan\r\n5. Warung makanan dan minuman', 12),
-(14, '1. Penginapan\r\n2. Restoran dan Warung Makan MInum\r\n3. Penyewaan Alat Snorkeling dan DivingPenyewaan Alat Snorkeling dan Diving\r\n4. Pusat Informasi Wisata\r\n5. Toko dan Pasar', 13);
+(14, '1. Penginapan\r\n2. Restoran dan Warung Makan MInum\r\n3. Penyewaan Alat Snorkeling dan DivingPenyewaan Alat Snorkeling dan Diving\r\n4. Pusat Informasi Wisata\r\n5. Toko dan Pasar', 13),
+(15, '1. Restoran\r\n2. Layanan Pemandu: \r\n3. Kunjungan ke desa-desa tradisional\r\n4. Boat dan Banana Boat \r\n5. Transportasi Lokal\r\n6. Objek Wisata dan Aktivitas\r\n7. Toko dan Pasar', 14),
+(16, '1. Area Pameran dan Museum\r\n2. Ruang Utama\r\n3. Tangga Marmer\r\n4. Area Pemandian\r\n5. Taman\r\n6. Toko Suvenir', 15),
+(17, '1. Area Parkir\r\n2. Jalur Akses dan Jalan Setapak\r\n3. Pemandangan Air Terjun\r\n4. Area Bersantai\r\n5. Warung dan Pedagang Kecil\r\n6. Toilet dan Fasilitas Umum', 16),
+(18, '1. Dermaga\r\n2. Pusat Informasi dan Pendaftaran\r\n3. Tempat Penyewaan Alat Snorkeling dan Penyelaman\r\n4. Penginapan dan Resort\r\n5. Restoran dan Warung Makan\r\n6. Toilet dan Fasilitas Umum\r\n7. Pemandu dan Instruktur Penyelaman', 17),
+(19, '1. Pusat Informasi dan Pendaftaran\r\n2. Tempat Parkir\r\n3. Toilet dan Fasilitas Umum\r\n4. Warung Makan dan Pedagang Kecil\r\n5. Area Istirahat\r\n6. Area Parkir Sepeda Motor\r\n7. Pemandu Wisata', 18);
 
 -- --------------------------------------------------------
 
@@ -106,7 +111,12 @@ INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_
 (10, 'images2.jpg', 'images3.jpg', 'images4.jpg', 10),
 (11, 'images1 (1).jpg', 'images2 (2).jpg', 'images3 (2).jpg', 11),
 (12, 'images1 (2).jpg', 'images2 (3).jpg', 'images4 (2).jpg', 12),
-(13, 'images4 (3).jpg', 'images (3).jpg', 'images2 (4).jpg', 13);
+(13, 'images4 (3).jpg', 'images (3).jpg', 'images2 (4).jpg', 13),
+(14, 'a1.jpg', 'a2.png', 'a3.png', 14),
+(15, 'a4.png', 'a5.png', 'a6.png', 15),
+(16, 'air-terjun-sipiso-piso (1).jpg', 'Air-Terjun-Sipiso-piso-2 (1).webp', '1606917504755-air-terjun-sipisopiso.jpg', 16),
+(17, 'a9.png', 'a8.png', 'a7.png', 17),
+(18, 'a10.png', 'a11.png', 'a12.png', 18);
 
 -- --------------------------------------------------------
 
@@ -127,7 +137,10 @@ INSERT INTO `kategori` (`id_kategori`, `name_kategori`) VALUES
 (1, 'Pantai'),
 (2, 'Pulau'),
 (3, 'Taman Budaya'),
-(4, 'Taman Nasional');
+(4, 'Taman Nasional'),
+(5, 'Danau'),
+(6, 'Istana'),
+(7, 'Air Terjun');
 
 -- --------------------------------------------------------
 
@@ -184,7 +197,12 @@ INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_
 (10, 'Pantai Goa Cina', 'Terletak di desa Sitiarjo, pantai ini memiliki suasana yang alami dan masih jarang dikunjungi wisatawan. Pantai ini memiliki pantai berpasir putih yang luas, tebing karang, dan gua-gua alami yang menarik untuk dijelajahi. Ketika mengunjungi Pantai Goa Cina, penting untuk tetap berhati-hati dan mengikuti petunjuk keamanan yang diberikan oleh petugas pantai. Selalu periksa kondisi cuaca dan gelombang sebelum berenang atau melakukan aktivitas di pantai ini.', 'images.jpg', 3, 1),
 (11, 'Taman Nasional Bromo Tengger Semeru', 'Gunung Bromo adalah salah satu gunung berapi paling terkenal di Indonesia yang terletak di Taman Nasional Bromo Tengger Semeru, di wilayah Malang, Jawa Timur. Ini adalah tujuan wisata yang populer karena pemandangan alam yang menakjubkan dan pengalaman mendebarkan. Anda dapat menikmati pemandangan spektakuler matahari terbit di Bukit Penanjakan dan menjelajahi kawah Gunung Bromo yang indah.\r\n', 'images (1).jpg', 3, 4),
 (12, 'Taman Nasional Baluran', 'Taman Nasional Baluran terletak di Situbondo, Jawa Timur, Indonesia. Taman Nasional ini terkenal karena padang savana yang luas, habitat satwa liar yang kaya, dan keindahan alam yang memukau. Taman Nasional Baluran mencakup luas sekitar 25.000 hektar dan terdiri dari beragam ekosistem, termasuk padang savana, hutan mangrove, hutan hujan tropis, dan pantai yang indah. Padang savana adalah salah satu daya tarik utama taman nasional ini, dengan pemandangan rerumputan yang luas dan dihiasi dengan pohon-pohon cemara udang yang ikonik.', 'images (2).jpg', 3, 4),
-(13, 'Pulau Karimunjawa', 'Pulau Karimunjawa adalah salah satu destinasi wisata pulau yang terletak di Laut Jawa, sebelah utara Jawa Tengah, Indonesia. Pulau ini menawarkan pantai berpasir putih, air laut yang jernih, dan kehidupan bawah laut yang kaya. Aktivitas yang bisa dilakukan di Pulau Karimunjawa termasuk snorkeling, menyelam, berlayar, dan menikmati keindahan alam. Pulau ini merupakan bagian dari Kepulauan Karimunjawa yang terdiri dari 27 pulau, dengan enam pulau di antaranya dihuni. Pulau Karimunjawa menawarkan keindahan alam yang memukau dengan pantai-pantai berpasir putih, air laut yang jernih, dan terumbu karang yang indah.', 'images1 (3).jpg', 3, 2);
+(13, 'Pulau Karimunjawa', 'Pulau Karimunjawa adalah salah satu destinasi wisata pulau yang terletak di Laut Jawa, sebelah utara Jawa Tengah, Indonesia. Pulau ini menawarkan pantai berpasir putih, air laut yang jernih, dan kehidupan bawah laut yang kaya. Aktivitas yang bisa dilakukan di Pulau Karimunjawa termasuk snorkeling, menyelam, berlayar, dan menikmati keindahan alam. Pulau ini merupakan bagian dari Kepulauan Karimunjawa yang terdiri dari 27 pulau, dengan enam pulau di antaranya dihuni. Pulau Karimunjawa menawarkan keindahan alam yang memukau dengan pantai-pantai berpasir putih, air laut yang jernih, dan terumbu karang yang indah.', 'images1 (3).jpg', 3, 2),
+(14, 'Danau Toba ', 'Keindahan alam yang menakjubkan membuat danau toba merupakan danau vulkanik terbesar di dunia dengan panorama alam yang memukau. Airnya yang biru jernih dan dikelilingi oleh pegunungan menjadikan pemandangan di sekitar danau ini sangat indah dan menenangkan, jika ingin menikmati pulau Samosir yang juga menjadi daya tarik utama dan menawarkan pengalaman yang unik bagi pengunjung. Pulai ini terkenal dengan kebudayaan bataknya, rumah adat tradisional, dan keramahan penduduk setempat. Desa Tomok dengan makam Raja Sidabutar, dan pantai pasir putih di parapat ', 'a1.jpg', 2, 5),
+(15, 'Istana Maimun', 'Istana maimun adalah bekas kediaman resmi Sultan Deli dan merupakan salah satu bangunan yang paling ikonik di Menda. Dibangun pada tahun 1988, istana ini menampilkan arsitektur yang memadukan gaya Melayu, Islam, dan Eropa. Setiap element arsitektur di dalam istana ini dirancana dengan indah dan memperlihatkan kekayaan budaya dan sejarah Melayu. Salah satu daya tarik utama istana maimun adalah tangga marmer yang mengarah ke ruang utama. Tangga ini menjadi latar belakang yang populer untuk berfoto bagi pengunjung. Di sepanjang ruang-ruang dalam istana, Anda juga akan menemukan lukisan-lukisan keluarga Sultan Deli, serta menghargai seni dan budaya Melayu yang kaya. ', 'a4.png', 2, 6),
+(16, 'Air Terjun Sipiso piso ', 'Merupakan salah sau objek wisata alam yang indah diSumatera Utara, Indonesia. Sekitar 24 kilometer dari kota berastagi, air terjun ini memiliki ketinggian sekitar 120 meter dan terkenal karena keindahaannya yang memukau. Perjalanan menuju air terjun sipiso-piso dimulai dengan melalui jalur yang melintasi perkebunan buah dan perbukitan yang hijau. Ketika anda mendekati air terjun, anda akan merasakan sejuknya udara pegunungan dan terpesona dengan panaorama alam yang memukau. Sesampainya di area Air terjun sipiso-piso, Anda akan disambut oleh pemandangan spektakuler air terjun yang mngalir deras dari puncak tebing menuju lembah. Aliran air yang kuat dan suara gemuruh air terjun menciptakan suasana yang menakjubkan. Di sekitar air terjun, terdapat area dengan jalan setapak yang emmungkinkan pengunjung untuk menjelajahi lebih dekat.', 'Air-Terjun-Sipiso-piso-2 (1).webp', 2, 7),
+(17, 'Taman Nasional Bunaken', 'Taman Nasional Bunaken terletak di sebelah utara Pulau Sulawesi dan merupakan salah satu tujuan wisata bahari terbaik di dunia. Taman nasional ini terkenal dengan keindahan bawah lautnya yang memukau, membuatnya menjadi surga bagi penyelam dan snorkeler. Saat Anda memasuki perairan Taman Nasional Bunaken, Anda akan disambut oleh keindahan terumbu karang yang spektakuler. Terumbu karang di sini memiliki keanekaragaman hayati yang luar biasa, dengan berbagai spesies karang, ikan, dan hewan laut lainnya yang hidup di dalamnya. Anda akan menemukan lingkungan bawah laut yang penuh warna dengan ikan-ikan yang berwarna-warni dan kehidupan laut yang menakjubkan.', 'a7.png', 5, 4),
+(18, 'Taman Nasional Bantimurung-Bulusaraung ', 'Taman Nasional Bantimurung-Bulusaraung adalah surga alam yang terdiri dari dua bagian utama, Bantimurung dan Bulusaraung. Bantimurung terkenal dengan air terjun yang indah, sementara Bulusaraung memiliki gua-gua spektakuler. Saat memasuki taman, Anda akan menikmati pemandangan alam yang memukau dengan hutan tropis yang lebat, udara segar, dan riuh suara air yang menenangkan. Air Terjun Bantimurung, dengan ketinggian 20 meter, menawarkan pemandangan yang memukau dengan gemuruh air yang menyejukkan. Taman ini juga merupakan rumah bagi keanekaragaman hayati, terutama kupu-kupu. Anda dapat menjelajahi Pusat Konservasi Kupu-Kupu untuk mempelajari kehidupan kupu-kupu yang indah dan langka.', 'a10.png', 5, 4);
 
 --
 -- Indexes for dumped tables
