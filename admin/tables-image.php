@@ -164,7 +164,7 @@
                                         <th>Image_satu</th>
                                         <th>Image_dua</th>
                                         <th>Image_tiga</th>
-                                        <th>Id Tempat Wisata</th>
+                                        <th>Name Tempat Wisata</th>
                                         <th>Update</th>
                                         <th>Delete</th>
                                     </tr>
@@ -172,7 +172,19 @@
                                 <tbody>
                                     <?php
                                     include "../config/config.php";
-                                    $data = mysqli_query($host, "SELECT * FROM `image`");
+                                    $data = mysqli_query($host, "SELECT
+                                    `image`.`id_image`,
+                                    `image`.`image`,
+                                    `image`.`image_satu`,
+                                    `image`.`image_dua`,
+                                    `tw`.`name_tw`
+                                FROM
+                                    (
+                                        `image`
+                                    JOIN `tempat_wisata` AS `tw`
+                                    ON
+                                        `tw`.`id_tempat_wisata` = `image`.`id_tempat_wisata`
+                                    )");
                                     if (mysqli_num_rows($data) > 0) {
                                         $no = 1;
                                         while ($d = mysqli_fetch_array($data)) {
@@ -182,7 +194,7 @@
                                                 <td> <img src="assets/img/<?php echo $d["image"]; ?>" width="80" height="80" alt="image"></td>
                                                 <td> <img src="assets/img/<?php echo $d["image_satu"]; ?>" width="80" height="80" alt="image"></td>
                                                 <td> <img src="assets/img/<?php echo $d["image_dua"]; ?>" width="80" height="80" alt="image"></td>
-                                                <td> <?php echo $d["id_tempat_wisata"] ?></td>
+                                                <td> <?php echo $d["name_tw"] ?></td>
                                                 <td> <a href="update-image.php?id_image=<?php echo $d['id_image']; ?>" class="btn btn-warning">Update</a></td>
                                                 <td> <a href="proses.php?id_image=<?php echo $d['id_image']; ?>" class="btn btn-danger">Delete</a></td>
                                             </tr>

@@ -156,7 +156,6 @@
                         <?php
                         // Fetch the description from the database based on the ID
                         // Adjust the SQL query based on your table structure
-                        // $query = "SELECT deskripsi_fasilitas FROM fasilitas";
                         $query = "SELECT deskripsi_fasilitas FROM fasilitas WHERE id_tempat_wisata = $id_tempat_wisata";
                         $result = mysqli_query($host, $query);
 
@@ -165,16 +164,22 @@
 
                         // Assign the value to the variable
                         $description = $row['deskripsi_fasilitas'];
+
+                        // Split the description into separate items
+                        $items = explode("\n", $description);
                         ?>
 
                         <!-- Now, you can use the updated HTML section with the dynamic description value -->
                         <div class="portfolio-info">
                             <h3>Informasi Fasilitas</h3>
                             <ul>
-                                <li><strong></strong> <?php echo $description; ?></li>
+                                <?php foreach ($items as $item) { ?>
+                                    <?php if (!empty($item)) { ?>
+                                        <li><strong></strong> <?php echo trim($item); ?><br></li>
+                                    <?php } ?>
+                                <?php } ?>
                             </ul>
                         </div>
-
                         <!-- end fasilitas -->
 
                         <!-- beginning tempat wisata description -->

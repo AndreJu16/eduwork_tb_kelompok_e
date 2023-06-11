@@ -163,9 +163,8 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id</th>
                         <th>Deskripsi</th>
-                        <th>Id Tempat Wisata</th>
+                        <th>Name Tempat Wisata</th>
                         <th>Update</th>
                         <th>Delete</th>
                       </tr>
@@ -173,16 +172,23 @@
                     <tbody>
                       <?php
                       require_once "../config/config.php";
-                      $data = mysqli_query($host, "SELECT * FROM `fasilitas`");
+                      $data = mysqli_query($host, "SELECT
+                      `fasilitas`.`id_fasilitas`,
+                      `fasilitas`.`deskripsi_fasilitas`,
+                      `tempat_wisata`.`name_tw`
+                      FROM
+                      (
+                          `fasilitas`
+                      JOIN `tempat_wisata` ON `tempat_wisata`.`id_tempat_wisata` = `fasilitas`.`id_tempat_wisata`
+                      )");
                       if (mysqli_num_rows($data) > 0) {
                         $no = 1;
                         while ($d = mysqli_fetch_array($data)) {
                       ?>
                           <tr>
                             <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["id_fasilitas"]; ?> </td>
                             <td> <?php echo $d["deskripsi_fasilitas"]; ?> </td>
-                            <td> <?php echo $d["id_tempat_wisata"]; ?> </td>
+                            <td> <?php echo $d["name_tw"]; ?> </td>
                             <td> <a href="updatef.php?id_fasilitas=<?php echo $d['id_fasilitas']; ?>" class="btn btn-warning">Update</a></td>
                             <td>
                               <form action="proses.php" method="post">
