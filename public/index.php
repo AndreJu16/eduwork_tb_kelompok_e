@@ -199,15 +199,7 @@
 
         <?php 
         if(isset($_GET['cari'])){
-          $cari = $_GET['cari'];
-          $data = mysqli_query($host, "SELECT * FROM `tempat_wisata` WHERE name_tw like '%".$cari."%'");				
-        }else{
-          $data = mysqli_query($host, "SELECT * FROM `tempat_wisata`");		
-        }
-        $no = 1;
-        while($d = mysqli_fetch_array($data)){
-        ?>
-        <?php 
+          $cari = $_GET['cari'];		
         }
         ?>
 
