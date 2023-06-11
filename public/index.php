@@ -191,21 +191,41 @@
           <p>Pilih Tujuan Wisata Mu </p>
         </div>
 
+        <form action="index.php" method="get">
+          <label>Cari :</label>
+          <input type="text" name="cari">
+          <input type="submit" value="Cari">
+        </form>
+
+        <?php 
+        if(isset($_GET['cari'])){
+          $cari = $_GET['cari'];
+          $data = mysqli_query($host, "SELECT * FROM `tempat_wisata` WHERE name_tw like '%".$cari."%'");				
+        }else{
+          $data = mysqli_query($host, "SELECT * FROM `tempat_wisata`");		
+        }
+        $no = 1;
+        while($d = mysqli_fetch_array($data)){
+        ?>
+        <?php 
+        }
+        ?>
+
         <div class="row portfolio-container" data-aos="fade-up">
           <?php
           include "../config/config.php";
           //$id_daerah_wisata = $_GET['id_daerah_wisata'];
           $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
-            JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)");
+            JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`) WHERE `name_tw` LIKE '$cari%' ");
           while ($d = mysqli_fetch_array($data)) {
-
           ?>
+
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
               <div class="portfolio-info">
                 <h4><?php echo $d["name_tw"] ?></h4>
-                <p><?php echo $d["name_kategori"].", ".$d["name_dw"] ?></p>
+                <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
                 <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
@@ -228,23 +248,23 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-            <?php 
-                  include "../config/config.php";
-                  $data = mysqli_query($host, "SELECT * FROM `komentar` ORDER BY  `id_komentar` DESC ");
-                  while ($d = mysqli_fetch_array($data)) { 
-                  ?>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  <?php echo $d['komentar']; ?>
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <h3><?php echo $d["name_user"];?></h3>
-              </div>
-            </div><!-- End testimonial item -->
-            <?php }?>
+            <?php
+            include "../config/config.php";
+            $data = mysqli_query($host, "SELECT * FROM `komentar` ORDER BY  `id_komentar` DESC ");
+            while ($d = mysqli_fetch_array($data)) {
+            ?>
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <?php echo $d['komentar']; ?>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <h3><?php echo $d["name_user"]; ?></h3>
+                </div>
+              </div><!-- End testimonial item -->
 
+            <?php } ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
