@@ -12,10 +12,6 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"/>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -191,40 +187,37 @@
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
-          <div class="row">
-              <div class="col">
-              <h2>Mencari Tujuan ?</h2>
-              <p>Pilih Tujuan Wisata Mu </p>
-              </div>
-              <!-- perbaiki mulai dari sini -->
+          <h2>Mencari Tujuan ?</h2>
+          <p>Pilih Tujuan Wisata Mu </p>
+        </div>
 
-                <div class="col-md-4">
-                  <form action="index.php" method="get">
-                        <div class="input-group mb-3">
-                          <input type="text" class="form-control" name="search" placeholder="Search Tempat Wisata" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                          <div class="input-group-append">
-                          <button type="submit" name="search" class="btn btn-primary" ><i class="bi bi-search"></i>Search</button>
-                          <?php 
-                          if(isset($_GET['search'])){
-                            $search = $_GET['search'];
-                            echo"<b>Hasil Pencarian : ". $search;"</b>";
-                            }
-                          ?>
-                    </form>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                </div>
+        <!-- start engine search bar  -->
+        <form action="indexsearch.php" method="get">
+          <div class="input-group mb-3">
+            <input type="text" name="search" class="form-control" placeholder="Search Tempat Wisata" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" name="searchh" type="search"><i class="bi bi-search"> Search</i></button>
+            </div>
+          </div>
+        </form>
+
+        <?php
+          if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            echo "Your Search : " . $search;
+          }
+        ?>
+        <!-- end engine search bar -->
+
         <div class="row portfolio-container" data-aos="fade-up">
           <?php
           include "../config/config.php";
-          $limit = 6;
+          $limit = 6; 
           $offsetQuery = "";
           if(isset($_GET["page"])){
-              $offset = ($_GET["page"]*$limit) - $limit;
-              $offsetQuery = "offset $offset";
-            }
+            $offset = ($_GET["page"]*$limit) - $limit;
+            $offsetQuery = "offset $offset";
+          }
           if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
@@ -235,9 +228,11 @@
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`) LIMIT $limit $offsetQuery");
           }
+          
           $count = mysqli_num_rows($data);
           if ($count>0) {
             while ($d = mysqli_fetch_array($data)) {
+
           ?>
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
@@ -249,13 +244,12 @@
               </div>
             </div>
           <?php
-          }
+          } }
           ?>
         </div>
       </div>
-    </section><!-- End Portfolio Section -->
-    <!-- pagination -->
-    <nav class="d-flex justify-content-center wow fadeIn">
+      <!--Pagination-->
+      <nav class="d-flex justify-content-center wow fadeIn">
         <ul class="pagination pg-blue">
 
           <!--Arrow left-->
@@ -266,7 +260,8 @@
             </a>
           </li>
           <?php 
-            $queryTotal = mysqli_query($host, "SELECT COUNT(*) AS total FROM `tempat_wisata`"); 
+            $queryTotal = mysqli_query($host, "SELECT COUNT(*) AS total FROM `tempat_wisata`");
+
             $row = mysqli_fetch_assoc($queryTotal);
             $countTotal = $row['total'];
             $page = ceil($countTotal/$limit);
@@ -278,25 +273,25 @@
                 if($i+1 == $_GET["page"]){
                   $active = "active";
                 }
-              }   
+              }
           ?>
           <li class="page-item <?php echo $active ?>">
-            <a class="page-link" href="index.php?page=<?php echo $i+1 ?>"><?php echo $i+1; ?>
+            <a class="page-link" href="indexsearch.php?page=<?php echo $i+1 ?>"><?php echo $i+1; ?>
             </a>
           </li>
-          <?php
-          } 
+          <?php 
             }
           ?>
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="indexsearch.php?page=<?php echo $i ?>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>
           </li>
         </ul>
       </nav>
-      <!-- pagination end -->
+      <!--Pagination-->
+    </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -361,15 +356,8 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-    </script>
     <script src="assets/js/main.js"></script>
-    
-  
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
 </body>
 
 </html>
