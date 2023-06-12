@@ -197,11 +197,16 @@
               <p>Pilih Tujuan Wisata Mu </p>
               </div>
               <!-- perbaiki mulai dari sini -->
-
-        <form action="index.php" method="get">
-          <label>Cari :</label>
-          <input type="text" name="cari">
-          <input type="submit" value="Cari">
+              <div class="col-md-4">
+              <form action="index.php" method="get">
+                <div class="input-group mb-3">
+                <input type="text" name="search" class="form-control" placeholder="Search Tempat Wisata" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+              <button class="btn btn-primary" name="searchh" type="search"><i class="bi bi-search"> Search</i></button>
+            </div>
+          </div>
+          </div>
+    </div>
         </form>
 
         <?php 
@@ -227,11 +232,13 @@
           } else {
             $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
-            JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)");
-          while ($d = mysqli_fetch_array($data)) {
+            JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)LIMIT $limit $offsetQuery");
+          } 
 
+          $count = mysqli_num_rows($data);
+          if ($count>0) {
+            while ($d = mysqli_fetch_array($data)) {
           ?>
-
             <div class="col-lg-4 col-md-6 portfolio-item filter-card">
               <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
               <div class="portfolio-info">
@@ -242,7 +249,7 @@
               </div>
             </div>
           <?php
-          }
+          } } 
           ?>
         </div>
       </div>
@@ -279,7 +286,7 @@
           </li>
           <?php
           } 
-            }
+        
           ?>
           <li class="page-item">
             <a class="page-link" href="#" aria-label="Next">
