@@ -304,34 +304,54 @@
 
         <div class="section-title" data-aos="zoom-out">
           <h2>Testimonials</h2>
-          <p>Apa Kata Mereka Tentang Kami ?</p>
+          <p>Apa Kata Mereka Tentang Kami?</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-            <?php
+            <?php 
             include "../config/config.php";
-            $data = mysqli_query($host, "SELECT * FROM `komentar` ORDER BY  `id_komentar` DESC ");
-            while ($d = mysqli_fetch_array($data)) {
+            $data = mysqli_query($host, "SELECT k.*, tw.image_tw FROM komentar k INNER JOIN tempat_wisata tw ON k.id_tempat_wisata = tw.id_tempat_wisata ORDER BY k.id_komentar DESC");
+            while ($d = mysqli_fetch_array($data)) { 
             ?>
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    <?php echo $d['komentar']; ?>
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                  <h3><?php echo $d["name_user"]; ?></h3>
-                </div>
-              </div><!-- End testimonial item -->
-
-            <?php } ?>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <?php if (!empty($d['image_tw'])) { ?>
+                  <div class="testimonial-image">
+                    <img src="../admin/assets/img/<?php echo $d['image_tw']; ?>" alt="Testimonial Image" class="img-fluid">
+                  </div>
+                <?php } ?>
+                <h3><?php echo $d["name_user"];?> says</h3>
+                <p>
+                  <i>"</i>
+                  <?php echo strlen($d['komentar']) > 105 ? substr($d['komentar'], 0, 105) . "..." : $d['komentar']; ?>
+                  <i>"</i> 
+                  <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="read-more-link">Click for more details</a>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+            <?php }?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
-    </section><!-- End Testimonials Section -->
+    </section>
+
+    <style>
+      .testimonial-image {
+        height: 150px; /* Adjust the height as per your requirements */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .testimonial-image img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+    <!-- End Testimonials Section -->
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
