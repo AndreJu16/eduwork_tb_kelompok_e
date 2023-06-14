@@ -82,6 +82,18 @@ require_once "../config/config.php";
 // start crud proses daerah_wisata
 {
 
+// Delete Image
+if (isset($_GET["id_image"])) {
+    $id_image = $_GET["id_image"];
+    $query = "DELETE FROM image WHERE id_image=$id_image";
+    $result = mysqli_query($host, $query);
+    if ($result) {
+        echo "<script>alert('You have successfully inserted the data');</script>";
+        echo "<script type='text/javascript'> document.location ='tables-image.php'; </script>";
+    } else {
+        echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    }
+}
 
 
     // start proses forms daerah_wisata
