@@ -278,4 +278,73 @@ if (isset($_POST['submitUpdateImage'])) {
     }
 }
 
+//ini proses register
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']); 
+    $queryRegister = ("INSERT INTO `login` (`username`, `email`, `password`) VALUES ('$username', '$email', '$password')");
+    $result = mysqli_query($host, $queryRegister);
+    if ($result) {
+        echo "<script>alert('Registrasi Berhasil...');</script>";
+        echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+    } else {
+        echo "<script>alert('Registrasi Gagal...');</script>";
+        echo "<script type='text/javascript'> document.location ='register.php'; </script>";
+    }
+}
+
+//ini proses login
+if (isset($_POST['login'])) {
+    $usernameLogin = $_POST['username'];
+    $passwordLogin = md5($_POST['password']);
+
+    $data = mysqli_query($host, "SELECT * FROM login WHERE username = '$usernameLogin'");
+
+    if (mysqli_num_rows($data) === 1) {
+        $d = mysqli_fetch_assoc($data);
+
+        if ($passwordLogin == $d['password'] && $d['level'] == 'admin') {
+            $_SESSION['username'] = $d['username'];
+            $_SESSION['level'] = $d['level'];
+            // header("Location: Admin/index.php");
+            echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+        }elseif ($passwordLogin == $d['password'] && $d['level'] == 'user') {
+            $_SESSION['username'] = $d['username'];
+            $_SESSION['level'] = $d['level'];
+            // header("Location: ../public/indextes.php");
+            echo "<script type='text/javascript'> document.location ='../public/index.php'; </script>";
+        }elseif ($passwordLogin != $d['password'] && $d['level'] == 'admin' | $d['level'] == 'user') {
+            echo "<script>alert('Username atau Password Salah !');</script>";
+            echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+            return false;
+        }
+    }else{
+        echo "<script>alert('Akun Tidak Ada Dalam Database !');</script>";
+        echo "<script type='text/javascript'> document.location ='../login.php'; </script>";
+    }
+}
+
+if(isset($_SESSION["username"])){
+    $username = $_SESSION["username"]; //$username isi dng session username.
+    //cocokan data pengguna berdasarkan $username.
+    $data = mysqli_query($host,"SELECT * FROM login WHERE username='$username'");
+    //ambil data hasil pencocokan.
+    $pengguna = mysqli_fetch_assoc($data);
+
+    //data ini hanya untuk level admin
+    if($_SESSION["level"] == "admin"){
+        //hitung semua pengguna
+        $count = mysqli_query($host,"SELECT * FROM login ORDER BY id DESC");
+        $totalPengguna = mysqli_num_rows($count); //total pengguna
+        //hitung semua admin
+        $count = mysqli_query($host,"SELECT * FROM login WHERE level='admin'");
+        $totalAdmin = mysqli_num_rows($count); //total admin
+        //hitung semua user
+        $count = mysqli_query($host,"SELECT * FROM login WHERE level='user'");
+        $totalUser = mysqli_num_rows($count); //total user
+     }
+}
+
 ?>
+

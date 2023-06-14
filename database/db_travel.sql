@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 04:03 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Jun 14, 2023 at 04:16 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `daerah_wisata` (
   `id_daerah_wisata` int(11) NOT NULL,
   `name_dw` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `daerah_wisata`
@@ -54,7 +54,7 @@ CREATE TABLE `fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
   `deskripsi_fasilitas` text NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `fasilitas`
@@ -92,7 +92,7 @@ CREATE TABLE `image` (
   `image_satu` varchar(255) NOT NULL,
   `image_dua` varchar(255) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `image`
@@ -127,7 +127,7 @@ INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `name_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kategori`
@@ -153,7 +153,7 @@ CREATE TABLE `komentar` (
   `komentar` text NOT NULL,
   `name_user` varchar(100) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `komentar`
@@ -163,7 +163,36 @@ INSERT INTO `komentar` (`id_komentar`, `komentar`, `name_user`, `id_tempat_wisat
 (1, 'Raja ampat memang salah satu pulau terbaik yang pernah ada di Indonesia, ga akan nyesel deh kalau kesana', 'Evi Dianasari', 5),
 (2, 'Kelihatan dari foto yang ada di web ini pantai pandawa sepertinya sangat indah', 'ade', 1),
 (3, 'Taman Nasional Bali ternyata keren juga.', 'yuga', 8),
-(4, 'aku ingin ke sini jika punya uang lebih!', 'andre', 8);
+(4, 'aku ingin ke sini jika punya uang lebih!', 'andre', 8),
+(5, 'Area parkir yang luas membuat saya bisa memandangi GWK dan mengambil potret disana untuk disimpan sebagai kenangan. terimakasih E travel telah memberikan peluang buat saya bisa berlibut ke tempat ini ', 'Kevin ', 6),
+(6, 'Terbang dari bandung hanya pengen untuk melihat air terjun sipiso-piso yang katanya keren dan juga tempat nya yang adem, untuk liburan. Mantap ', 'Tasya', 16),
+(7, 'Bersantai setelah kerja ke Istana Maimun membuat saya terkenang kembali dengan istri saya yang ketemu disana pertama kali, disana kami berdua menjalin kasih dan juga cerita yang menyenangkan. ', 'Alvin Yansyah', 15),
+(8, 'Danau Toba tempat yang bisa kita kelilingi sepanjang hari karna banyak tempat yang bisa kita kunjungi, bisa berenang dan juga menikmati pemandangan yang ada disana juga', 'Rizki Pratama ', 14),
+(9, 'berawal dari iseng lihat website E Travel dan mendapatkan promo, akhirnya berangkat juga deh untuk lihat pulau Derawan, keren tempatnya.', 'Priskila Situmorang', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `level` enum('admin','user') NOT NULL DEFAULT 'user',
+  `password` varchar(50) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `email`, `level`, `password`, `date`) VALUES
+(1, 'budiman', 'budiman@gmail.com', 'admin', '456b39e6cf4fdc9bda6b84b0a0b557dd', '2023-06-12 12:48:02'),
+(2, 'jinonda', 'jinonda@gmail.com', 'user', '25d55ad283aa400af464c76d713c07ad', '2023-06-12 13:17:56'),
+(4, 'lama', 'lama@gmail.com', 'user', '25d55ad283aa400af464c76d713c07ad', '2023-06-13 07:06:13');
 
 -- --------------------------------------------------------
 
@@ -178,7 +207,7 @@ CREATE TABLE `tempat_wisata` (
   `image_tw` varchar(255) NOT NULL,
   `id_daerah_wisata` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tempat_wisata`
@@ -187,7 +216,7 @@ CREATE TABLE `tempat_wisata` (
 INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_kategori`) VALUES
 (1, 'Pantai Pandawa', 'Pantai Pandawa, destinasi pantai yang memukau di Bali, Indonesia. Terletak di bagian selatan pulau, pantai ini menawarkan pemandangan spektakuler dengan air laut yang jernih dan pasir putih yang lembut. Dikelilingi oleh tebing-tebing batu kapur tinggi, pantai ini memiliki patung-patung karakter epik dalam kebudayaan Hindu yang dipahat di tebingnya. Nikmati keindahan alam yang menakjubkan dan nilai sejarah yang menarik di Pantai Pandawa, Bali!', 'Pantai Pandawa - Bali.jpg', 1, 1),
 (2, 'Pantai Pagatan', 'Pantai Pagatan, Kalimantan Selatan, Indonesia. Keindahan alam yang menakjubkan, pasir putih, air laut biru jernih. Garis pantai panjang dan indah, pasir halus dan lembut. Dikelilingi hutan bakau hijau. Ombak kuat, populer bagi peselancar. Berenang, berjalan-jalan, bersantai sambil menikmati keindahan alam. Pantai Pagatan menawarkan pengalaman yang mengesankan.', 'Pantai Pagatan - Kalimantan.jpg', 4, 1),
-(3, 'Pantain Benua Patra', 'Pantai Benua Patra, Balikpapan, Kalimantan Timur, Indonesia. Pesona alam yang indah, rekreasi yang menyenangkan. Garis pantai panjang, pasir putih lembut, air laut jernih biru. Dikelilingi hutan bakau hijau, menjelajahi, pemandangan menenangkan. Aktivitas olahraga air populer. Pemandangan matahari terbenam memukau. Pantai Benua Patra, destinasi menarik untuk liburan yang menyenangkan.', 'Pantai Benua Patra - Kalimantan.jpg', 4, 1),
+(3, 'Pantai Benua Patra', 'Pantai Benua Patra, Balikpapan, Kalimantan Timur, Indonesia. Pesona alam yang indah, rekreasi yang menyenangkan. Garis pantai panjang, pasir putih lembut, air laut jernih biru. Dikelilingi hutan bakau hijau, menjelajahi, pemandangan menenangkan. Aktivitas olahraga air populer. Pemandangan matahari terbenam memukau. Pantai Benua Patra, destinasi menarik untuk liburan yang menyenangkan.', 'Pantai Benua Patra - Kalimantan.jpg', 4, 1),
 (4, 'Pulau Derawan', 'Pulau Derawan, Kalimantan Timur, Indonesia: Surga tropis dengan pantai pasir putih, air laut jernih, dan terumbu karang indah. Snorkeling, penyelaman, dan penyu menjadi daya tarik utama. Pulau-pulau sekitarnya seperti Sangalaki dan Kakaban menawarkan pengalaman yang unik. Nikmati kesantaiannya atau pemandangan matahari terbenam yang memukau. Beragam akomodasi yang sesuai dengan preferensi dan anggaran. Selamat datang di Pulau Derawan, di mana keindahan alam dan kehidupan bawah laut menanti Anda!', 'Pulau Derawan - Kalimantan.jpg', 4, 2),
 (5, 'Pulau Raja Ampat', 'Raja Ampat, Papua Barat, Indonesia: Surga penyelam dan pecinta alam dengan keindahan alam bawah laut yang luar biasa. Lebih dari 1.500 pulau kecil, terumbu karang indah, dan kekayaan hayati yang melimpah. Pemandangan permukaan yang memukau dengan pulau berbukit hijau, pantai berpasir putih, dan laguna biru. Jelajahi keajaiban alam, temukan kehidupan bawah laut yang spektakuler, dan nikmati petualangan tak terlupakan. Selamat datang di Raja Ampat, destinasi pariwisata yang menakjubkan dengan keajaiban alam yang tak terlupakan!', 'Pulau Raja Ampat - Papua.jpg', 6, 2),
 (6, 'Taman Garuda Wisnu Kencana', 'Garuda Wisnu Kencana (GWK) di Bali, Indonesia: Destinasi ikonik dengan patung monumental Garuda Wisnu Kencana yang megah. Taman budaya yang menggabungkan seni, keindahan alam, dan warisan budaya. Patung setinggi 121 meter menggambarkan kekuatan dan keindahan. Tempat ideal untuk acara khusus dan pengalaman tak terlupakan. Saksikan keindahan seni, budaya, dan panorama luar biasa di GWK, Bali.', 'Taman Budaya GDK - Bali.jpg', 1, 3),
@@ -242,6 +271,12 @@ ALTER TABLE `komentar`
   ADD KEY `fk_id_tempat_wisata` (`id_tempat_wisata`);
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
@@ -263,31 +298,37 @@ ALTER TABLE `daerah_wisata`
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
-  MODIFY `id_tempat_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_tempat_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

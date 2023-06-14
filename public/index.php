@@ -68,6 +68,7 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
+          <li><a class="nav-link scrollto active" href="../admin/logout.php">Log out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
