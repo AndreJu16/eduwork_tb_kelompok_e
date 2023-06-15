@@ -325,7 +325,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $d['username'];
             $_SESSION['level'] = $d['level'];
             // header("Location: ../public/indextes.php");
-            echo "<script type='text/javascript'> document.location ='../public/index.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='../public/indexUser.php'; </script>";
         }elseif ($passwordLogin != $d['password'] && $d['level'] == 'admin' | $d['level'] == 'user') {
             echo "<script>alert('Username atau Password Salah !');</script>";
             echo "<script type='text/javascript'> document.location ='login.php'; </script>";

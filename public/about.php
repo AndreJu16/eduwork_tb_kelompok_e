@@ -58,6 +58,7 @@
     
 
     <!-- ======= Team Section ======= -->
+    
     <section id="about" class="team">
       <div class="container">
 
@@ -109,9 +110,9 @@
               <div class="member-img">
                 <img src="assets/img/team/team-3.jpeg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href="https://twitter.com/Tirtaadriant"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/adetirtaadrianta"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/tirtaadriant/"><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>

@@ -68,7 +68,7 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
-          <li><a class="nav-link scrollto active" href="../admin/logout.php">Log out</a></li>
+          <li><a class="nav-link green active" href="../admin/login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -186,6 +186,9 @@
         height: 100%;
         object-fit: cover;
       }
+      .green{
+        background-color: #0d6efd !important;
+      }
     </style>
 
     <section id="portfolio" class="portfolio">
@@ -260,12 +263,7 @@
         <ul class="pagination pg-blue">
 
           <!--Arrow left-->
-          <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
+        
           <?php 
             $queryTotal = mysqli_query($host, "SELECT COUNT(*) AS total FROM `tempat_wisata`"); 
             $row = mysqli_fetch_assoc($queryTotal);
@@ -289,12 +287,7 @@
           } 
         
           ?>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
+          
         </ul>
       </nav>
       <!-- pagination end -->
