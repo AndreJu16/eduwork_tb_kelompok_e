@@ -1,21 +1,21 @@
 <?php
-  session_start();
-  require_once "../config/config.php";
-  require_once "../Admin/proses.php";
+session_start();
+require_once "../config/config.php";
+require_once "../Admin/proses.php";
 
-  if(!isset($_SESSION['username'])){
-    echo "<script>alert('Mohon login dahulu !');</script>";
-    echo "<script type='text/javascript'> document.location ='login.php'; </script>";
-    return false;
-  }
+if (!isset($_SESSION['username'])) {
+  echo "<script>alert('Mohon login dahulu !');</script>";
+  echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+  return false;
+}
 
-  if($_SESSION["level"] != "admin"){
-    echo'<script>
+if ($_SESSION["level"] != "admin") {
+  echo '<script>
             alert("Maaf Anda Tidak Berhak Ke Halaman ini Admin !");
-            window.location="../'.$_SESSION["level"].'/";
+            window.location="../' . $_SESSION["level"] . '/";
          </script>';
-    return false;
-  }
+  return false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,14 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- You can use Open Graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Website Title" />
+  <meta property="og:description" content="Your description" />
+  <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
 
   <title>Dashboard - Admin</title>
   <meta content="" name="description">
@@ -38,7 +46,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -58,6 +66,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -79,13 +88,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?=$pengguna["username"];?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?= $pengguna["username"]; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li class="dropdown-header">
-              <h6><?=$pengguna["username"];?></h6>
-              <span><?=$pengguna["level"];?></span>
+              <h6><?= $pengguna["username"]; ?></h6>
+              <span><?= $pengguna["level"]; ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -121,7 +130,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-daerah-wisata.php" >
+            <a href="forms-daerah-wisata.php">
               <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
             </a>
           </li>
@@ -186,16 +195,38 @@
   <main id="main" class="main">
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <h3>Selamat Datang <?=$pengguna["username"];?></h3>
-      <p>Anda Login Sebagai <?=$pengguna["level"];?></p>
+      <h3>Selamat Datang <?= $pengguna["username"]; ?></h3>
+      <p>Anda Login Sebagai <?= $pengguna["level"]; ?></p>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
+      <div class="share-to-facebook">
+        <a href="">Share To Facebook</a>
+      </div>
+
+
+      <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <!-- Your share button code -->
+      <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count">
+      </div>
+
     </div><!-- End Page Title -->
-    
+
   </main>
 
 
@@ -210,9 +241,15 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
+    document.getElementById("brand").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("category").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("product").onclick = function() {
+      myFunction()
+    };
 
     function myFunction() {
       document.getElementById("brand").className = "active";
@@ -223,4 +260,5 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
