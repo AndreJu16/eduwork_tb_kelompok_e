@@ -249,6 +249,12 @@
                 <h4><?php echo $d["name_tw"] ?></h4>
                 <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
                 <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
+                <a href="#" class="like-button" data-id="<?php echo $d['id_tempat_wisata']; ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path class="heart-icon" d="M12 21.35l-1.45-1.32C5.4 15.65 2 12.4 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.9-3.4 7.15-8.55 11.53L12 21.35z"/>
+  </svg>
+  <span class="like-text">7 orang menyukai</span>
+    </a>
                 <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -258,6 +264,26 @@
         </div>
       </div>
     </section><!-- End Portfolio Section -->
+    <style>
+    .like-button .heart-icon {
+      fill: gray; /* Initial color for not liked */
+    }
+
+    .like-button.liked .heart-icon {
+      fill: pink; /* Color when liked */
+    }
+      </style>
+
+      <script>
+      // JavaScript
+      const likeButtons = document.querySelectorAll('.like-button');
+      likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          this.classList.toggle('liked');
+        });
+      });
+      </script>
+      
     <!-- pagination -->
     <nav class="d-flex justify-content-center wow fadeIn">
         <ul class="pagination pg-blue">
