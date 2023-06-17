@@ -171,15 +171,30 @@
 
                         <!-- Now, you can use the updated HTML section with the dynamic description value -->
                         <div class="portfolio-info">
-                            <h3>Informasi Fasilitas</h3>
-                            <ul>
-                                <?php foreach ($items as $item) { ?>
-                                    <?php if (!empty($item)) { ?>
-                                        <li><strong></strong> <?php echo trim($item); ?><br></li>
-                                    <?php } ?>
+                        <h3>Informasi Fasilitas</h3>
+                        <div class="facilities-container">
+                            <ul class="facilities-list">
+                            <?php foreach ($items as $index => $item) { ?>
+                                <?php if (!empty($item)) { ?>
+                                <li><strong></strong> <?php echo trim($item); ?><br></li>
                                 <?php } ?>
+                            <?php } ?>
                             </ul>
                         </div>
+                        </div>
+
+                        <style>
+                        .facilities-container {
+                        max-height: 150px; /* Set the desired height for the scrollable area */
+                        overflow-y: auto;
+                        }
+
+                        .facilities-list {
+                        padding-right: 15px; /* Add right padding to accommodate scrollbar */
+                        }
+
+                            </style>
+
                         <!-- end fasilitas -->
 
                         <!-- beginning tempat wisata description -->
@@ -207,10 +222,20 @@
 
                         <div class="portfolio-description">
                             <h2>Deskripsi <?php echo $name_tw; ?></h2>
-                            <p style="text-align: justify;">
-                                <?php echo $deskripsi; ?>
-                            </p>
+                            <div class="description-content">
+                                <p style="text-align: justify;">
+                                    <?php echo $deskripsi; ?>
+                                </p>
+                            </div>
                         </div>
+
+                        <style>
+                        .description-content {
+                            max-height: 200px; /* Set the desired height for the scrollable area */
+                            overflow-y: auto;
+                            padding: 10px; /* Add padding around the content */
+                        }
+                        </style>
                         <!-- end tempat wisata description -->
                     </div>
 
@@ -219,18 +244,6 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
-                                <!-- <form class="comment-form" action="../admin/proses.php" method="post">
-                                    <div class="form-group">
-                                        <label for="name">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="comment">Your Comment</label>
-                                        <textarea class="form-control" id="comment" rows="5" placeholder="Enter your comment" name="komentar" required></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
-                                </form> -->
-
                                 <form class="comment-form" action="proses-add.php" method="post">
                                     <!-- Add the hidden input field for id_tempat_wisata -->
                                     <input type="hidden" name="id_tempat_wisata" value="<?php echo $id_tempat_wisata; ?>">
@@ -244,32 +257,34 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
                                 </form>
-
                             </div>
+
+                            <style>
+                                .comment-list {
+                                    max-height: 280px; /* Set the desired max height for the comment list */
+                                    overflow-y: auto; /* Add overflow-y property to enable vertical scroll */
+                                    padding:10px;
+                                }
+                            </style>
+
                             <div class="col-lg-6">
+                            <h3>Comments</h3>
                                 <div class="comment-list">
-                                    <h3>Comments</h3>
                                     <!-- Comment 1 -->
                                     <?php
                                     include "../config/config.php";
-                                    // $data = mysqli_query($host, "SELECT * FROM `komentar` ");
                                     $data = mysqli_query($host, "SELECT * FROM `komentar` WHERE id_tempat_wisata = $id_tempat_wisata");
 
-                                    // while ($d = mysqli_fetch_array($data)) {
-
+                                    foreach ($data as $comment) :
                                     ?>
-                                    <?php foreach ($data as $comment) : ?>
                                         <div class="comment">
                                             <div class="comment-author"><?php echo $comment['name_user']; ?></div>
-                                            <!-- <div class="comment-date"><*/?php echo $comment['tanggal']; ?></div> -->
                                             <div class="comment-content"><?php echo $comment['komentar']; ?></div>
                                         </div>
                                     <?php endforeach; ?>
-                                    <?php
-                                    ?>
-                                    <!-- Add more comments here as needed -->
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
