@@ -1,21 +1,21 @@
 <?php
-  session_start();
-  require_once "../config/config.php";
-  require_once "../Admin/proses.php";
+session_start();
+require_once "../config/config.php";
+require_once "../Admin/proses.php";
 
-  if(!isset($_SESSION['username'])){
-    echo "<script>alert('Mohon login dahulu !');</script>";
-    echo "<script type='text/javascript'> document.location ='login.php'; </script>";
-    return false;
-  }
+if (!isset($_SESSION['username'])) {
+  echo "<script>alert('Mohon login dahulu !');</script>";
+  echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+  return false;
+}
 
-  if($_SESSION["level"] != "admin"){
-    echo'<script>
+if ($_SESSION["level"] != "admin") {
+  echo '<script>
             alert("Maaf Anda Tidak Berhak Ke Halaman ini Admin !");
-            window.location="../'.$_SESSION["level"].'/";
+            window.location="../' . $_SESSION["level"] . '/";
          </script>';
-    return false;
-  }
+  return false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- You can use Open Graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <title>Dashboard - Admin</title>
   <meta content="" name="description">
@@ -34,11 +37,12 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -58,6 +62,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -79,13 +84,13 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?=$pengguna["username"];?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?= $pengguna["username"]; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li class="dropdown-header">
-              <h6><?=$pengguna["username"];?></h6>
-              <span><?=$pengguna["level"];?></span>
+              <h6><?= $pengguna["username"]; ?></h6>
+              <span><?= $pengguna["level"]; ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -121,7 +126,7 @@
             </a>
           </li>
           <li>
-            <a href="forms-daerah-wisata.php" >
+            <a href="forms-daerah-wisata.php">
               <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
             </a>
           </li>
@@ -175,10 +180,13 @@
               <i class="bi bi-circle"></i><span>Data Tables Image</span>
             </a>
           </li>
-        </ul>
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
       </li>
       <!-- End Tables Nav -->
-
     </ul>
   </aside>
   <!-- End Sidebar-->
@@ -186,16 +194,58 @@
   <main id="main" class="main">
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <h3>Selamat Datang <?=$pengguna["username"];?></h3>
-      <p>Anda Login Sebagai <?=$pengguna["level"];?></p>
+      <h3>Selamat Datang <?= $pengguna["username"]; ?></h3>
+      <p>Anda Login Sebagai <?= $pengguna["level"]; ?></p>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
+
+
+      <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId: '802871274603241',
+            status: true,
+            cookie: true,
+            xfbml: true
+          });
+        };
+        (function() {
+          var e = document.createElement('script');
+          e.async = true;
+          e.src = document.location.protocol +
+            '//connect.facebook.net/en_US/all.js';
+          document.getElementById('fb-root').appendChild(e);
+        }());
+      </script>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#share_button').click(function(e) {
+            e.preventDefault();
+            FB.ui({
+              method: 'feed',
+              name: 'This is the content of the "name" field.',
+              link: 'https://www.instagram.com/p/CnwMQH7ph-t/',
+              picture: '',
+              caption: 'Top 3 reasons why you should care about your finance',
+              description: "What happens when you don't take care of your finances? Just look at our country -- you spend irresponsibly, get in debt up to your eyeballs, and stress about how you're going to make ends meet. The difference is that you don't have a glut of taxpayers…",
+              message: ""
+            });
+          });
+        });
+      </script>
+
+      <!-- Your share button code -->
+      <button id="share_button">Share To Facebook</button>
+
     </div><!-- End Page Title -->
-    
+
   </main>
 
 
@@ -210,9 +260,15 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
+    document.getElementById("brand").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("category").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("product").onclick = function() {
+      myFunction()
+    };
 
     function myFunction() {
       document.getElementById("brand").className = "active";
@@ -223,4 +279,5 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>

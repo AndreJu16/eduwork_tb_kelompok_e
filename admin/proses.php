@@ -79,6 +79,24 @@ require_once "../config/config.php";
 
 } // end crud proses tempat_wisata
 
+    // start delete tempat_wisata
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        $data = mysqli_query($host, "DELETE FROM `login` WHERE id='$id'");
+        if ($data) {
+            echo "<script>alert('You have successfully delete the data user Login');</script>";
+            echo "<script type='text/javascript'> document.location ='tables-userm.php'; </script>";
+        } else {
+            // Jika Gagal, Lakukan :
+            echo "<script>alert('Something Went Wrong. Please try again');</script>";
+            echo "<script type='text/javascript'> document.location ='tables-userm.php'; </script>";
+        }
+    } // end delete tempat_wisata
+
+
+
+
 // start crud proses daerah_wisata
 {
 
