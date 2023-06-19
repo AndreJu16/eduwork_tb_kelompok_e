@@ -228,22 +228,6 @@ if (isset($_GET["id_image"])) {
 }
 // end crud proses kategori
 
-// start proses forms komentar proses 
-if (isset($_POST['submit_komentar'])) {
-    $name_komentar = $_POST['name_komentar'];
-    $komentar = $_POST['komentar'];
-    $id_tempat_wisata = $_GET['id_tempat_wisata'];
-    $queryDaerahWisata = "INSERT INTO komentar (komentar, name_user, id_tempat_wisata) VALUES ('$komentar', '$name_komentar', '$id_tempat_wisata')";
-    $result = mysqli_query($host, $queryDaerahWisata);
-    if ($result) {
-        echo "<script>alert('You have successfully inserted the data');</script>";
-        echo "<script type='text/javascript'> document.location ='../public/portfolio-details.php; </script>";
-    } else {
-        echo "<script>alert('Something Went Wrong. Please try again');</script>";
-    }
-}//end proses forms komentar proses 
-
-
 
 // Start Proses Image
 // Add Proses Image
@@ -358,5 +342,16 @@ if(isset($_SESSION["username"])){
      }
 }
 
+if (isset($_POST['submit-like'])) {
+    $id_tempat_wisata = $_POST['id_tempat_wisata'];
+    $querySuka = "INSERT INTO suka (id_tw) VALUES ('$id_tempat_wisata')";
+    $result = mysqli_query($host, $querySuka);
+    if ($result) {
+        echo "<script>alert('You have successfully inserted the data');</script>";
+        header("Location: ../public/portfolio-details-user.php?id_tempat_wisata=" . $id_tempat_wisata);
+    } else {
+        echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    }
+}
 ?>
 

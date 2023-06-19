@@ -45,7 +45,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="index.php">E Travel</a></h1>
+                <h1><a href="indexUser.php">E Travel</a></h1>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -57,7 +57,7 @@
                             $data = mysqli_query($host, "SELECT * FROM `kategori`");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
-                                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+                                <li><a href="kategori-details-user.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
                             <?php } ?>
                         </ul>
                     </li>
@@ -148,7 +148,7 @@
                         <form action="../admin/proses.php" method="post">
                             <input type="hidden" name="id_tempat_wisata" class="form-control" id="id_tempat_wisata" value="<?php echo $id_tempat_wisata ?>" aria-describedby="id_brand">
 
-                            <button type="submit" name="submit-like">Like</button>
+                            <button type="submit" name="submit-like" class="love-button" onclick="toggleLove()">Like</button>
                             <button type="submit" name="submit-dislike">Dislike</button>
                         </form>
                     </div>
@@ -425,15 +425,21 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <?php
-      
-        if(isset($_POST['submit-like'])) {
-            echo "Sudah Liked";
+    <!-- Fitur Like  -->
+    <script>
+        function toggleLove() {
+            var button = document.querySelector('.love-button');
+            button.classList.toggle('active');
+
+            if (button.classList.contains('active')) {
+                button.innerHTML = 'Loved';
+                // Perform additional actions when the button is loved
+            } else {
+                button.innerHTML = 'Love';
+                // Perform additional actions when the button is unloved
+            }
         }
-        if(isset($_POST['button2'])) {
-            echo "This is Button2 that is selected";
-        }
-    ?>
+    </script>
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

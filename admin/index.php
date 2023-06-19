@@ -27,11 +27,6 @@ if ($_SESSION["level"] != "admin") {
 
   <!-- You can use Open Graph tags to customize link previews.
 Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-  <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Your Website Title" />
-  <meta property="og:description" content="Your description" />
-  <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
 
   <title>Dashboard - Admin</title>
   <meta content="" name="description">
@@ -42,6 +37,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -186,8 +182,19 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
           </li>
         </ul>
       </li>
-      <!-- End Tables Nav -->
 
+      <li>
+        <a class="nav-link collapsed" data-bs-target="#tables-navi" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>User Management</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-navi" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </aside>
   <!-- End Sidebar-->
@@ -203,27 +210,47 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
-      <div class="share-to-facebook">
-        <a href="">Share To Facebook</a>
-      </div>
 
 
       <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
       <script>
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId: '1116472295979758',
+            status: true,
+            cookie: true,
+            xfbml: true
+          });
+        };
+        (function() {
+          var e = document.createElement('script');
+          e.async = true;
+          e.src = document.location.protocol +
+            '//connect.facebook.net/en_US/all.js';
+          document.getElementById('fb-root').appendChild(e);
+        }());
+      </script>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#share_button').click(function(e) {
+            e.preventDefault();
+            FB.ui({
+              method: 'feed',
+              name: 'This is the content of the "name" field.',
+              link: 'https://www.instagram.com/p/CnwMQH7ph-t/',
+              picture: '',
+              caption: 'Top 3 reasons why you should care about your finance',
+              description: "What happens when you don't take care of your finances? Just look at our country -- you spend irresponsibly, get in debt up to your eyeballs, and stress about how you're going to make ends meet. The difference is that you don't have a glut of taxpayers…",
+              message: ""
+            });
+          });
+        });
       </script>
 
       <!-- Your share button code -->
-      <div class="fb-share-button" data-href="https://www.your-domain.com/your-page.html" data-layout="button_count">
-      </div>
+      <button id="share_button">Share To Facebook</button>
 
     </div><!-- End Page Title -->
 
