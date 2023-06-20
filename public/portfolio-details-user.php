@@ -166,7 +166,7 @@ if (!isset($_SESSION['username'])) {
                         <form method="post" id="form">
                             <input type="hidden" name="id_tempat_wisata" class="form-control" id="id_tempat_wisata" value="<?php echo $id_tempat_wisata ?>" aria-describedby="id_brand">
                             <input type="hidden" name="name_user" class="form-control" id="name_user" value="<?php echo $pengguna["username"] ?>" aria-describedby="id_brand">
-                            <button type="button" id="like" name="submit-like" class="love-button btn btn-primary fix-love" onclick="toggleLove()">Love</button>
+                            <button type="button" id="like" name="submit-like" class="love-button btn btn-primary fix-love" onclick="toggleLove()">Like</button>
                             <?php
                         include "../config/config.php";
                         $id_tempat_wisata = $_GET['id_tempat_wisata'];
@@ -502,20 +502,40 @@ if (!isset($_SESSION['username'])) {
     function setLikedState() {
         var button = document.querySelector('.love-button');
         button.classList.add('active');
-        button.innerHTML = 'Loved';
+        button.innerHTML = 'Unlike';
     }
-    function toggleLove() {
-        var button = document.querySelector('.love-button');
-        button.classList.toggle('active');
+    // function toggleLove() {
+    //     var button = document.querySelector('.love-button');
+    //     button.classList.toggle('active');
 
-        if (button.classList.contains('active')) {
-            button.innerHTML = 'Loved';
-            addLike();
-        } else {
-            button.innerHTML = 'Love';
-            removeLike();
-        }
+    //     if (button.classList.contains('active')) {
+    //         button.innerHTML = 'Loved';
+    //         addLike();
+    //     } else {
+    //         button.innerHTML = 'Love';
+    //         removeLike();
+    //     }
+    // }
+
+    //update love count
+    function toggleLove() {
+    var button = document.querySelector('.love-button');
+    button.classList.toggle('active');
+
+    var likeCount = document.querySelector('.comment-author');
+    var currentCount = parseInt(likeCount.textContent.split(' ')[1]);
+
+    if (button.classList.contains('active')) {
+        button.innerHTML = 'Unlike';
+        likeCount.textContent = 'Disukai ' + (currentCount + 1) + ' orang';
+        addLike();
+    } else {
+        button.innerHTML = 'Like';
+        likeCount.textContent = 'Disukai ' + (currentCount - 1) + ' orang';
+        removeLike();
     }
+}
+
 
     function addLike() {
         var data = $('#form').serialize();
