@@ -215,6 +215,16 @@
               <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
             </a>
           </li>
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End Tables Nav -->
@@ -244,19 +254,19 @@
             <h5 class="card-title">Forms Add Data Image</h5>
 
             <?php
-                    include_once "../config/config.php";
-                    $id_image = $_GET["id_image"];
-                    $query = mysqli_query($host, "SELECT * FROM `image` WHERE id_image='$id_image'");
+            include_once "../config/config.php";
+            $id_image = $_GET["id_image"];
+            $query = mysqli_query($host, "SELECT * FROM `image` WHERE id_image='$id_image'");
 
-                    while($category = mysqli_fetch_array($query)){
-                        $image_satu = $category['image'];
-                        $image_dua = $category['image_satu'];
-                        $image_tiga = $category['image_dua'];
-                    }
-                ?>
+            while ($category = mysqli_fetch_array($query)) {
+              $image_satu = $category['image'];
+              $image_dua = $category['image_satu'];
+              $image_tiga = $category['image_dua'];
+            }
+            ?>
 
             <!-- Custom Styled Validation with Tooltips -->
-            <form class="row g-3 needs-validation" method="post" action="proses.php?id_image=<?php echo $id_image ?>"  enctype="multipart/form-data" novalidate>
+            <form class="row g-3 needs-validation" method="post" action="proses.php?id_image=<?php echo $id_image ?>" enctype="multipart/form-data" novalidate>
               <div class="row position-relative mb-3">
                 <!-- Input Image -->
                 <div class="row position-relative mb-3">

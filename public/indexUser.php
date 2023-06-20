@@ -12,7 +12,7 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
@@ -49,7 +49,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.php">E Travel</a></h1>
+        <h1><a href="indexUser.php">E Travel</a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -63,11 +63,11 @@
               $data = mysqli_query($host, "SELECT * FROM `kategori`");
               while ($d = mysqli_fetch_array($data)) {
               ?>
-                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+                <li><a href="kategori-details-user.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
               <?php } ?>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="about.php">About</a></li>
+          <li><a class="nav-link scrollto" href="about-user.php">About</a></li>
           <li><a class="nav-link red active" href="../admin/logout.php">Log out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -186,7 +186,8 @@
         height: 100%;
         object-fit: cover;
       }
-      .red{
+
+      .red {
         background-color: red !important;
       }
     </style>
@@ -196,101 +197,102 @@
 
         <div class="section-title" data-aos="zoom-out">
           <div class="row">
-              <div class="col">
+            <div class="col">
               <h2>Mencari Tujuan ?</h2>
               <p>Pilih Tujuan Wisata Mu </p>
-              </div>
-              <!-- perbaiki mulai dari sini -->
-              <div class="col-md-4">
-              <form action="index.php" method="get">
+            </div>
+            <!-- perbaiki mulai dari sini -->
+            <div class="col-md-4">
+              <form action="indexUser.php#portfolio" method="get">
                 <div class="input-group mb-3">
-                <input type="text" name="search" class="form-control" placeholder="Search Tempat Wisata" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-              <button class="btn btn-primary" name="searchh" type="search"><i class="bi bi-search"> Search</i></button>
+                  <input type="text" name="search" class="form-control" placeholder="Search Tempat Wisata" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" name="searchh" type="search"><i class="bi bi-search"> Search</i></button>
+                  </div>
+                </div>
             </div>
           </div>
-          </div>
-    </div>
-        </form>
+          </form>
 
-        <?php 
-        if(isset($_GET['cari'])){
-          $cari = $_GET['cari'];		
-        }
-        ?>
-
-        <div class="row portfolio-container" data-aos="fade-up">
           <?php
-          include "../config/config.php";
-          $limit = 6;
-          $offsetQuery = "";
-          if(isset($_GET["page"])){
-              $offset = ($_GET["page"]*$limit) - $limit;
+          if (isset($_GET['cari'])) {
+            $cari = $_GET['cari'];
+          }
+          ?>
+
+          <div class="row portfolio-container" data-aos="fade-up">
+            <?php
+            include "../config/config.php";
+            $limit = 6;
+            $offsetQuery = "";
+            if (isset($_GET["page"])) {
+              $offset = ($_GET["page"] * $limit) - $limit;
               $offsetQuery = "offset $offset";
             }
-          if (isset($_GET['search'])) {
-            $search = $_GET['search'];
-            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
+            if (isset($_GET['search'])) {
+              $search = $_GET['search'];
+              $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`) WHERE `tw`.`name_tw` LIKE '%$search%' || `dw`.`name_dw` LIKE '%$search%'");
-          } else {
-            $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
+            } else {
+              $data = mysqli_query($host, "SELECT `tw`.`id_tempat_wisata`, `tw`.`name_tw`, `tw`.`deskripsi`, `tw`.`image_tw`, `dw`.`name_dw`, `ka`.`name_kategori` FROM ( (`tempat_wisata` AS `tw`
             JOIN `daerah_wisata` AS `dw` ON `tw`.`id_daerah_wisata` = `dw`.`id_daerah_wisata`)
             JOIN `kategori` AS `ka` ON `tw`.`id_kategori` = `ka`.`id_kategori`)LIMIT $limit $offsetQuery");
-          } 
+            }
 
-          $count = mysqli_num_rows($data);
-          if ($count>0) {
-            while ($d = mysqli_fetch_array($data)) {
-          ?>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-              <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
-              <div class="portfolio-info">
-                <h4><?php echo $d["name_tw"] ?></h4>
-                <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
-                <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          <?php
-          } } 
-          ?>
+            $count = mysqli_num_rows($data);
+            if ($count > 0) {
+              while ($d = mysqli_fetch_array($data)) {
+            ?>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                  <div class="portfolio-img"><img src="../admin/assets/img/<?php echo $d["image_tw"]; ?>" class="img-fluid" alt="image"></div>
+                  <div class="portfolio-info">
+                    <h4><?php echo $d["name_tw"] ?></h4>
+                    <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
+                    <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
+                </div>
+            <?php
+              }
+            }
+            ?>
+          </div>
         </div>
-      </div>
     </section><!-- End Portfolio Section -->
     <!-- pagination -->
     <nav class="d-flex justify-content-center wow fadeIn">
-        <ul class="pagination pg-blue">
+      <ul class="pagination pg-blue">
 
-          <!--Arrow left-->
-        
-          <?php 
-            $queryTotal = mysqli_query($host, "SELECT COUNT(*) AS total FROM `tempat_wisata`"); 
-            $row = mysqli_fetch_assoc($queryTotal);
-            $countTotal = $row['total'];
-            $page = ceil($countTotal/$limit);
+        <!--Arrow left-->
 
-            for($i=0;$i<$page;$i++){
+        <?php
+        $queryTotal = mysqli_query($host, "SELECT COUNT(*) AS total FROM `tempat_wisata`");
+        $row = mysqli_fetch_assoc($queryTotal);
+        $countTotal = $row['total'];
+        $page = ceil($countTotal / $limit);
 
-              $active = "";
-              if(isset($_GET["page"])){
-                if($i+1 == $_GET["page"]){
-                  $active = "active";
-                }
-              }   
-          ?>
+        for ($i = 0; $i < $page; $i++) {
+
+          $active = "";
+          if (isset($_GET["page"])) {
+            if ($i + 1 == $_GET["page"]) {
+              $active = "active";
+            }
+          }
+        ?>
           <li class="page-item <?php echo $active ?>">
-            <a class="page-link" href="index.php?page=<?php echo $i+1 ?>"><?php echo $i+1; ?>
+            <a class="page-link" href="indexUser.php?page=<?php echo $i + 1 ?>"><?php echo $i + 1; ?>
             </a>
           </li>
-          <?php
-          } 
-        
-          ?>
-          
-        </ul>
-      </nav>
-      <!-- pagination end -->
+        <?php
+        }
+
+        ?>
+
+      </ul>
+    </nav>
+    <!-- pagination end -->
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -303,28 +305,28 @@
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-            <?php 
+            <?php
             include "../config/config.php";
             $data = mysqli_query($host, "SELECT k.*, tw.image_tw FROM komentar k INNER JOIN tempat_wisata tw ON k.id_tempat_wisata = tw.id_tempat_wisata ORDER BY k.id_komentar DESC");
-            while ($d = mysqli_fetch_array($data)) { 
+            while ($d = mysqli_fetch_array($data)) {
             ?>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <?php if (!empty($d['image_tw'])) { ?>
-                  <div class="testimonial-image">
-                    <img src="../admin/assets/img/<?php echo $d['image_tw']; ?>" alt="Testimonial Image" class="img-fluid">
-                  </div>
-                <?php } ?>
-                <h3><?php echo $d["name_user"];?> says</h3>
-                <p>
-                  <i>"</i>
-                  <?php echo strlen($d['komentar']) > 105 ? substr($d['komentar'], 0, 105) . "..." : $d['komentar']; ?>
-                  <i>"</i> 
-                  <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="read-more-link">Click for more details</a>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-            <?php }?>
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <?php if (!empty($d['image_tw'])) { ?>
+                    <div class="testimonial-image">
+                      <img src="../admin/assets/img/<?php echo $d['image_tw']; ?>" alt="Testimonial Image" class="img-fluid">
+                    </div>
+                  <?php } ?>
+                  <h3><?php echo $d["name_user"]; ?> says</h3>
+                  <p>
+                    <i>"</i>
+                    <?php echo strlen($d['komentar']) > 105 ? substr($d['komentar'], 0, 105) . "..." : $d['komentar']; ?>
+                    <i>"</i>
+                    <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="read-more-link">Click for more details</a>
+                  </p>
+                </div>
+              </div><!-- End testimonial item -->
+            <?php } ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -333,7 +335,8 @@
 
     <style>
       .testimonial-image {
-        height: 150px; /* Adjust the height as per your requirements */
+        height: 150px;
+        /* Adjust the height as per your requirements */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -375,15 +378,16 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
+
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
+      $(document).ready(function() {
+        $('#myTable').DataTable();
+      });
     </script>
     <script src="assets/js/main.js"></script>
-    
-  
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 </body>
 
 </html>

@@ -1606,13 +1606,3 @@ section {
     height: 200px; /* Set the desired height */
     object-fit: cover;
   }
-
-
-/* like button */
-.like-button .heart-icon {
-  fill: gray; /* Initial color for not liked */
-}
-
-.like-button.liked .heart-icon {
-  fill: pink; /* Color when liked */
-}

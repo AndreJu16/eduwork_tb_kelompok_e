@@ -37,6 +37,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -56,82 +57,92 @@
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
-  <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <!-- Start Forms Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="forms-validationtw.php">
-            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-daerah-wisata.php" >
-            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationf.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-kategori.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-image.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Forms Nav -->
+      <!-- Start Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-validationtw.php">
+              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-daerah-wisata.php">
+              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validationf.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-kategori.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-image.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Forms Nav -->
 
-    <!-- Start Tables Nav -->
-    <li class="nav-item">
-      <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-datatw.php" >
-            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-daerah-wisata.php" class="active">
-            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-dataf.php">
-            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-kategori.php">
-            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-image.php">
-            <i class="bi bi-circle"></i><span>Data Tables Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Tables Nav -->
-  </ul>
+      <!-- Start Tables Nav -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-datatw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-daerah-wisata.php" class="active">
+              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-dataf.php">
+              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-kategori.php">
+              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-image.php">
+              <i class="bi bi-circle"></i><span>Data Tables Image</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
+    </ul>
 
   </aside>
   <!-- End Sidebar-->
-  
+
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -148,55 +159,55 @@
 
     <section class="section">
       <div class="row">
-          <div class="card col-lg">
-            <div class="card-body">
-                <h5 class="card-title">Forms Update Data Daerah Wisata</h5>
-                <?php
-                    include_once "../config/config.php";
-                    $id_daerah_wisata = $_GET["id_daerah_wisata"];
-                    $query = mysqli_query($host, "SELECT * FROM daerah_wisata WHERE id_daerah_wisata='$id_daerah_wisata'");
+        <div class="card col-lg">
+          <div class="card-body">
+            <h5 class="card-title">Forms Update Data Daerah Wisata</h5>
+            <?php
+            include_once "../config/config.php";
+            $id_daerah_wisata = $_GET["id_daerah_wisata"];
+            $query = mysqli_query($host, "SELECT * FROM daerah_wisata WHERE id_daerah_wisata='$id_daerah_wisata'");
 
-                    while($category = mysqli_fetch_array($query)){
-                        $name_daerah_wisata = $category['name_dw'];
-                    }
-                ?>              
-              <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="proses.php?id_daerah_wisata=<?php echo $id_daerah_wisata ?>" novalidate>
-                <div class="row position-relative mb-3">
-                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="id_daerah_wisata">Id Daerah Wisata &emsp;&emsp;&emsp;</span>
-                    <input type="number" name="id_daerah_wisata" class="form-control" id="id_daerah_wisata" value="<?php echo $id_daerah_wisata ?>" aria-describedby="id_brand" disabled>
-                    <div class="invalid-tooltip">
-                      Please Provide a valid Id Brand.
-                    </div>
+            while ($category = mysqli_fetch_array($query)) {
+              $name_daerah_wisata = $category['name_dw'];
+            }
+            ?>
+            <!-- Custom Styled Validation with Tooltips -->
+            <form class="row g-3 needs-validation" method="post" action="proses.php?id_daerah_wisata=<?php echo $id_daerah_wisata ?>" novalidate>
+              <div class="row position-relative mb-3">
+                <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="id_daerah_wisata">Id Daerah Wisata &emsp;&emsp;&emsp;</span>
+                  <input type="number" name="id_daerah_wisata" class="form-control" id="id_daerah_wisata" value="<?php echo $id_daerah_wisata ?>" aria-describedby="id_brand" disabled>
+                  <div class="invalid-tooltip">
+                    Please Provide a valid Id Brand.
                   </div>
                 </div>
-                <div class="row position-relative">
-                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="name_daerah_wisata">Name Daerah Wisata &emsp;</span>
-                    <input type="text" name="name_daerah_wisata" class="form-control" id="name_daerah_wisata" value="<?php echo $name_daerah_wisata ?>" aria-describedby="name_brand" required>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please Provide a valid Name Brand.
-                    </div>
+              </div>
+              <div class="row position-relative">
+                <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="name_daerah_wisata">Name Daerah Wisata &emsp;</span>
+                  <input type="text" name="name_daerah_wisata" class="form-control" id="name_daerah_wisata" value="<?php echo $name_daerah_wisata ?>" aria-describedby="name_brand" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                  <div class="invalid-tooltip">
+                    Please Provide a valid Name Brand.
                   </div>
                 </div>
-                <div class="row mt-4">
-                  <button class="btn btn-primary" type="submit" name="submitupdatedaerahwisata">Submit Data</button>
-                </div>
-              </form><!-- End Custom Styled Validation with Tooltips -->
-            </div>
+              </div>
+              <div class="row mt-4">
+                <button class="btn btn-primary" type="submit" name="submitupdatedaerahwisata">Submit Data</button>
+              </div>
+            </form><!-- End Custom Styled Validation with Tooltips -->
           </div>
+        </div>
       </div>
     </section>
 
   </main><!-- End #main -->
 
 
-<?php
-require_once "footer.php";
-?>
+  <?php
+  require_once "footer.php";
+  ?>

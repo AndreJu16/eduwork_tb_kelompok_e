@@ -185,6 +185,11 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
               <i class="bi bi-circle"></i><span>Data Tables User</span>
             </a>
           </li>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
       </li>
       <!-- End Tables Nav -->
     </ul>
@@ -209,7 +214,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
       <script>
         window.fbAsyncInit = function() {
           FB.init({
-            appId: '802871274603241',
+            appId: '1116472295979758',
             status: true,
             cookie: true,
             xfbml: true

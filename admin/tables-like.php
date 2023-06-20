@@ -176,7 +176,7 @@
             </a>
           </li>
           <li>
-            <a href="tables-dataf.php" class="active">
+            <a href="tables-dataf.php" >
               <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
             </a>
           </li>
@@ -196,7 +196,7 @@
             </a>
           </li>
           <li>
-            <a href="tables-like.php">
+            <a href="tables-like.php" class="active">
               <i class="bi bi-circle"></i><span>Data Tables Like</span>
             </a>
           </li>
@@ -217,7 +217,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">Tables Data</li>
-          <li class="breadcrumb-item active">Tables Data Fasilitas</li>
+          <li class="breadcrumb-item active">Tables Data Wisata Favorite</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -231,45 +231,28 @@
             <div class="col-12" id="tempat_wisata">
               <div class="card recent-sales overflow-auto">
                 <div class="card-body">
-                  <h5 class="card-title">Datatables Fasilitas</h5>
+                  <h5 class="card-title">Data tables Wisata Favorite</h5>
                   <!-- Table with stripped rows -->
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Deskripsi</th>
+                        <th>Jumlah Like</th>
                         <th>Name Tempat Wisata</th>
-                        <th>Update</th>
-                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                       require_once "../config/config.php";
-                      $data = mysqli_query($host, "SELECT
-                      `fasilitas`.`id_fasilitas`,
-                      `fasilitas`.`deskripsi_fasilitas`,
-                      `tempat_wisata`.`name_tw`
-                      FROM
-                      (
-                          `fasilitas`
-                      JOIN `tempat_wisata` ON `tempat_wisata`.`id_tempat_wisata` = `fasilitas`.`id_tempat_wisata`
-                      )");
+                      $data = mysqli_query($host, "SELECT COUNT(id_like), `tw`.`name_tw` FROM `suka` JOIN `tempat_wisata` AS `tw` ON `suka`.`id_tw` = `tw`.`id_tempat_wisata` GROUP BY id_tw");
                       if (mysqli_num_rows($data) > 0) {
                         $no = 1;
                         while ($d = mysqli_fetch_array($data)) {
                       ?>
                           <tr>
                             <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["deskripsi_fasilitas"]; ?> </td>
+                            <td> <?php echo $d["COUNT(id_like)"]; ?> </td>
                             <td> <?php echo $d["name_tw"]; ?> </td>
-                            <td> <a href="updatef.php?id_fasilitas=<?php echo $d['id_fasilitas']; ?>" class="btn btn-warning">Update</a></td>
-                            <td>
-                              <form action="proses.php" method="post">
-                                <input type="hidden" name="id_fasilitas" value="<?php echo $d['id_fasilitas']; ?>">
-                                <button class="btn btn-danger" type="submit" name="deletef">Delete</button>
-                              </form>
-                            </td>
                           </tr>
 
                       <?php $no++;

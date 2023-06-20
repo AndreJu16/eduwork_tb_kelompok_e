@@ -12,8 +12,20 @@ if (isset($_POST['submit_komentar'])) {
 
     // Redirect back to the portfolio details page
 // Redirect back to the portfolio details page with the id_tempat_wisata parameter
-header("Location: ../public/portfolio-details.php?id_tempat_wisata=" . $id_tempat_wisata);
+header("Location: ../public/portfolio-details-user.php?id_tempat_wisata=" . $id_tempat_wisata);
 exit();
+}
 
+
+if(isset($_POST["id_tempat_wisata"])){
+//menerima nilai dari kiriman form input-barang
+$id_tempat_wisata=$_POST["id_tempat_wisata"];
+$nama_user=$_POST["name_user"];
+
+//Query input menginput data kedalam tabel barang
+$sql="INSERT INTO `suka` (id_tw, name_user) values('$id_tempat_wisata', '$nama_user')";
+
+//Mengeksekusi/menjalankan query diatas
+$hasil=mysqli_query($host,$sql);
 }
 ?>

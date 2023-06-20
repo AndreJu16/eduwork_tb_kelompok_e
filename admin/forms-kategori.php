@@ -1,21 +1,21 @@
 <?php
-  session_start();
-  require_once "../config/config.php";
-  require_once "../Admin/proses.php";
+session_start();
+require_once "../config/config.php";
+require_once "../Admin/proses.php";
 
-  if(!isset($_SESSION['username'])){
-    echo "<script>alert('Mohon login dahulu !');</script>";
-    echo "<script type='text/javascript'> document.location ='login.php'; </script>";
-    return false;
-  }
+if (!isset($_SESSION['username'])) {
+  echo "<script>alert('Mohon login dahulu !');</script>";
+  echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+  return false;
+}
 
-  if($_SESSION["level"] != "admin"){
-    echo'<script>
+if ($_SESSION["level"] != "admin") {
+  echo '<script>
             alert("Maaf Anda Tidak Berhak Ke Halaman ini Admin !");
-            window.location="../'.$_SESSION["level"].'/";
+            window.location="../' . $_SESSION["level"] . '/";
          </script>';
-    return false;
-  }
+  return false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +56,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -73,129 +74,139 @@
 
   </header>
   <!-- End Header -->
-<!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
 
-<!-- Start Logo -->
-<div class="d-flex align-items-center justify-content-between">
-  <a href="index.php" class="logo d-flex align-items-center">
-    <img src="assets/img/logo.png" alt="">
-    <span class="d-none d-lg-block">Admin</span>
-  </a>
-  <i class="bi bi-list toggle-sidebar-btn"></i>
-</div>
-<!-- End Logo -->
+    <!-- Start Logo -->
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.php" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+    <!-- End Logo -->
 
-<nav class="header-nav ms-auto">
-  <ul class="d-flex align-items-center">
-    <li class="nav-item dropdown pe-3">
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
 
-      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
-        <span class="d-none d-md-block dropdown-toggle ps-2"><?=$pengguna["username"];?></span>
-      </a><!-- End Profile Iamge Icon -->
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?= $pengguna["username"]; ?></span>
+          </a><!-- End Profile Iamge Icon -->
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <li class="dropdown-header">
-          <h6><?=$pengguna["username"];?></h6>
-          <span><?=$pengguna["level"];?></span>
-        </li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+            <li class="dropdown-header">
+              <h6><?= $pengguna["username"]; ?></h6>
+              <span><?= $pengguna["level"]; ?></span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
 
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="logout.php">
-            <i class="bi bi-box-arrow-right"></i>
-            <span>Sign Out</span>
-          </a>
-        </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
 
-      </ul><!-- End Profile Dropdown Items -->
-    </li><!-- End Profile Nav -->
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
 
-  </ul>
-</nav>
-</header>
+      </ul>
+    </nav>
+  </header>
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
-  <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-    <!-- Start Forms Nav -->
-    <li class="nav-item">
-      <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="forms-validationtw.php" >
-            <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-daerah-wisata.php" >
-            <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-validationf.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-kategori.php" class="active">
-            <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="forms-image.php">
-            <i class="bi bi-circle" id="product"></i><span>Add Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Forms Nav -->
+      <!-- Start Forms Nav -->
+      <li class="nav-item">
+        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="forms-validationtw.php">
+              <i class="bi bi-circle" id="brand"></i><span>Add Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-daerah-wisata.php">
+              <i class="bi bi-circle" id="category"></i><span>Add Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-validationf.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-kategori.php" class="active">
+              <i class="bi bi-circle" id="product"></i><span>Add Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="forms-image.php">
+              <i class="bi bi-circle" id="product"></i><span>Add Image</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Forms Nav -->
 
-    <!-- Start Tables Nav -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="tables-datatw.php">
-            <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-daerah-wisata.php">
-            <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-dataf.php">
-            <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-kategori.php">
-            <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
-          </a>
-        </li>
-        <li>
-          <a href="tables-image.php">
-            <i class="bi bi-circle"></i><span>Data Tables Image</span>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- End Tables Nav -->
-  </ul>
+      <!-- Start Tables Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="tables-datatw.php">
+              <i class="bi bi-circle"></i><span>Data Tables Tempat Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-daerah-wisata.php">
+              <i class="bi bi-circle"></i><span>Data Tables Daerah Wisata</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-dataf.php">
+              <i class="bi bi-circle"></i><span>Data Tables Fasilitas</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-kategori.php">
+              <i class="bi bi-circle"></i><span>Data Tables Kategori</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-image.php">
+              <i class="bi bi-circle"></i><span>Data Tables Image</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Tables Nav -->
+    </ul>
 
   </aside>
   <!-- End Sidebar-->
-  
+
   <!-- Start #main -->
   <main id="main" class="main">
 
@@ -212,41 +223,41 @@
 
     <section class="section">
       <div class="row">
-          <div class="card col-lg">
-            <div class="card-body">
-              <h5 class="card-title">Forms Add Kategori</h5>
-              
-              <!-- Custom Styled Validation with Tooltips -->
-              <form class="row g-3 needs-validation" method="post" action="proses.php" novalidate>
-                <div class="row position-relative mb-3">
-                  <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="id_kategori">Id &emsp;&emsp;&emsp;</span>
-                    <input type="number" class="form-control" name="id_kategori" id="id_kategori" aria-describedby="id_kategori" disabled>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Id.
-                    </div>
-                  </div>
-                </div>
-                <div class="row position-relative mb-3">
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="name">Name &emsp;</span>
-                    <input type="text" class="form-control" name="nameKategori" id="nameKategori" aria-describedby="nameKategori" required>
-                    <div class="valid-tooltip">
-                      Looks good!
-                    </div>
-                    <div class="invalid-tooltip">
-                      Please choose a unique and valid Name.
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-4">
-                  <button class="btn btn-success" type="submit" name="submitkategori">Submit Data</button>
-                </div>
-              </form><!-- End Custom Styled Validation with Tooltips -->
+        <div class="card col-lg">
+          <div class="card-body">
+            <h5 class="card-title">Forms Add Kategori</h5>
 
-            </div>
+            <!-- Custom Styled Validation with Tooltips -->
+            <form class="row g-3 needs-validation" method="post" action="proses.php" novalidate>
+              <div class="row position-relative mb-3">
+                <!-- <label for="validationTooltipUsername" class="form-label">Username</label> -->
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="id_kategori">Id &emsp;&emsp;&emsp;</span>
+                  <input type="number" class="form-control" name="id_kategori" id="id_kategori" aria-describedby="id_kategori" disabled>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid Id.
+                  </div>
+                </div>
+              </div>
+              <div class="row position-relative mb-3">
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="name">Name &emsp;</span>
+                  <input type="text" class="form-control" name="nameKategori" id="nameKategori" aria-describedby="nameKategori" required>
+                  <div class="valid-tooltip">
+                    Looks good!
+                  </div>
+                  <div class="invalid-tooltip">
+                    Please choose a unique and valid Name.
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <button class="btn btn-success" type="submit" name="submitkategori">Submit Data</button>
+              </div>
+            </form><!-- End Custom Styled Validation with Tooltips -->
+
           </div>
+        </div>
       </div>
     </section>
   </main>
@@ -277,9 +288,15 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <script>
-    document.getElementById("brand").onclick = function() {myFunction()};
-    document.getElementById("category").onclick = function() {myFunction()};
-    document.getElementById("product").onclick = function() {myFunction()};
+    document.getElementById("brand").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("category").onclick = function() {
+      myFunction()
+    };
+    document.getElementById("product").onclick = function() {
+      myFunction()
+    };
 
     function myFunction() {
       document.getElementById("brand").className = "active";

@@ -190,6 +190,16 @@
               <i class="bi bi-circle"></i><span>Data Tables Image</span>
             </a>
           </li>
+          <li>
+            <a href="tables-userm.php">
+              <i class="bi bi-circle"></i><span>Data Tables User</span>
+            </a>
+          </li>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End Tables Nav -->

@@ -1,21 +1,21 @@
 <?php
-  session_start();
-  require_once "../config/config.php";
-  require_once "../Admin/proses.php";
+session_start();
+require_once "../config/config.php";
+require_once "../Admin/proses.php";
 
-  if(!isset($_SESSION['username'])){
-    echo "<script>alert('Mohon login dahulu !');</script>";
-    echo "<script type='text/javascript'> document.location = 'login.php'; </script>";
-    return false;
-  }
+if (!isset($_SESSION['username'])) {
+  echo "<script>alert('Mohon login dahulu !');</script>";
+  echo "<script type='text/javascript'> document.location = 'login.php'; </script>";
+  return false;
+}
 
-  if($_SESSION["level"] != "admin"){
-    echo'<script>
+if ($_SESSION["level"] != "admin") {
+  echo '<script>
       alert("Maaf Anda Tidak Berhak Ke Halaman ini Admin !");
-      window.location = "../'.$_SESSION["level"].'/";
+      window.location = "../' . $_SESSION["level"] . '/";
     </script>';
-    return false;
-  }
+  return false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +34,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -96,17 +94,17 @@
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
             <span class="d-none d-md-block dropdown-toggle ps-2">
-              <?=$pengguna["username"];?>
+              <?= $pengguna["username"]; ?>
             </span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li class="dropdown-header">
               <h6>
-                <?=$pengguna["username"];?>
+                <?= $pengguna["username"]; ?>
               </h6>
               <span>
-                <?=$pengguna["level"];?>
+                <?= $pengguna["level"]; ?>
               </span>
             </li>
             <li>
@@ -161,6 +159,7 @@
               <i class="bi bi-circle" id="product"></i><span>Add Image</span>
             </a>
           </li>
+          
         </ul>
       </li>
       <!-- End Forms Nav -->
@@ -168,8 +167,7 @@
       <!-- Start Tables Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i
-            class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li>
@@ -197,16 +195,21 @@
               <i class="bi bi-circle"></i><span>Data Tables Image</span>
             </a>
           </li>
-        </li>
-        <li>
-            <a href="tables-userm.php">
+          <li>
+            <a href="tables-userm.php" class="active">
               <i class="bi bi-circle"></i><span>Data Tables User</span>
             </a>
           </li>
-      </ul>
+          <li>
+            <a href="tables-like.php">
+              <i class="bi bi-circle"></i><span>Data Tables Like</span>
+            </a>
+          </li>
         </ul>
-      
-      <!-- End Tables Nav -->
+      </li>
+    </ul>
+
+    <!-- End Tables Nav -->
     </ul>
 
   </aside>
@@ -260,21 +263,21 @@
                         $no = 1;
                         while ($d = mysqli_fetch_array($data)) {
                       ?>
-                      <tr>
-                        <td>
-                          <?php echo $no ?>
-                        </td>
-                        <td>
-                          <?php echo $d["username"]; ?>
-                        </td>
-                        <td>
-                          <?php echo $d["email"]; ?>
-                        </td>
-                        <td>
-                          <?php echo $d["level"]; ?>
-                        </td>
-                        <td> <a href="proses.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Delete</a></td>
-                      </tr>
+                          <tr>
+                            <td>
+                              <?php echo $no ?>
+                            </td>
+                            <td>
+                              <?php echo $d["username"]; ?>
+                            </td>
+                            <td>
+                              <?php echo $d["email"]; ?>
+                            </td>
+                            <td>
+                              <?php echo $d["level"]; ?>
+                            </td>
+                            <td> <a href="proses.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Delete</a></td>
+                          </tr>
 
                       <?php $no++;
                         }
@@ -307,8 +310,7 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

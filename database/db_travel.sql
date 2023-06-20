@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2023 at 04:16 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Waktu pembuatan: 20 Jun 2023 pada 07.15
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daerah_wisata`
+-- Struktur dari tabel `daerah_wisata`
 --
 
 CREATE TABLE `daerah_wisata` (
   `id_daerah_wisata` int(11) NOT NULL,
   `name_dw` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `daerah_wisata`
+-- Dumping data untuk tabel `daerah_wisata`
 --
 
 INSERT INTO `daerah_wisata` (`id_daerah_wisata`, `name_dw`) VALUES
@@ -47,17 +47,17 @@ INSERT INTO `daerah_wisata` (`id_daerah_wisata`, `name_dw`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fasilitas`
+-- Struktur dari tabel `fasilitas`
 --
 
 CREATE TABLE `fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
   `deskripsi_fasilitas` text NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `fasilitas`
+-- Dumping data untuk tabel `fasilitas`
 --
 
 INSERT INTO `fasilitas` (`id_fasilitas`, `deskripsi_fasilitas`, `id_tempat_wisata`) VALUES
@@ -83,7 +83,7 @@ INSERT INTO `fasilitas` (`id_fasilitas`, `deskripsi_fasilitas`, `id_tempat_wisat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image`
+-- Struktur dari tabel `image`
 --
 
 CREATE TABLE `image` (
@@ -92,10 +92,10 @@ CREATE TABLE `image` (
   `image_satu` varchar(255) NOT NULL,
   `image_dua` varchar(255) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `image`
+-- Dumping data untuk tabel `image`
 --
 
 INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_wisata`) VALUES
@@ -121,16 +121,16 @@ INSERT INTO `image` (`id_image`, `image`, `image_satu`, `image_dua`, `id_tempat_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `name_kategori` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `name_kategori`) VALUES
@@ -145,7 +145,7 @@ INSERT INTO `kategori` (`id_kategori`, `name_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar`
+-- Struktur dari tabel `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -153,10 +153,10 @@ CREATE TABLE `komentar` (
   `komentar` text NOT NULL,
   `name_user` varchar(100) NOT NULL,
   `id_tempat_wisata` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `komentar`
+-- Dumping data untuk tabel `komentar`
 --
 
 INSERT INTO `komentar` (`id_komentar`, `komentar`, `name_user`, `id_tempat_wisata`) VALUES
@@ -168,12 +168,18 @@ INSERT INTO `komentar` (`id_komentar`, `komentar`, `name_user`, `id_tempat_wisat
 (6, 'Terbang dari bandung hanya pengen untuk melihat air terjun sipiso-piso yang katanya keren dan juga tempat nya yang adem, untuk liburan. Mantap ', 'Tasya', 16),
 (7, 'Bersantai setelah kerja ke Istana Maimun membuat saya terkenang kembali dengan istri saya yang ketemu disana pertama kali, disana kami berdua menjalin kasih dan juga cerita yang menyenangkan. ', 'Alvin Yansyah', 15),
 (8, 'Danau Toba tempat yang bisa kita kelilingi sepanjang hari karna banyak tempat yang bisa kita kunjungi, bisa berenang dan juga menikmati pemandangan yang ada disana juga', 'Rizki Pratama ', 14),
-(9, 'berawal dari iseng lihat website E Travel dan mendapatkan promo, akhirnya berangkat juga deh untuk lihat pulau Derawan, keren tempatnya.', 'Priskila Situmorang', 4);
+(9, 'berawal dari iseng lihat website E Travel dan mendapatkan promo, akhirnya berangkat juga deh untuk lihat pulau Derawan, keren tempatnya.', 'Priskila Situmorang', 4),
+(10, 'Pantai Pandawa adalah pantai yang mengagumkan untuk dikunjungi, oleh karena itu disarankan memiliki duit yang banyak', 'Bima', 1),
+(11, 'Keindahan hanya dapat dinilai dari mata yang membuat kagum pada ciptaan tuhan, yang disia siakan jika tidak mengunjungi tempat pandawa', 'Fakhry', 1),
+(13, 'Danau Toba tempat yang unik, terdapat pulau ditengah danau tersebut, dan memiliki keindahan yang memanjakan mata, nyesel deh kalau kaga kesini', '', 14),
+(14, 'Danau Toba tempat yang unik, terdapat pulau ditengah danau tersebut, dan memiliki keindahan yang memanjakan mata, nyesel deh kalau kaga kesini', 'Darmian Sankara', 14),
+(15, 'Taman nasional ini menawarkan keindahan alam yang menakjubkan, termasuk hutan tropis, air terjun, dan sungai yang jernih. Keberagaman hayati taman nasional ini mencakup ribuan spesies flora dan fauna. Bakal ketagihan deh kalau udah kesini', 'Muhammad Yuga', 8),
+(16, 'Pantai Karimun Jawa ini memanjakan mata, karena Pulau ini menawarkan pantai berpasir putih, air laut yang jernih, dan kehidupan bawah laut yang kaya. Aktivitas yang bisa dilakukan di Pulau Karimunjawa termasuk snorkeling, menyelam, berlayar, dan menikmati keindahan alam. Nyesel deh kalau kaga kesini', 'Darmian Sankara', 13);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -183,21 +189,49 @@ CREATE TABLE `login` (
   `level` enum('admin','user') NOT NULL DEFAULT 'user',
   `password` varchar(50) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `email`, `level`, `password`, `date`) VALUES
 (1, 'budiman', 'budiman@gmail.com', 'admin', '456b39e6cf4fdc9bda6b84b0a0b557dd', '2023-06-12 12:48:02'),
 (2, 'jinonda', 'jinonda@gmail.com', 'user', '25d55ad283aa400af464c76d713c07ad', '2023-06-12 13:17:56'),
-(4, 'lama', 'lama@gmail.com', 'user', '25d55ad283aa400af464c76d713c07ad', '2023-06-13 07:06:13');
+(4, 'lama', 'lama@gmail.com', 'user', '25d55ad283aa400af464c76d713c07ad', '2023-06-13 07:06:13'),
+(5, 'Darmian Sankara', 'sankara@gmail.com', 'user', 'fbf8c5a0f15c9718c57c9be0100e73b4', '2023-06-19 13:28:44'),
+(6, 'Muhammad Yuga', 'yuga@gmail.com', 'user', 'cc413719a81fa3fff4caadebb61789cd', '2023-06-19 18:02:49'),
+(7, 'Andre Juan', 'juan@gmail.com', 'user', '65f6f2c42374d268c2939acd296117ce', '2023-06-19 18:04:53'),
+(8, 'Evi Dianasari', 'evi@gmail.com', 'user', 'd1fbbb5110583d246535df0786cecd9f', '2023-06-19 18:08:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempat_wisata`
+-- Struktur dari tabel `suka`
+--
+
+CREATE TABLE `suka` (
+  `id_like` int(11) NOT NULL,
+  `id_tw` int(11) NOT NULL,
+  `name_user` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `suka`
+--
+
+INSERT INTO `suka` (`id_like`, `id_tw`, `name_user`) VALUES
+(1, 4, 'Darmian Sankara'),
+(2, 4, 'Muhammad Yuga'),
+(3, 1, 'Muhammad Yuga'),
+(4, 6, 'Evi Dianasari'),
+(5, 4, 'Evi Dianasari'),
+(6, 13, 'Darmian Sankara');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tempat_wisata`
 --
 
 CREATE TABLE `tempat_wisata` (
@@ -207,10 +241,10 @@ CREATE TABLE `tempat_wisata` (
   `image_tw` varchar(255) NOT NULL,
   `id_daerah_wisata` int(11) NOT NULL,
   `id_kategori` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tempat_wisata`
+-- Dumping data untuk tabel `tempat_wisata`
 --
 
 INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_tw`, `id_daerah_wisata`, `id_kategori`) VALUES
@@ -238,46 +272,53 @@ INSERT INTO `tempat_wisata` (`id_tempat_wisata`, `name_tw`, `deskripsi`, `image_
 --
 
 --
--- Indexes for table `daerah_wisata`
+-- Indeks untuk tabel `daerah_wisata`
 --
 ALTER TABLE `daerah_wisata`
   ADD PRIMARY KEY (`id_daerah_wisata`);
 
 --
--- Indexes for table `fasilitas`
+-- Indeks untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
   ADD PRIMARY KEY (`id_fasilitas`),
   ADD KEY `fk_id_tempat_wisata` (`id_tempat_wisata`);
 
 --
--- Indexes for table `image`
+-- Indeks untuk tabel `image`
 --
 ALTER TABLE `image`
   ADD PRIMARY KEY (`id_image`),
   ADD KEY `fk_id_tempat_wisata` (`id_tempat_wisata`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `komentar`
+-- Indeks untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`id_komentar`),
   ADD KEY `fk_id_tempat_wisata` (`id_tempat_wisata`);
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tempat_wisata`
+-- Indeks untuk tabel `suka`
+--
+ALTER TABLE `suka`
+  ADD PRIMARY KEY (`id_like`),
+  ADD KEY `id_tw` (`id_tw`);
+
+--
+-- Indeks untuk tabel `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
   ADD PRIMARY KEY (`id_tempat_wisata`),
@@ -285,69 +326,81 @@ ALTER TABLE `tempat_wisata`
   ADD KEY `fk_id_kategori` (`id_kategori`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `daerah_wisata`
+-- AUTO_INCREMENT untuk tabel `daerah_wisata`
 --
 ALTER TABLE `daerah_wisata`
   MODIFY `id_daerah_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `fasilitas`
+-- AUTO_INCREMENT untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
   MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `image`
+-- AUTO_INCREMENT untuk tabel `image`
 --
 ALTER TABLE `image`
   MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `komentar`
+-- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `login`
+-- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tempat_wisata`
+-- AUTO_INCREMENT untuk tabel `suka`
+--
+ALTER TABLE `suka`
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
   MODIFY `id_tempat_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `fasilitas`
+-- Ketidakleluasaan untuk tabel `fasilitas`
 --
 ALTER TABLE `fasilitas`
   ADD CONSTRAINT `fasilitas_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `image`
+-- Ketidakleluasaan untuk tabel `image`
 --
 ALTER TABLE `image`
   ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_tempat_wisata`) REFERENCES `tempat_wisata` (`id_tempat_wisata`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tempat_wisata`
+-- Ketidakleluasaan untuk tabel `suka`
+--
+ALTER TABLE `suka`
+  ADD CONSTRAINT `suka_ibfk_1` FOREIGN KEY (`id_tw`) REFERENCES `tempat_wisata` (`id_tempat_wisata`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
   ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`id_daerah_wisata`) REFERENCES `daerah_wisata` (`id_daerah_wisata`) ON DELETE CASCADE ON UPDATE CASCADE,

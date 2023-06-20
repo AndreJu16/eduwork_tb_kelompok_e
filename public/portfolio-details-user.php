@@ -1,3 +1,15 @@
+<?php
+session_start();
+require_once "../config/config.php";
+require_once "../admin/proses.php";
+
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('Mohon login dahulu !');</script>";
+    echo "<script type='text/javascript'> document.location ='login.php'; </script>";
+    return false;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +26,7 @@
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
@@ -45,7 +58,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <div class="logo">
-                <h1><a href="index.php">E Travel</a></h1>
+                <h1><a href="indexUser.php">E Travel</a></h1>
             </div>
 
             <nav id="navbar" class="navbar">
@@ -57,7 +70,7 @@
                             $data = mysqli_query($host, "SELECT * FROM `kategori`");
                             while ($d = mysqli_fetch_array($data)) {
                             ?>
-                                <li><a href="kategori-details.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
+                                <li><a href="kategori-details-user.php?id_kategori=<?php echo $d["id_kategori"]; ?>"><?php echo $d["name_kategori"]; ?></a></li>
                             <?php } ?>
                         </ul>
                     </li>
@@ -76,7 +89,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h2>Tempat wisata Details</h2>
                     <ol>
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="indexUser.php">Home</a></li>
                         <li>Tempat wisata Details</li>
                     </ol>
                 </div>
@@ -144,8 +157,12 @@
                                 ?>
 
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
+                        <form method="post" id="form">
+                            <input type="hidden" name="id_tempat_wisata" class="form-control" id="id_tempat_wisata" value="<?php echo $id_tempat_wisata ?>" aria-describedby="id_brand">
+                            <input type="hidden" name="name_user" class="form-control" id="name_user" value="<?php echo $pengguna["username"] ?>" aria-describedby="id_brand">
+                            <button type="button" id="like" name="submit-like" class="love-button btn btn-primary" onclick="toggleLove()">Love</button>
+                        </form>
                     </div>
 
                     <!-- end off image slider for tempat wisata -->
@@ -174,7 +191,7 @@
                             <h3>Informasi Fasilitas</h3>
                             <div class="facilities-container">
                                 <ul class="facilities-list">
-                                    <?php foreach ($items as $index => $item) { ?>
+                                    <?php foreach ($items as $item) { ?>
                                         <?php if (!empty($item)) { ?>
                                             <li><strong></strong> <?php echo trim($item); ?><br></li>
                                         <?php } ?>
@@ -195,7 +212,6 @@
                                 /* Add right padding to accommodate scrollbar */
                             }
                         </style>
-
                         <!-- end fasilitas -->
 
                         <!-- beginning tempat wisata description -->
@@ -247,12 +263,12 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
+
                                 <form class="comment-form" action="proses-add.php" method="post">
                                     <!-- Add the hidden input field for id_tempat_wisata -->
                                     <input type="hidden" name="id_tempat_wisata" value="<?php echo $id_tempat_wisata; ?>">
                                     <div class="form-group">
-                                        <label for="name">Your Name</label>
-                                        <input type="text" class="form-control" id="name" name="name_komentar" placeholder="Enter your name" required>
+                                        <input type="hidden" class="form-control" id="name" name="name_komentar" value="<?php echo $pengguna['username'] ?>" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="comment">Your Comment</label>
@@ -260,8 +276,8 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit_komentar">Submit Comment</button>
                                 </form>
-                            </div>
 
+                            </div>
                             <style>
                                 .comment-list {
                                     max-height: 280px;
@@ -271,25 +287,30 @@
                                     padding: 10px;
                                 }
                             </style>
-
                             <div class="col-lg-6">
-                                <h3>Comments</h3>
                                 <div class="comment-list">
+                                    <h3>Comments</h3>
                                     <!-- Comment 1 -->
                                     <?php
                                     include "../config/config.php";
+                                    // $data = mysqli_query($host, "SELECT * FROM `komentar` ");
                                     $data = mysqli_query($host, "SELECT * FROM `komentar` WHERE id_tempat_wisata = $id_tempat_wisata");
 
-                                    foreach ($data as $comment) :
+                                    // while ($d = mysqli_fetch_array($data)) {
+
                                     ?>
+                                    <?php foreach ($data as $comment) : ?>
                                         <div class="comment">
                                             <div class="comment-author"><?php echo $comment['name_user']; ?></div>
+                                            <!-- <div class="comment-date"><*/?php echo $comment['tanggal']; ?></div> -->
                                             <div class="comment-content"><?php echo $comment['komentar']; ?></div>
                                         </div>
                                     <?php endforeach; ?>
+                                    <?php
+                                    ?>
+                                    <!-- Add more comments here as needed -->
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -403,7 +424,7 @@
                                         <h4><?php echo $d["name_tw"] ?></h4>
                                         <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
                                         <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-                                        <a href="portfolio-details.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                                        <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                                     </div>
                                 </div>
                             <?php
@@ -439,6 +460,35 @@
     </footer><!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Fitur Like  -->
+    <script>
+        function toggleLove() {
+            var button = document.querySelector('.love-button');
+            button.classList.toggle('active');
+
+            if (button.classList.contains('active')) {
+                button.innerHTML = 'Loved';
+                // Perform additional actions when the button is loved
+            } else {
+                button.innerHTML = 'Love';
+                // Perform additional actions when the button is unloved
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#like").click(function() {
+                var data = $('#form').serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: "proses-add.php",
+                    data: data,
+                    cache: false
+                });
+            });
+        });
+    </script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
