@@ -261,7 +261,7 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Comment form and comment display section -->
                     <div class="portfolio-comments">
-                        <div class="row">btn
+                        <div class="row">
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
 
@@ -534,7 +534,7 @@ if (!isset($_SESSION['username'])) {
         });
     }
     </script>
-    
+
     <!-- <script type="text/javascript">
         $(document).ready(function() {
             $("#like").click(function() {
