@@ -289,8 +289,8 @@ if (!isset($_SESSION['username'])) {
                                 }
                             </style>
                             <div class="col-lg-6">
-                                <div class="comment-list">
-                                    <h3>Comments</h3>
+                            <h3>Comments</h3>
+                                <div class="comment-list">                                    
                                     <!-- Comment 1 -->
                                     <?php
                                     include "../config/config.php";
