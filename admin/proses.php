@@ -342,15 +342,16 @@ if(isset($_SESSION["username"])){
      }
 }
 
-if (isset($_POST['submit-like'])) {
-    $id_tempat_wisata = $_POST['id_tempat_wisata'];
-    $querySuka = "INSERT INTO suka (id_tw) VALUES ('$id_tempat_wisata')";
-    $result = mysqli_query($host, $querySuka);
-    if ($result) {
-        echo "<script>alert('You have successfully inserted the data');</script>";
-        header("Location: ../public/portfolio-details-user.php?id_tempat_wisata=" . $id_tempat_wisata);
-    } else {
-        echo "<script>alert('Something Went Wrong. Please try again');</script>";
-    }
-}
+// if (isset($_POST['submit-like'])) {
+//     $id_tempat_wisata = $_POST['id_tempat_wisata'];
+//     $querySuka = "INSERT INTO suka (id_tw) VALUES ('$id_tempat_wisata')";
+//     $result = mysqli_query($host, $querySuka);
+//     if ($result) {
+//         echo "<script>alert('You have successfully inserted the data');</script>";
+//         header("Location: ../public/portfolio-details-user.php?id_tempat_wisata=" . $id_tempat_wisata);
+//     } else {
+//         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+//     }
+// }
 ?>
+

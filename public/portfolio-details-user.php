@@ -163,6 +163,7 @@ if (!isset($_SESSION['username'])) {
                             <input type="hidden" name="name_user" class="form-control" id="name_user" value="<?php echo $pengguna["username"] ?>" aria-describedby="id_brand">
                             <button type="button" id="like" name="submit-like" class="love-button btn btn-primary" onclick="toggleLove()">Love</button>
                         </form>
+
                     </div>
 
                     <!-- end off image slider for tempat wisata -->
@@ -260,7 +261,7 @@ if (!isset($_SESSION['username'])) {
 
                     <!-- Comment form and comment display section -->
                     <div class="portfolio-comments">
-                        <div class="row">
+                        <div class="row">btn
                             <div class="col-lg-6">
                                 <h3>Leave a Comment</h3>
 
@@ -463,20 +464,78 @@ if (!isset($_SESSION['username'])) {
 
     <!-- Fitur Like  -->
     <script>
-        function toggleLove() {
-            var button = document.querySelector('.love-button');
-            button.classList.toggle('active');
-
-            if (button.classList.contains('active')) {
-                button.innerHTML = 'Loved';
-                // Perform additional actions when the button is loved
-            } else {
-                button.innerHTML = 'Love';
-                // Perform additional actions when the button is unloved
+         $(document).ready(function() {
+        // Check if the user has already liked the place
+        var id_tempat_wisata = "<?php echo $id_tempat_wisata; ?>";
+        var name_user = "<?php echo $pengguna["username"]; ?>";
+        $.ajax({
+            type: 'POST',
+            url: "proses-check-like.php",
+            data: { id_tempat_wisata: id_tempat_wisata, name_user: name_user },
+            cache: false,
+            success: function(response) {
+                if (response === "liked") {
+                    setLikedState();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(error); // Optional: Print any error messages
             }
+        });
+    });
+
+    function setLikedState() {
+        var button = document.querySelector('.love-button');
+        button.classList.add('active');
+        button.innerHTML = 'Loved';
+    }
+    function toggleLove() {
+        var button = document.querySelector('.love-button');
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+            button.innerHTML = 'Loved';
+            addLike();
+        } else {
+            button.innerHTML = 'Love';
+            removeLike();
         }
+    }
+
+    function addLike() {
+        var data = $('#form').serialize();
+        $.ajax({
+            type: 'POST',
+            url: "proses-add.php",
+            data: data,
+            cache: false,
+            success: function(response) {
+                console.log(response); // Optional: Print any response from the server
+            },
+            error: function(xhr, status, error) {
+                console.log(error); // Optional: Print any error messages
+            }
+        });
+    }
+
+    function removeLike() {
+        var data = $('#form').serialize();
+        $.ajax({
+            type: 'POST',
+            url: "proses-remove.php",
+            data: data,
+            cache: false,
+            success: function(response) {
+                console.log(response); // Optional: Print any response from the server
+            },
+            error: function(xhr, status, error) {
+                console.log(error); // Optional: Print any error messages
+            }
+        });
+    }
     </script>
-    <script type="text/javascript">
+    
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
             $("#like").click(function() {
                 var data = $('#form').serialize();
@@ -488,7 +547,7 @@ if (!isset($_SESSION['username'])) {
                 });
             });
         });
-    </script>
+    </script> -->
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
