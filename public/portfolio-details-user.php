@@ -155,8 +155,8 @@ if (!isset($_SESSION['username'])) {
                                 <?php
                                 }
                                 ?>
-
                             </div>
+                            <div class="swiper-pagination"></div>
                         </div>
                         <form method="post" id="form">
                             <input type="hidden" name="id_tempat_wisata" class="form-control" id="id_tempat_wisata" value="<?php echo $id_tempat_wisata ?>" aria-describedby="id_brand">

@@ -41,6 +41,20 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<?php
+session_start();
+include "../config/config.php";
+// Check if the user is logged in
+if(isset($_SESSION["level"])) {
+  // User is logged in, display "Logout" button
+  $logoutLink = "../admin/logout.php";
+  $logoutText = "Log out";
+} else {
+  // User is not logged in, display "Login" button
+  $logoutLink = "../admin/login.php";
+  $logoutText = "Login";
+}
+?>
 
 <body>
 
@@ -48,12 +62,39 @@
   <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <div class="logo">
-        <h1><a href="indexUser.php">E Travel</a></h1>
-      </div>
+    <div class="logo mt-2">
+      <h1><a href="indexUser.php">E Travel</a></h1>
+      
+          <div class="greeting">
+            <?php
+            if (isset($_SESSION['username'])) {
+              echo "Hi, <span class='username'>" . $_SESSION['username'] . "</span>!";
+            } else {
+              echo "";
+            }
+            ?>
+          </div>  
+          
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+    </div>
+    <style>
+        .greeting {
+        font-size: 16px;
+        color: #ffffff;
+        margin-right: 8px;
+      }
+
+      .username {
+        color: #ffffff;
+        font-weight: bold;
+      }
+    </style>
 
       <nav id="navbar" class="navbar">
+        <!-- Navigation Bar -->
         <ul>
+
           <li><a class="nav-link scrollto active" href="#portfolio">Tempat Wisata</a></li>
           <li><a class="nav-link scrollto" href="#testimonials">Kata Mereka</a></li>
           <li class="dropdown"><a href="#"><span>Kategori</span> <i class="bi bi-chevron-down"></i></a>
@@ -67,11 +108,12 @@
               <?php } ?>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="about-user.php">About</a></li>
-          <li><a class="nav-link red active" href="../admin/logout.php">Log out</a></li>
+          <li><a class="nav-link scrollto" href="about.php">About</a></li>
+          <li><a class="nav-link <?php echo isset($_SESSION["level"]) ? 'red' : 'blue'; ?> active" href="<?php echo $logoutLink; ?>"><?php echo $logoutText; ?></a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
+      <!-- .navbar -->
+      
     </div>
   </header><!-- End Header -->
   <!-- ======= Hero Section ======= -->
@@ -190,6 +232,10 @@
       .red {
         background-color: red !important;
       }
+
+      .blue {
+        background-color: #0d6efd !important;
+      }
     </style>
 
     <section id="portfolio" class="portfolio">
@@ -249,8 +295,10 @@
                   <div class="portfolio-info">
                     <h4><?php echo $d["name_tw"] ?></h4>
                     <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
+                    <!-- <p>Disukai oleh <?php echo $d["like_count"]; ?> orang</p> -->
                     <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
-                    <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                    <!-- <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
+                    <a href="<?php echo isset($_SESSION['username']) ? 'portfolio-details-user.php?id_tempat_wisata='.$d['id_tempat_wisata'] : '../admin/login.php'; ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                   </div>
                 </div>
             <?php
