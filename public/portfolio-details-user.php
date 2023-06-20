@@ -120,6 +120,11 @@ if (!isset($_SESSION['username'])) {
                     height: 100%;
                     object-fit: cover;
                 }
+
+                .fix-love{
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                }
             </style>
 
 
@@ -161,7 +166,17 @@ if (!isset($_SESSION['username'])) {
                         <form method="post" id="form">
                             <input type="hidden" name="id_tempat_wisata" class="form-control" id="id_tempat_wisata" value="<?php echo $id_tempat_wisata ?>" aria-describedby="id_brand">
                             <input type="hidden" name="name_user" class="form-control" id="name_user" value="<?php echo $pengguna["username"] ?>" aria-describedby="id_brand">
-                            <button type="button" id="like" name="submit-like" class="love-button btn btn-primary" onclick="toggleLove()">Love</button>
+                            <button type="button" id="like" name="submit-like" class="love-button btn btn-primary fix-love" onclick="toggleLove()">Love</button>
+                            <?php
+                        include "../config/config.php";
+                        $id_tempat_wisata = $_GET['id_tempat_wisata'];
+                        $data = mysqli_query($host, "SELECT COUNT(id_like), `id_tw` FROM `suka` WHERE `id_tw` = $id_tempat_wisata;");
+                        ?>
+                        <?php foreach ($data as $jumlah_like) : ?>
+                            <div class="comment">
+                                <div class="comment-author">Disukai <?php echo $jumlah_like['COUNT(id_like)']; ?> orang</div>
+                            </div>
+                        <?php endforeach; ?>
                         </form>
 
                     </div>

@@ -244,14 +244,14 @@
                     <tbody>
                       <?php
                       require_once "../config/config.php";
-                      $data = mysqli_query($host, "SELECT COUNT(id_like), `tw`.`name_tw` FROM `suka` JOIN `tempat_wisata` AS `tw` ON `suka`.`id_tw` = `tw`.`id_tempat_wisata` GROUP BY id_tw");
+                      $data = mysqli_query($host, "SELECT COUNT(`suka`.`id_like`) AS like_count, `tw`.`name_tw` FROM `suka` JOIN `tempat_wisata` AS `tw` ON `suka`.`id_tw` = `tw`.`id_tempat_wisata` GROUP BY `tw`.`id_tempat_wisata` ORDER BY like_count DESC");
                       if (mysqli_num_rows($data) > 0) {
                         $no = 1;
                         while ($d = mysqli_fetch_array($data)) {
                       ?>
                           <tr>
                             <td> <?php echo $no ?></td>
-                            <td> <?php echo $d["COUNT(id_like)"]; ?> </td>
+                            <td> <?php echo $d["like_count"]; ?> </td>
                             <td> <?php echo $d["name_tw"]; ?> </td>
                           </tr>
 
