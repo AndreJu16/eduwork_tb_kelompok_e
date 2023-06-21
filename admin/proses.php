@@ -82,9 +82,22 @@ require_once "../config/config.php";
 // start crud proses daerah_wisata
 {
 
+// // Delete Image
+// if (isset($_GET["id_image"])) {
+//     $id_image = $_GET["id_image"];
+//     $query = "DELETE FROM image WHERE id_image=$id_image";
+//     $result = mysqli_query($host, $query);
+//     if ($result) {
+//         echo "<script>alert('You have successfully deleted the data');</script>";
+//         echo "<script type='text/javascript'> document.location ='tables-image.php'; </script>";
+//     } else {
+//         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+//     }
+// }
+
 // Delete Image
-if (isset($_GET["id_image"])) {
-    $id_image = $_GET["id_image"];
+if (isset($_POST["deleteImage"])) {
+    $id_image = $_POST["id_image"];
     $query = "DELETE FROM image WHERE id_image=$id_image";
     $result = mysqli_query($host, $query);
     if ($result) {
@@ -97,6 +110,40 @@ if (isset($_GET["id_image"])) {
 
 
     // start proses forms daerah_wisata
+    // if (isset($_POST['submitdaerahwisata'])) {
+    //     $nameDaerahWisata = $_POST['nameDaerahWisata'];
+    //     $queryDaerahWisata = "INSERT INTO `daerah_wisata`(`id_daerah_wisata`,`name_dw`) VALUES ('','$nameDaerahWisata')";
+    //     $result = mysqli_query($host, $queryDaerahWisata);
+    //     if ($result) {
+    //         echo "<script>alert('You have successfully inserted the data');</script>";
+    //         echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
+    //     } else {
+    //         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    //     }
+    // } //end proses forms daerah_wisata
+
+    // // start update daerah_wisata
+    // if (isset($_POST['submitupdatedaerahwisata'])) {
+    //     $id_daerah_wisata = $_GET['id_daerah_wisata'];
+    //     $name_daerah_wisata = $_POST['name_daerah_wisata'];
+    //     $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `name_dw`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
+    //     if ($data) {
+    //         echo "<script>alert('You have successfully inserted the data');</script>";
+    //         echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
+    //     } else {
+    //         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    //     }
+    // } // end update daerah_wisata
+
+    // // start delete daerah_wisata
+    // if (isset($_GET["id_daerah_wisata"])) {
+    //     $id_daerah_wisata = $_GET["id_daerah_wisata"];
+    //     $query = "DELETE FROM `daerah_wisata` WHERE `id_daerah_wisata`=$id_daerah_wisata";
+    //     $result = mysqli_query($host, $query);
+    //     header("Location:tables-daerah-wisata.php");
+    // } // end delete daerah_wisata
+
+// start proses forms daerah_wisata
     if (isset($_POST['submitdaerahwisata'])) {
         $nameDaerahWisata = $_POST['nameDaerahWisata'];
         $queryDaerahWisata = "INSERT INTO `daerah_wisata`(`id_daerah_wisata`,`name_dw`) VALUES ('','$nameDaerahWisata')";
@@ -111,24 +158,30 @@ if (isset($_GET["id_image"])) {
 
     // start update daerah_wisata
     if (isset($_POST['submitupdatedaerahwisata'])) {
+        $nameDaerahWisata = $_POST['name_daerah_wisata'];
         $id_daerah_wisata = $_GET['id_daerah_wisata'];
-        $name_daerah_wisata = $_POST['name_daerah_wisata'];
-        $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `name_dw`='$name_daerah_wisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
+        $data = mysqli_query($host, "UPDATE `daerah_wisata` SET `id_daerah_wisata`='$id_daerah_wisata',`name_dw`='$nameDaerahWisata' WHERE `id_daerah_wisata`='$id_daerah_wisata'");
         if ($data) {
-            echo "<script>alert('You have successfully inserted the data');</script>";
+            echo "<script>alert('You have successfully update the data daerah wisata');</script>";
             echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
         } else {
             echo "<script>alert('Something Went Wrong. Please try again');</script>";
+            echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
         }
-    } // end update daerah_wisata
+    } //  end proses update fasilitas
 
-    // start delete daerah_wisata
-    if (isset($_GET["id_daerah_wisata"])) {
-        $id_daerah_wisata = $_GET["id_daerah_wisata"];
-        $query = "DELETE FROM `daerah_wisata` WHERE `id_daerah_wisata`=$id_daerah_wisata";
-        $result = mysqli_query($host, $query);
-        header("Location:tables-daerah-wisata.php");
-    } // end delete daerah_wisata
+    // start delete fasilitas
+    if (isset($_POST['deleteDaerahWisata'])) {
+        $id_daerah_wisata = $_POST['id_daerah_wisata'];
+        $data = mysqli_query($host, "DELETE FROM `daerah_wisata` WHERE `id_daerah_wisata` ='" . $id_daerah_wisata . "' ");
+        if ($data) {
+            echo "<script>alert('You have successfully update the data fasilitas');</script>";
+            echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
+        } else {
+            echo "<script>alert('Something Went Wrong. Please try again');</script>";
+            echo "<script type='text/javascript'> document.location ='tables-daerah-wisata.php'; </script>";
+        }
+    }
 
 } // end crud proses daerah_wisata
 
@@ -188,6 +241,44 @@ if (isset($_GET["id_image"])) {
 // start crud proses kategori
 {
 
+    // // start proses forms kategori
+    // if (isset($_POST['submitkategori'])) {
+    //     $nameKategori = $_POST['nameKategori'];
+    //     $queryKategori = "INSERT INTO `kategori`(`id_kategori`,`name_kategori`) VALUES ('','$nameKategori')";
+    //     $result = mysqli_query($host, $queryKategori);
+    //     if ($result) {
+    //         echo "<script>alert('You have successfully inserted the data');</script>";
+    //         echo "<script type='text/javascript'> document.location ='tables-kategori.php'; </script>";
+    //     } else {
+    //         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    //     }
+    // }
+    // // end proses forms kategori
+
+    // // start update kategori
+    // if (isset($_POST['submitupdatekategori'])) {
+    //     $id_kategori = $_GET['id_kategori'];
+    //     $name_kategori = $_POST['name_kategori'];
+    //     $data = mysqli_query($host, "UPDATE `kategori` SET `name_kategori`='$name_kategori' WHERE `id_kategori`='$id_kategori'");
+    //     if ($data) {
+    //         echo "<script>alert('You have successfully inserted the data');</script>";
+    //         echo "<script type='text/javascript'> document.location ='tables-kategori.php'; </script>";
+    //     } else {
+    //         echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    //     }
+    // }
+    // // end update kategori
+
+    // // start delete kategori
+    // include "../config/config.php";
+    // if (isset($_GET["id_kategori"])) {
+    //     $id_kategori = $_GET["id_kategori"];
+    //     $query = "DELETE FROM `kategori` WHERE `id_kategori`=$id_kategori";
+    //     $result = mysqli_query($host, $query);
+    //     header("Location:tables-kategori.php");
+    // }
+    // end delete kategori
+
     // start proses forms kategori
     if (isset($_POST['submitkategori'])) {
         $nameKategori = $_POST['nameKategori'];
@@ -218,8 +309,8 @@ if (isset($_GET["id_image"])) {
 
     // start delete kategori
     include "../config/config.php";
-    if (isset($_GET["id_kategori"])) {
-        $id_kategori = $_GET["id_kategori"];
+    if (isset($_POST["deleteKategori"])) {
+        $id_kategori = $_POST["id_kategori"];
         $query = "DELETE FROM `kategori` WHERE `id_kategori`=$id_kategori";
         $result = mysqli_query($host, $query);
         header("Location:tables-kategori.php");

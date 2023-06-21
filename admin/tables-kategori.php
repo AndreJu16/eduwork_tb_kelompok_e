@@ -250,7 +250,12 @@ if ($_SESSION["level"] != "admin") {
                         <td> <?php echo $no ?></td>
                         <td> <?php echo $d["name_kategori"]; ?> </td>
                         <td> <a href="update-kategori.php?id_kategori=<?php echo $d['id_kategori']; ?>" class="btn btn-warning">Update</a></td>
-                        <td> <a href="proses.php?id_kategori=<?php echo $d['id_kategori']; ?>" class="btn btn-danger">Delete</a></td>
+                        <td>
+                            <form action="proses.php" method="post">
+                              <input type="hidden" name="id_kategori" value="<?php echo $d['id_kategori']; ?>">
+                              <button class="btn btn-danger" type="submit" name="deleteKategori">Delete</button>
+                            </form>
+                        </td>
                       </tr>
 
                   <?php $no++;

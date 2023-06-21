@@ -268,7 +268,12 @@ if ($_SESSION["level"] != "admin") {
                                                 <td> <img src="assets/img/<?php echo $d["image_dua"]; ?>" width="80" height="80" alt="image"></td>
                                                 <td> <?php echo $d["name_tw"] ?></td>
                                                 <td> <a href="update-image.php?id_image=<?php echo $d['id_image']; ?>" class="btn btn-warning">Update</a></td>
-                                                <td> <a href="proses.php?id_image=<?php echo $d['id_image']; ?>" class="btn btn-danger">Delete</a></td>
+                                                <td>
+                                                <form action="proses.php" method="post">
+                                                        <input type="hidden" name="id_image" value="<?php echo $d['id_image']; ?>">
+                                                        <button class="btn btn-danger" type="submit" name="deleteImage">Delete</button>
+                                                    </form></a>
+                                                </td>
                                             </tr>
 
                                     <?php $no++;
