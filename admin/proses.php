@@ -88,7 +88,7 @@ if (isset($_GET["id_image"])) {
     $query = "DELETE FROM image WHERE id_image=$id_image";
     $result = mysqli_query($host, $query);
     if ($result) {
-        echo "<script>alert('You have successfully inserted the data');</script>";
+        echo "<script>alert('You have successfully deleted the data');</script>";
         echo "<script type='text/javascript'> document.location ='tables-image.php'; </script>";
     } else {
         echo "<script>alert('Something Went Wrong. Please try again');</script>";
@@ -340,6 +340,20 @@ if(isset($_SESSION["username"])){
         $count = mysqli_query($host,"SELECT * FROM login WHERE level='user'");
         $totalUser = mysqli_num_rows($count); //total user
      }
+}
+
+
+// Delete User
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    $query = "DELETE FROM login WHERE id=$id";
+    $result = mysqli_query($host, $query);
+    if ($result) {
+        echo "<script>alert('You have successfully deleted the data');</script>";
+        echo "<script type='text/javascript'> document.location ='tables-userm.php'; </script>";
+    } else {
+        echo "<script>alert('Something Went Wrong. Please try again');</script>";
+    }
 }
 
 ?>
