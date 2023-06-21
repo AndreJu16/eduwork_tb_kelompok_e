@@ -108,7 +108,7 @@ if(isset($_SESSION["level"])) {
               <?php } ?>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="about.php">About</a></li>
+          <li><a class="nav-link scrollto" href="about-user.php">About</a></li>
           <li><a class="nav-link <?php echo isset($_SESSION["level"]) ? 'red' : 'blue'; ?> active" href="<?php echo $logoutLink; ?>"><?php echo $logoutText; ?></a></li>
         </ul>
       </nav>

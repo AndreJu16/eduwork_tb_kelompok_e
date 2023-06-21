@@ -460,10 +460,10 @@ if (!isset($_SESSION['username'])) {
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Selecao</h3>
+            <h3>eTravel</h3>
             <p>Memberikan Kemudahan Perjalanan Anda langsung di tangan mu</p>
             <div class="copyright">
-                &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>eTravel</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

@@ -247,7 +247,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
       </script>
 
       <!-- Your share button code -->
-      <button id="share_button">Share To Facebook</button>
+      <!-- <button id="share_button">Share To Facebook</button> -->
 
     </div><!-- End Page Title -->
 
