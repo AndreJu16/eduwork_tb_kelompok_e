@@ -296,7 +296,7 @@ if(isset($_SESSION["level"])) {
                     <h4><?php echo $d["name_tw"] ?></h4>
                     <p><?php echo $d["name_kategori"] . ", " . $d["name_dw"] ?></p>
                     <!-- <p>Disukai oleh <?php echo $d["like_count"]; ?> orang</p> -->
-                    <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-plus"></i></a>
+                    <a href="../admin/assets/img/<?php echo $d["image_tw"]; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<?php echo $d["name_tw"] . "</br>" . $d["name_kategori"]; ?>"><i class="bx bx-show"></i></a>
                     <!-- <a href="portfolio-details-user.php?id_tempat_wisata=<?php echo $d['id_tempat_wisata'] ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
                     <a href="<?php echo isset($_SESSION['username']) ? 'portfolio-details-user.php?id_tempat_wisata='.$d['id_tempat_wisata'] : '../admin/login.php'; ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                   </div>
